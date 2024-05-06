@@ -1,0 +1,106 @@
+// Colors
+$black: #01100B;
+$chartreuse: #E8FF8E;
+$dark-linen: #E6DED3;
+$forest: #006C4D;
+$linen: #F3F0EC;
+$neon: #8DFF7B;
+
+// Spacing
+$desktop-margin: 48px;
+$tablet-margin: 24px;
+$mobile-margin: 16px;
+
+// Fonts
+@font-face {
+  font-family: 'UntitledSerif';
+  src:  url('/assets/fonts/untitled-serif-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'PPNeueBit';
+  src:  url('/assets/fonts/PPNeueBit-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'PPNeueBitBold';
+  src:  url('/assets/fonts/PPNeueBit-Bold.woff2') format('woff2');
+}
+
+// Layout
+.page {
+  font-family: 'UntitledSerif', 'Times New Roman', serif;
+  height: 100%;
+  width: 100%;
+}
+
+.dash-border {
+  background-image:
+    repeating-linear-gradient(0deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
+    repeating-linear-gradient(90deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
+    repeating-linear-gradient(180deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
+    repeating-linear-gradient(270deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px);
+  background-repeat: no-repeat;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+
+  @mixin set-border($sides...) {
+    // Default settings with all borders hidden
+    $left-size: 0;
+    $top-size: 0;
+    $right-size: 0;
+    $bottom-size: 0;
+  
+    // Check each side and update the corresponding size
+    @each $side in $sides {
+      @if $side == 'left' {
+        $left-size: 1px 100% ;
+      }
+      @if $side == 'top' {
+        $top-size: 100% 1px;
+      }
+      @if $side == 'right' {
+        $right-size: 1px 100%;
+      }
+      @if $side == 'bottom' {
+        $bottom-size: 100% 1px;
+      }
+    }
+  
+    // Apply the calculated sizes to background-size
+    background-size: $left-size, $top-size, $right-size, $bottom-size;
+  }
+  
+
+  // Individual and combined classes
+  &--left { @include set-border('left'); }
+  &--right { @include set-border('right'); }
+  &--top { @include set-border('top'); }
+  &--bottom { @include set-border('bottom'); }
+  &--left-right { @include set-border('left', 'right'); }
+  &--top-bottom { @include set-border('top', 'bottom'); }
+  &--left-top { @include set-border('left', 'top'); }
+  &--right-top { @include set-border('right', 'top'); }
+  &--left-bottom { @include set-border('left', 'bottom'); }
+  &--right-bottom { @include set-border('right', 'bottom'); }
+  &--left-right-top { @include set-border('left', 'right', 'top'); }
+  &--left-right-bottom { @include set-border('left', 'right', 'bottom'); }
+  &--left-top-bottom { @include set-border('left', 'top', 'bottom'); }
+  &--right-top-bottom { @include set-border('right', 'top', 'bottom'); }
+  &--all { @include set-border('left', 'right', 'top', 'bottom'); }
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+@mixin grid-layout {
+  column-gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.display-flex {
+  display: flex;
+}

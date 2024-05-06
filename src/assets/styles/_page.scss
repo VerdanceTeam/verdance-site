@@ -1,0 +1,38 @@
+@use "foundation" as *;
+@use "shared" as *;
+
+//  Responsive
+
+
+// Page Specific
+
+.homepage {
+  & .hero {
+    &__content {
+      text-align: center;
+    }
+
+    &__cta {
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  & .experience {
+    &__cta {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__text {
+      margin: 32px 0 24px;
+    }
+
+    &__delivery-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+  }
+}

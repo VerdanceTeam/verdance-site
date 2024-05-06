@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "prebuild": "rm -rf _site",
+    "clearbuild": "rm -rf public/",
+    "build": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-fetch": "^4.0.1",
+    "sass": "^1.72.0"
+  }
+}

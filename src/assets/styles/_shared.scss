@@ -1,0 +1,157 @@
+@use "foundation" as *;
+
+// Shared Components
+
+.section {
+  &--bg-linen {
+    background-color: $linen;
+  }
+
+  &--bg-dark-linen {
+    background-color: $dark-linen;
+  }
+
+  &--bg-chartreuse {
+    background-color: $chartreuse;
+  }
+
+  &--bg-black {
+    background-color: $black;
+  }
+}
+
+.button {
+  background-color: $black;
+  border-radius: 2px;
+  border-style: none;
+  color: $linen;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+  font-size: 18px;
+  height: 40px;
+  justify-content: center;
+  line-height: 18px;
+  padding: 16px;
+  text-transform: uppercase;
+
+  &--chartreuse {
+    background-color: $chartreuse;
+    color: $black;
+  }
+
+  &--neon {
+    background-color: $neon;
+    color: $black;
+  }
+}
+
+.job {
+  @include grid-layout;
+  padding: 24px 0;
+
+  &__cta {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.container {
+  @include grid-layout;
+  max-width: calc(1440px - $desktop-margin * 2);
+  margin: 0 auto;
+  padding: 96px 0;
+
+  &--no-padding {
+    padding: 0;
+  }
+}
+
+@media (max-width: 769px) {
+  .container {
+    max-width: calc(768px - $tablet-margin * 2);
+  }
+}
+
+@media (max-width: 376px) {
+  .container {
+    max-width: calc(375px - $mobile-margin * 2);
+  }
+}
+
+h1 {
+  font-size: 56px;
+  margin: 48px 0;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 24px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin: 0 0 48px 0;
+  text-transform: uppercase;
+}
+
+.navbar {
+  background-color: $linen;
+
+  &__content {
+    @include grid-layout;
+    margin: 0 14px;
+
+    &--center {
+      justify-self: center;
+    }
+
+    &--right {
+      justify-self: end;
+    }
+  }
+
+  &__icon {
+    height: 8px;
+    width: 8px;
+
+    &:not(:first-child):not(:last-child) {
+      margin: 0 8px;
+    }
+
+    svg {
+      fill: $black;
+    }
+  }
+
+  &__slogan {
+    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+    font-size: 12px;
+    padding: 8px 0;
+  }
+
+  &__title {
+    font-size: 32px;
+    padding-top: 24px;
+  }
+
+  a {
+    align-self: flex-end;
+    color: inherit;
+    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+}
+
+.subtitle {
+  font-family: 'PPNeueBit', 'Tahoma', 'san-serif';
+  font-size: 18px;
+  text-transform: uppercase;
+}

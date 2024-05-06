@@ -1,0 +1,12 @@
+# dependencies installed by npm
+node_modules
+
+# build artefacts
+public
+
+# ignore all hidden directories
+.*/
+
+# explicitly include individual files that begin with a .
+!.*/*
+!.*/**
