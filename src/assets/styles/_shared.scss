@@ -50,10 +50,54 @@
 .job {
   @include grid-layout;
   padding: 24px 0;
+  align-items: end;
 
-  &__cta {
-    display: flex;
-    justify-content: space-between;
+  &--title {
+    font-size: 1.4em;
+
+    img {
+      height: 24px;
+      width: 24px;
+      padding-right: 12px;
+      align-self: center;
+    }
+  }
+
+  p {
+    line-height: 1em;
+  }
+
+  &--cta {
+    margin-left: 8px;
+  }
+}
+
+.toc--item {
+  padding:8px 0;
+  margin-right:16px;
+
+  p {
+    line-height: 1em;
+  }
+
+  img {
+    max-height: 24px;
+    max-width: 100%;
+    margin-left:8px;
+  }
+}
+
+.dot-leader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: end;
+
+  .hr {
+    margin-left: 8px;
+    border-bottom: 1px dotted $forest;
+    content: '';
+    flex-grow: 1;
   }
 }
 
