@@ -160,6 +160,19 @@ h2 {
   margin: 24px 0;
 }
 
+h3 {
+  font-size: 24px;
+  margin: 24px 0;
+}
+
+.content--center {
+  justify-self: center;
+}
+
+.content--right {
+  justify-self: end;
+}
+
 .subtitle {
   font-family: 'PPNeueBit', 'Tahoma', 'san-serif';
   font-size: 18px;
@@ -174,39 +187,16 @@ h2 {
   &__content {
     @include grid-layout;
     margin: 0 14px;
-
-    &--center {
-      justify-self: center;
-    }
-
-    &--right {
-      justify-self: end;
-    }
   }
 
-  &__icon {
-    height: 8px;
-    width: 8px;
-    padding-top: 8px;
-
-    &:not(:first-child):not(:last-child) {
-      margin: 0 8px;
-    }
-
-    svg {
+  svg {
       fill: $black;
     }
-  }
-
-  &__slogan {
-    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
-    font-size: 12px;
-    padding: 8px 0;
-  }
 
   &__title {
     font-size: 32px;
     padding-top: 24px;
+    letter-spacing: -2px;
   }
 
   a {
@@ -220,5 +210,55 @@ h2 {
     &:not(:last-child) {
       margin-right: 40px;
     }
+  }
+}
+
+.slogan-strip {
+  @include grid-layout;
+  margin: 0 14px;
+
+  &__slogan {
+    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  &__icon {
+    height: 8px;
+    width: 8px;
+    padding-top: 8px;
+
+    &:not(:first-child):not(:last-child) {
+      margin: 0 8px;
+    }
+  }
+}
+
+.footer {
+  background-color: $black;
+  color: $linen;
+  padding-top: 64px;
+  padding-bottom: 8px;
+
+  &--content {
+    margin-bottom:16px;
+  }
+
+  &--logo {
+    max-height: 32px;
+  }
+
+  &--site-map {
+    margin-bottom: 24px;
+  }
+
+  &--message {
+    @include grid-layout;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .slogan-strip {
+    padding-top: 4px;
   }
 }
