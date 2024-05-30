@@ -18,6 +18,22 @@
   &--bg-black {
     background-color: $black;
   }
+  &--spacing {
+    padding: 98px 0;
+  }
+
+  &--intro {
+    @include grid-layout;
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  &--content-block {
+    @include grid-layout;
+  }
+
 }
 
 .button {
@@ -103,13 +119,9 @@
 
 .container {
   @include grid-layout;
-  max-width: calc(1440px - $desktop-margin * 2);
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 96px 0;
-
-  &--no-padding {
-    padding: 0;
-  }
+  padding: 0 48px;
 }
 
 @media (max-width: 769px) {
@@ -123,6 +135,20 @@
     max-width: calc(375px - $mobile-margin * 2);
   }
 }
+
+.content--wrapper {
+  padding: 0 16px;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  font-size: 1.16em;
+  line-height: 1.4em;
+}
+
 
 h1 {
   font-size: 56px;
@@ -142,6 +168,7 @@ h2 {
 
 .navbar {
   background-color: $linen;
+  padding-top: 8px;
 
   &__content {
     @include grid-layout;
@@ -159,6 +186,7 @@ h2 {
   &__icon {
     height: 8px;
     width: 8px;
+    padding-top: 8px;
 
     &:not(:first-child):not(:last-child) {
       margin: 0 8px;
