@@ -83,11 +83,13 @@
 h1 {
   font-size: 56px;
   margin: 48px 0;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 36px;
   margin: 24px 0;
+  font-weight: 400;
 }
 
 .subtitle {
@@ -113,8 +115,8 @@ h2 {
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
+    height: 10px;
+    width: 10px;
 
     &:not(:first-child):not(:last-child) {
       margin: 0 8px;
@@ -129,6 +131,7 @@ h2 {
     font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
     font-size: 12px;
     padding: 8px 0;
+    text-transform: uppercase;
   }
 
   &__title {
