@@ -1,7 +1,24 @@
 <div class="col-12 job">
-    <div class="col-6">{{ title }}</div>
-    <div class="col-2">{{ type }}</div>
-    <div class="col-4 job__cta">
-        {{ location }} {% include "button", text: "apply" %}
+    <div class="col-6"> 
+        <div class="dot-leader job--title">
+            {% if title == "Project Manager" %}<img src="/assets/img/icons/flower.svg" />{% endif %}
+            {% if title == "Product Designer" %}<img src="/assets/img/icons/sun-spot.svg" />{% endif %}
+            {% if title == "Software Engineer" %}<img src="/assets/img/icons/brackets.svg" />{% endif %}
+            <div>{{ title }}</div>
+            <div class="hr"></div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="dot-leader">
+            <p>{{ type }}</p>
+            <div class="hr"></div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="dot-leader">
+            <p>{{location}}</p>
+            <div class="hr"></div>
+            <div class="job--cta">{% include "button", text: "apply" %}</div>
+        </div>
     </div>
 </div>

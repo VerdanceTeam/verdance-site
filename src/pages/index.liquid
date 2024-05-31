@@ -5,7 +5,7 @@ permalink: /index.html
 ---
 
 <div class="homepage">
-    <section class="hero section--bg-linen">
+    <section class="hero section--spacing section--bg-linen">
         <div class="container">
             <div class="col-1"></div>
             <div class="hero__content col-10">
@@ -13,99 +13,151 @@ permalink: /index.html
                     We partner with government to build <br />
                     resilient and respectful digital services.
                 </h1>
-                <img src="https://placehold.co/1116x360" />
+                <img src="/assets/img/verdance-hero.jpeg" />
                 <div class="hero__cta">
-                    {% include "button", text: "see all roles" %}
-                    <img src="/assets/img/icons/arrow-down.svg" />
+                    <div>{% include "button", text: "see all roles" %}</div>
+                    <div class="hr"></div>
+                    <div><img src="/assets/img/icons/arrow-down.svg" /></div>
                 </div>
             </div>
             <div class="col-1"></div>
         </div>
     </section>
-    <section class="who-we-are section--bg-linen">
+    <section class="who-we-are section--spacing section--bg-linen">
         <div class="container">
             <p class="col-12 subtitle">who we serve</p>
-            <div class="col-4">
-                <img src="https://placehold.co/64x64" />
-                <h2>Unemployed folks who deserve a helping hand</h2>
-                <p>
+            <div class="col-4 dash-border dash-border--left">
+                <div class="content--wrapper">
+                    <img src="/assets/img/icons/leaf.svg" />
+                    <h2>Unemployed folks who deserve a helping hand</h2>
+                    <p>
                     Getting the unemployment benefits you’re entitled to can
                     often add unneeded stress to already difficult times. We
                     work to point the way forward towards a future where the
                     process is streamlined and respectful.
-                </p>
-            </div>
-            <div class="col-4">
-                <img src="https://placehold.co/64x64" />
-                <h2>Veterans who deserve benefits</h2>
-                <p>
-                    Veterans filing healthcare or disability claims often wait
-                    unacceptably long to get the benefits they’ve earned with
-                    their service. We work to deeply understand policy nuances
-                    and carefully automate pieces of the process, to save days
-                    and months of wait time.
-                </p>
-            </div>
-            <div class="col-4">
-                <img src="https://placehold.co/64x64" />
-                <h2>
-                    Constituents who deserve a transparent, thoughtful
-                    government
-                </h2>
-                <p>
-                    We work on data-centric projects - legislative, healthcare,
-                    human capital, and more- that let the government make better
-                    use of data to level up its capabilities and make informed,
-                    thoughtful decisions in critical areas.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section class="roles section--bg-linen">
-        <div class="container">
-            <p class="col-12 subtitle">open roles</p>
-            <h1 class="col-6">We value respect, autonomy, and flexibility.</h1>
-            <p class="col-6">
-                Working in civic tech can be challenging and rewarding. It's not
-                easy helping government improve the way it delivers technology -
-                but a future where it's assumed that government services will
-                work well is possible. Want to help create it?
-            </p>
-            {% if jobs.length %} {% for job in jobs %} {% include "job", title:
-            job.Title, type: job.Type, location: job.Location %} {% endfor %} {%
-            endif %}
-        </div>
-    </section>
-    <section class="experience section--bg-chartreuse">
-        <div class="container">
-            <h1 class="col-5">
-                We’re experienced in a variety of government environments.
-            </h1>
-            <div class="col-7"></div>
-            <div class="col-6 experience__delivery-list">
-                <h2>We've delivered work for</h2>
-                <div><p>Department of Labor</p></div>
-                <div><p>Library of Congress</p></div>
-                <div><p>Department of Veterans Affairs</p></div>
-                <div><p>Center for Medicare & Medicaid Services</p></div>
-                <div><p>Office of Personnel Management</p></div>
-            </div>
-            <div class="col-6">
-                <div class="experience__cta">
-                    <h2>We’d love to talk</h2>
-                    {% include "button", text: "partner chat" %}
+                    </p>
                 </div>
-                <p class="experience__text">
-                    Are you experiencing challenges designing, building, or
-                    scaling government digital services? We help our partners
-                    navigate complex challenges. We'd love to learn more about
-                    your needs.
-                </p>
-                <img src="https://placehold.co/640x360" />
+            </div>
+            <div class="col-4 dash-border dash-border--left">
+                <div class="content--wrapper">
+                    <img src="/assets/img/icons/eagle.svg" />
+                    <h2>Veterans who deserve benefits</h2>
+                    <p>
+                        Veterans filing healthcare or disability claims often wait
+                        unacceptably long to get the benefits they’ve earned with
+                        their service. We work to deeply understand policy nuances
+                        and carefully automate pieces of the process, to save days
+                        and months of wait time.
+                    </p>
+                </div>
+            </div>
+            <div class="col-4 dash-border dash-border--left-right">
+                <div class="content--wrapper">
+                    <img src="/assets/img/icons/scales.svg" />
+                    <h2>
+                        Constituents who deserve a transparent, thoughtful
+                        government
+                    </h2>
+                    <p>
+                        We work on data-centric projects - legislative, healthcare,
+                        human capital, and more- that let the government make better
+                        use of data to level up its capabilities and make informed,
+                        thoughtful decisions in critical areas.
+                    </p>
             </div>
         </div>
     </section>
-    <section class="more section--bg-dark-linen">
+    <section class="roles section--spacing section--bg-linen">
+        <div class="container">
+            <div class="col-12 dash-border dash-border--left-right"> 
+                <div class="content--wrapper">
+                    <p class="subtitle">open roles</p>
+                    <div class="section--intro">
+                        <h1 class="col-5">We value respect, autonomy, and flexibility.</h1>
+                        <div class="col-1"></div>
+                        <p class="col-6">
+                            Working in civic tech can be challenging and rewarding. It's not
+                            easy helping government improve the way it delivers technology -
+                            but a future where it's assumed that government services will
+                            work well is possible. Want to help create it?
+                        </p>
+                        {% if jobs.length %} {% for job in jobs %} {% include "job", title:
+                        job.Title, type: job.Type, location: job.Location %} {% endfor %} {%
+                        endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="experience section--spacing section--bg-chartreuse">
+        <div class="container">
+            <div class="col-12 dash-border dash-border--left-right"> 
+                <div class="content--wrapper">
+                    <div class="section--intro">
+                        <h1 class="col-5"> We’re experienced in a variety of government environments.</h1>
+                        <div class="col-7"></div>
+                    </div>
+                    <div class="section--content-block">
+                        <div class="col-6 experience__delivery-list dash-border dash-border--right">
+                            <h2>We've delivered work for</h2>
+                            <div class="toc--item">
+                                <div class="dot-leader">
+                                    <p>Department of Labor</p>
+                                    <div class="hr"></div>
+                                    <img src="/assets/img/partners/DOL-seal.png"/>
+                                </div>
+                            </div>
+                            <div class="toc--item">
+                                <div class="dot-leader">
+                                    <p>Library of Congress</p>
+                                    <div class="hr"></div>
+                                    <img src="/assets/img/partners/LOC-logo.png"/>
+                                </div>
+                            </div>
+                            <div class="toc--item">
+                                <div class="dot-leader">
+                                    <p>Department of Veteran Affairs</p>
+                                    <div class="hr"></div>
+                                    <img src="/assets/img/partners/VA-seal.png"/>
+                                </div>
+                            </div>
+                            <div class="toc--item">
+                                <div class="dot-leader">
+                                    <p>Center for Medicare & Medicaid Services</p>
+                                    <div class="hr"></div>
+                                    <img src="/assets/img/partners/CMS-logo.png"/>
+                                </div>
+                            </div>
+                            <div class="toc--item">
+                                <div class="dot-leader">
+                                    <p>Office of Personnel Management</p>
+                                    <div class="hr"></div>
+                                    <img src="/assets/img/partners/OPM-seal.png"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="content--wrapper">
+                                <div class="experience__cta">
+                                    <h2>We’d love to talk</h2>
+                                    {% include "button", text: "partner chat" %}
+                                </div>
+                                <p class="experience__text">
+                                    Are you experiencing challenges designing, building, or
+                                    scaling government digital services? We help our partners
+                                    navigate complex challenges. We'd love to learn more about
+                                    your needs.
+                                </p>
+                                <img src="/assets/img/computer-plants.jpeg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Commenting out this section for initial launch
+    <section class="more section--spacing section--bg-dark-linen">
         <div class="container">
             <h1 class="col-12">More about us</h1>
             <div class="col-6">
@@ -134,4 +186,5 @@ permalink: /index.html
             </div>
         </div>
     </section>
+-->
 </div>
