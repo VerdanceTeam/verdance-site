@@ -55,11 +55,18 @@
   &--chartreuse {
     background-color: $chartreuse;
     color: $black;
+    border: 1px dotted $black-transparent;
+  }
+
+  &--chartreuse-text {
+    color: $chartreuse;
+    border: 1px dotted $chartreuse-transparent;
   }
 
   &--neon {
     background-color: $neon;
     color: $black;
+    border: 1px dotted $black-transparent;
   }
 }
 
@@ -124,8 +131,22 @@
   padding: 0 48px;
 }
 
-.content--wrapper {
-  padding: 0 16px;
+.content {
+  &--flex {
+    display: flex;
+  }
+
+  &--wrapper {
+    padding: 0 16px;
+  }
+
+  &--center {
+    justify-self: center;
+  }
+
+  &--right {
+    justify-self: end;
+  }
 }
 
 img {
@@ -155,13 +176,7 @@ h3 {
   margin: 24px 0;
 }
 
-.content--center {
-  justify-self: center;
-}
 
-.content--right {
-  justify-self: end;
-}
 
 .subtitle {
   font-family: 'PPNeueBit', 'Tahoma', 'san-serif';
@@ -216,7 +231,12 @@ h3 {
   &__icon {
     height: 8px;
     width: 8px;
-    padding-top: 8px;
+    display: inline-block;
+    color: $black;
+
+    &--linen {
+      color: $linen;
+    }
 
     &:not(:first-child):not(:last-child) {
       margin: 0 8px;
@@ -230,26 +250,49 @@ h3 {
   padding-top: 64px;
   padding-bottom: 8px;
 
-  &--content {
+  &__content {
     margin-bottom:16px;
   }
 
-  &--logo {
+  &__logo {
     max-height: 32px;
   }
 
-  &--site-map {
+  &__site-map {
     margin-bottom: 24px;
   }
 
-  &--message {
+  &__message {
     @include grid-layout;
     margin-top: 48px;
     margin-bottom: 24px;
   }
 
-  .slogan-strip {
+  &__cta {
+    margin-top: 48px;
+  }
+
+  &__legal-section {
+    @include grid-layout;
     padding-top: 4px;
+  }
+
+  &__slogan {
+    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+    font-size: 12px;
+    padding: 4px 0;
+  }
+
+  &__icon {
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    color: $black;
+    margin: 0 5px;
+
+    &--linen {
+      color: $linen;
+    }
   }
 }
 
