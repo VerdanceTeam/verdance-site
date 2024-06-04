@@ -98,7 +98,7 @@ $mobile-margin: 16px;
 @mixin grid-layout {
   column-gap: 8px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, [col-start] 1fr);
 }
 
 .display-flex {
