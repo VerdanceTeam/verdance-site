@@ -3,6 +3,7 @@ $black: #01100B;
 $chartreuse: #E8FF8E;
 $dark-linen: #E6DED3;
 $forest: #006C4D;
+$forest-transparent: rgba(0, 108, 77, 0.5);
 $linen: #F3F0EC;
 $neon: #8DFF7B;
 
@@ -36,10 +37,11 @@ $mobile-margin: 16px;
 
 .dash-border {
   background-image:
-    repeating-linear-gradient(0deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
-    repeating-linear-gradient(90deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
-    repeating-linear-gradient(180deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px),
-    repeating-linear-gradient(270deg, #006c4d, #006c4d 1px, transparent 1px, transparent 2px, #006c4d 2px);
+    repeating-linear-gradient(0deg, $forest-transparent, $forest-transparent 1px, transparent 1px, transparent 2px, $forest-transparent 2px),
+    repeating-linear-gradient(90deg, $forest-transparent, $forest-transparent 1px, transparent 1px, transparent 2px, $forest-transparent 2px),
+    repeating-linear-gradient(180deg, $forest-transparent, $forest-transparent 1px, transparent 1px, transparent 2px, $forest-transparent 2px),
+    repeating-linear-gradient(270deg, $forest-transparent, $forest-transparent 1px, transparent 1px, transparent 2px, $forest-transparent 2px);
+
   background-repeat: no-repeat;
   background-position: 0 0, 0 0, 100% 0, 0 100%;
 
