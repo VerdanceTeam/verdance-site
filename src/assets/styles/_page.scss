@@ -51,6 +51,13 @@
     }
   }
 
+  & .who-we-are {
+    &__icon {
+      height: 64px;
+      width: 64px;
+    }
+  }
+
   & .experience-showcase {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
