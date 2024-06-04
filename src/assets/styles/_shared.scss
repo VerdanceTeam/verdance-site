@@ -258,13 +258,14 @@ h3 {
   &__slogan {
     font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
     font-size: 12px;
+    text-transform: uppercase;
     padding: 4px 0;
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
-    padding-top: 8px;
+    height: 10px;
+    width: 10px;
+    padding-top: 4px;
 
     &:not(:first-child):not(:last-child) {
       margin: 0 8px;
@@ -297,7 +298,7 @@ h3 {
   }
 
   .slogan-strip {
-    padding-top: 4px;
+    padding-top: 6px;
   }
 }
 
