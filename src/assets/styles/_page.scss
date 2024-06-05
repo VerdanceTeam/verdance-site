@@ -50,4 +50,26 @@
       justify-content: end;
     }
   }
+
+  & .who-we-are {
+    &__icon {
+      height: 64px;
+      width: 64px;
+    }
+  }
+
+  & .experience-showcase {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 48px 48px 0 48px;
+
+    &__item {
+      height: 288px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
 }
