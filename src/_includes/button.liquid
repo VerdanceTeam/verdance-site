@@ -1,3 +1,7 @@
-<button class="button{% if style %} button--{{ style }}{% endif %}">
+<button
+    class="button{% if style %} button--{{
+        style
+    }}{% endif %} {% if additionalStyle %} {{ additionalStyle }}{% endif %}"
+>
     {{ text }}
 </button>

@@ -11,38 +11,32 @@
             <div class="container">
                 <div id="slogan-strip" class="col-12 dash-border dash-border--left-right">
                     <div class="slogan-strip dash-border dash-border--bottom">
-                        <div class="slogan-strip__left">
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/leaf.svg"
-                            />
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/scales.svg"
-                            />
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/eagle.svg"
-                            />
+                        <div class="col-3">
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/leaf.svg" %}
+                            </div>
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/scales.svg" %}
+                            </div>
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/eagle.svg" %}
+                            </div>
                         </div>
                         <div class="slogan-strip__slogan content--center">
                             <p>
                                 Verdance is a public interest tech firm.
                             </p>
                         </div>
-                        <div class="slogan-strip__right content--right">
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/bird.svg"
-                            />
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/brackets.svg"
-                            />
-                            <img
-                                class="slogan-strip__icon"
-                                src="/assets/img/icons/sun.svg"
-                            />
+                        <div class="col-3 content--right">
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/bird.svg" %}
+                            </div>
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/brackets.svg" %}
+                            </div>
+                            <div class="slogan-strip__icon">
+                                {% svgIcon "/img/icons/sun.svg" %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,14 +62,16 @@
             <section class="section--bg-black">
                 <div class="container">
                     <div
-                        class="col-12 dash-border dash-border--left-right footer--content">
+                        class="col-12 dash-border dash-border--left-right footer__content"
+                    >
                         <div class="content--wrapper">
                             <div class="section--content-block">
                                 <div
                                     class="col-6 site-map dash-border dash-border--right">
                                     <img
-                                        class="footer--logo"
-                                        src="assets/img/logos/Verdance-logo-linen.png"/>
+                                        class="footer__logo"
+                                        src="assets/img/logos/Verdance-logo-linen.png"
+                                    />
                                     <!-- <div class="toc--item">
                                         <div class="dot-leader">
                                             <p>Careers</p>
@@ -107,7 +103,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="content--wrapper">
-                                        <div class="footer--message">
+                                        <div class="footer__message">
                                             <div class="col-8">
                                                 <h3>Join our Team!</h3>
                                                 <p>
@@ -117,11 +113,16 @@
                                                     smoothly from day one.
                                                     Interested in helping us?
                                                 </p>
+                                                {% include "button", text: "see
+                                                open roles", style:
+                                                "chartreuse-text"
+                                                additionalStyle: "footer__cta"
+                                                %}
                                             </div>
                                             <div class="col-1"></div>
                                             <div class="col-3">
                                                 <img
-                                                    class="footer--logomark"
+                                                    class="footer__logomark"
                                                     src="/assets/img/logos/v-logomark-text-yellow.png"
                                                 />
                                             </div>
@@ -132,15 +133,53 @@
                         </div>
                     </div>
                     <div class="col-12 dash-border dash-border--left-right">
-                        <div class="slogan-strip dash-border dash-border--top">
-                            <div class="col-3"></div>
-                            <div class="col-6 content--center">
-                                <p class="slogan-strip__slogan">
+                        <div
+                            class="footer__legal-section dash-border dash-border--top"
+                        >
+                            <div class="col-6 content--flex">
+                                <p class="footer__slogan">
+                                    © 2024 verdance, inc.
+                                </p>
+                                <div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/leaf.svg" %}
+                                    </div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/scales.svg" %}
+                                    </div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/eagle.svg" %}
+                                    </div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/bird.svg" %}
+                                    </div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/brackets.svg" %}
+                                    </div>
+                                    <div
+                                        class="footer__icon footer__icon--linen"
+                                    >
+                                        {% svgIcon "/img/icons/sun.svg" %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 content--right">
+                                <p class="footer__slogan">
                                     Verdance is building digital services to
                                     improve outcomes for people.
                                 </p>
                             </div>
-                            <div class="col-3"></div>
                         </div>
                     </div>
                 </div>
