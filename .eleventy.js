@@ -1,5 +1,6 @@
 const sass = require('sass');
 const path = require('node:path');
+const Image = require('@11ty/eleventy-img');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets/');
@@ -21,6 +22,31 @@ module.exports = function (eleventyConfig) {
                 return result.css;
             };
         },
+    });
+
+    eleventyConfig.addLiquidShortcode('svgIcon', async (src) => {
+        const fullPath = path.join(__dirname, 'src/assets/', src);
+        try {
+            let metadata = await Image(fullPath, {
+                formats: ['svg'],
+                dryRun: true,
+            });
+
+            if (
+                metadata &&
+                metadata.svg &&
+                metadata.svg[0] &&
+                metadata.svg[0].buffer
+            ) {
+                return metadata.svg[0].buffer.toString();
+            } else {
+                console.error(`Invalid SVG metadata for ${src}`);
+                return `<svg><!-- SVG metadata not available --></svg>`;
+            }
+        } catch (err) {
+            console.error(`Error reading SVG file: ${fullPath}`, err);
+            return `<svg><!-- Error reading SVG file --></svg>`;
+        }
     });
 
     return {
