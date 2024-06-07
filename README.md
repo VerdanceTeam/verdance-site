@@ -39,7 +39,7 @@ npm run clearbuild
 
 _Advanced usage:_ 
 
-I've also created a custom script locally that will clear the `public/` folder between reloads. I added this to my `.zshrc` file. Feel free to use any part of this code:
+I've also created a custom script locally that will clear the `public/` folder between reloads. You'll have to install `fswatch` and `browser-sync`. I added this to my `.zshrc` file. Feel free to use any part of this code:
 
 ```
 build_site() {

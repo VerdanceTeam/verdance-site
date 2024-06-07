@@ -10,9 +10,42 @@ $linen: #F3F0EC;
 $neon: #8DFF7B;
 
 // Spacing
+$desktop: 1024px;
+$tablet: 768px;
+$mobile: 375px;
 $desktop-margin: 48px;
 $tablet-margin: 24px;
 $mobile-margin: 16px;
+
+// Breakpoint-based hide/show classes
+
+@mixin hide($breakpoint) {
+  @if $breakpoint == 'desktop' {
+    @media (min-width: $desktop) {
+      display: none;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: $desktop) and (min-width: $tablet) {
+      display: none;
+    }
+  } @else if $breakpoint == 'mobile' {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+}
+
+.desktop-hide {
+  @include hide('desktop');
+}
+
+.tablet-hide {
+  @include hide('tablet');
+}
+
+.mobile-hide {
+  @include hide('mobile');
+}
 
 // Fonts
 @font-face {
