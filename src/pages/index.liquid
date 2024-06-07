@@ -25,7 +25,7 @@ permalink: /index.html
     </section>
     <section class="who-we-are section--spacing section--bg-linen">
         <div class="container">
-            <p class="col-12 subtitle">who we serve</p>
+            <p class="col-12 section--subtitle">who we serve</p>
             <div class="col-4 dash-border dash-border--left">
                 <div class="content--wrapper">
                     <div class="who-we-are__icon">
@@ -73,28 +73,7 @@ permalink: /index.html
             </div>
         </div>
     </section>
-    <section class="roles section--spacing section--bg-linen">
-        <div class="container">
-            <div class="col-12 dash-border dash-border--left-right"> 
-                <div class="content--wrapper">
-                    <p class="subtitle">open roles</p>
-                    <div class="section--intro">
-                        <h1 class="col-5">We value respect, autonomy, and flexibility.</h1>
-                        <div class="col-1"></div>
-                        <p class="col-6">
-                            Working in civic tech can be challenging and rewarding. It's not
-                            easy helping government improve the way it delivers technology -
-                            but a future where it's assumed that government services will
-                            work well is possible. Want to help create it?
-                        </p>
-                        {% if jobs.length %} {% for job in jobs %} {% include "job", title:
-                        job.Title, type: job.Type, location: job.Location %} {% endfor %} {%
-                        endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include "section_roles" %}
     <section class="experience section--spacing section--bg-chartreuse">
         <div class="container">
             <div class="col-12 dash-border dash-border--left-right"> 

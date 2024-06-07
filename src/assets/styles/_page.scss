@@ -7,27 +7,6 @@
 // Page Specific
 
 .homepage {
-  & .hero {
-    &__content {
-      text-align: center;
-    }
-
-    &__cta {
-      margin-top: 48px;
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-
-      .hr {
-        flex-grow: 1;
-        margin: 0 16px;
-        height: 1px;
-        border-bottom: 1px dotted $forest;
-        align-self: center;
-      }
-    }
-  }
-
   & .experience {
     &__cta {
       margin-top: 48px;

@@ -30,10 +30,44 @@
     }
   }
 
+  &--subtitle {
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 16px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+
   &--content-block {
     @include grid-layout;
   }
 
+}
+
+.hero {
+  &__content {
+    text-align: center;
+  }
+
+  &__cta {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .hr {
+      flex-grow: 1;
+      margin: 0 16px;
+      height: 1px;
+      border-bottom: 1px dotted $forest;
+      align-self: center;
+    }
+
+    & .subtitle {
+      align-self: center;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .button {
@@ -76,8 +110,6 @@
   align-items: end;
 
   &--title {
-    font-size: 1.4em;
-
     img {
       height: 24px;
       width: 24px;
@@ -96,7 +128,7 @@
 }
 
 .toc--item {
-  padding:8px 0;
+  padding:8px 0 16px 0;
   margin-right:16px;
 
   p {
@@ -153,6 +185,35 @@ img {
   max-width: 100%;
 }
 
+.illo-temp {
+  display: flex;
+  background-color: $chartreuse;
+  border: 1px dotted hotpink;
+
+  p {
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 14px;
+    text-transform: uppercase;
+    color: hotpink;
+    align-self: center;
+    margin: 0 auto;
+  }
+  &--midsize {
+    aspect-ratio: 30/17;
+    margin-top: 24px;
+  }
+
+  &--spot {
+    height: 64px;
+    width: 64px;
+    margin-bottom: 16px;
+
+    p{
+      width: 30px;
+    }
+  }
+}
+
 p {
   font-size: 1.16em;
   line-height: 1.4em;
@@ -178,16 +239,38 @@ h3 {
 
 
 
+.content--bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
 .subtitle {
-  font-family: 'PPNeueBit', 'Tahoma', 'san-serif';
-  font-size: 18px;
-  margin: 0 0 48px 0;
+  font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+  font-size: 14px;
+  margin-bottom: 12px;
   text-transform: uppercase;
+}
+
+.large-text {
+  font-size: 1.4em;
+}
+
+.small-text {
+  font-size: 14px;
 }
 
 .navbar {
   background-color: $linen;
   padding-top: 8px;
+
+  &__right {
+    grid-column: col-start 9/ span 4;
+  }
+
+  &__left {
+    grid-column: col-start / span 4;
+  }
 
   &__content {
     @include grid-layout;
@@ -197,12 +280,6 @@ h3 {
   svg {
       fill: $black;
     }
-
-  &__title {
-    font-size: 32px;
-    padding-top: 24px;
-    letter-spacing: -2px;
-  }
 
   a {
     align-self: flex-end;
@@ -216,27 +293,44 @@ h3 {
       margin-right: 40px;
     }
   }
+
+  &__title {
+    padding-top: 24px;
+    grid-column: col-start 5/ span 4;
+
+    a {
+      font-family: 'UntitledSerif', 'Times New Roman', serif;
+      text-transform: none;
+      font-size: 32px;
+      letter-spacing: -2px;
+    }
+  }
 }
 
 .slogan-strip {
   @include grid-layout;
   margin: 0 14px;
+  
+  &__left {
+    grid-column: col-start / span 3;
+  }
+
+  &__right {
+    grid-column: col-start 10/ span 3;
+  }
 
   &__slogan {
     font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
     font-size: 12px;
+    text-transform: uppercase;
     padding: 4px 0;
+    grid-column: col-start 4/ span 6;
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
-    display: inline-block;
-    color: $black;
-
-    &--linen {
-      color: $linen;
-    }
+    height: 10px;
+    width: 10px;
+    padding-top: 4px;
 
     &:not(:first-child):not(:last-child) {
       margin: 0 8px;
@@ -325,10 +419,15 @@ h3 {
   }
 }
 
-@media (max-width: 376px) {
+
+@media screen and (max-width: 376px) {
   .container {
     max-width: 376px;
     padding: 0 16px;
+  }
+
+  #slogan-strip {
+    display: none;
   }
   
   .section--spacing {
