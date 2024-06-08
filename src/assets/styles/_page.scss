@@ -44,11 +44,34 @@
     margin: 0 auto;
     padding: 48px 48px 0 48px;
 
+    @include tablet-media-query {
+      max-width: 769px;
+      padding: 0 24px;
+    }
+
+    @include mobile-media-query {
+      grid-template-columns: repeat(12, 1fr);
+      max-width: 376px;
+      padding: 0 16px;
+    }
+
     &__item {
       height: 288px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
+
+      @include tablet-media-query {
+        height: 200px;
+      }
+
+      @include mobile-media-query {
+        height: 100px;
+      }
+
+      img {
+        width: 50%;
+      }
     }
   }
 }

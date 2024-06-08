@@ -403,7 +403,7 @@ h3 {
   }
 }
 
-@media (max-width: 769px) {
+@include tablet-media-query {
   .container {
     max-width: 769px;
     padding: 0 24px;
@@ -432,8 +432,7 @@ h3 {
   }
 }
 
-
-@media screen and (max-width: 376px) {
+@include mobile-media-query {
   .container {
     max-width: 376px;
     padding: 0 16px;
@@ -451,5 +450,4 @@ h3 {
     font-size: 24px;
     margin: 20px 0;
   }
-
 }

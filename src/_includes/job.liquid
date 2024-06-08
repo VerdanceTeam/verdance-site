@@ -1,5 +1,5 @@
 <div class="col-12 job">
-    <div class="col-6">
+    <div class="col-6 col-9-mobile">
         <div class="dot-leader job--title">
             {% if title == "Project Manager" %}<img
                 src="/assets/img/icons/flower.svg"
@@ -9,19 +9,26 @@
                 src="/assets/img/icons/brackets.svg"
             />{% endif %}
             <div class="large-text">{{ title }}</div>
+
             <div class="hr"></div>
         </div>
+        <div class="desktop-hide tablet-hide display-flex">
+            <p>{{ type }}</p>
+            <p>&nbsp; • &nbsp;</p>
+            <p>{{ location }}</p>
+        </div>
     </div>
-    <div class="col-2">
+    <div class="col-2 mobile-hide">
         <div class="dot-leader">
             <p>{{ type }}</p>
+
             <div class="hr"></div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 col-3-mobile">
         <div class="dot-leader">
-            <p>{{ location }}</p>
-            <div class="hr"></div>
+            <p class="mobile-hide">{{ location }}</p>
+            <div class="hr mobile-hide"></div>
             <div class="job--cta">
                 {% include "button", text: "apply", style: "chartreuse" %}
             </div>
