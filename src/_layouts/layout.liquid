@@ -69,7 +69,7 @@
                         <div class="content--wrapper">
                             <div class="section--content-block">
                                 <div
-                                    class="col-6 site-map dash-border dash-border--right"
+                                    class="col-6 col-9-tablet col-9-mobile site-map dash-border dash-border--right"
                                 >
                                     <img
                                         class="footer__logo"
@@ -81,10 +81,30 @@
                                         <a href="">Our Work</a>
                                         <a href="">Contact Us</a>
                                     </div>
+                                    <div class="desktop-hide">
+                                        <h3>Join our Team!</h3>
+                                        <p>
+                                            We're building towards a future
+                                            where government digital services
+                                            work smoothly from day one.
+                                            Interested in helping us?
+                                        </p>
+                                        {% include "button", text: "see open
+                                        roles", style: "chartreuse-text"
+                                        additionalStyle: "footer__cta" %}
+                                    </div>
                                 </div>
-                                <div class="col-6">
+                                <div
+                                    class="col-6 col-3-tablet col-3-mobile display-flex--tablet display-flex--mobile flex-end--tablet flex-end--mobile"
+                                >
+                                    <img
+                                        class="footer__logomark desktop-hide"
+                                        src="/assets/img/logos/v-logomark-text-yellow.png"
+                                    />
                                     <div class="content--wrapper">
-                                        <div class="footer__message">
+                                        <div
+                                            class="footer__message tablet-hide mobile-hide"
+                                        >
                                             <div class="col-8">
                                                 <h3>Join our Team!</h3>
                                                 <p>
