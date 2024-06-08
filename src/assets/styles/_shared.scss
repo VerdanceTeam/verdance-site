@@ -389,6 +389,18 @@ h3 {
       color: $linen;
     }
   }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    padding-top: 122px;
+
+    a {
+      color: $linen;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+  }
 }
 
 @media (max-width: 769px) {

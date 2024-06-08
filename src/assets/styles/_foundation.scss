@@ -132,6 +132,24 @@ $mobile-margin: 16px;
   }
 }
 
+// Columns for tablet
+@for $i from 1 through 12 {
+  .col-#{$i}-tablet {
+    @media (max-width: $desktop) and (min-width: $tablet) {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+// Columns for mobile
+@for $i from 1 through 12 {
+  .col-#{$i}-mobile {
+    @media (max-width: $tablet) {
+      grid-column: span #{$i};
+    }
+  }
+}
+
 @mixin grid-layout {
   column-gap: 8px;
   display: grid;
