@@ -292,6 +292,14 @@ h3 {
     &:not(:last-child) {
       margin-right: 40px;
     }
+
+    @include mobile-media-query {
+      font-size: 12px;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
   }
 
   &__title {

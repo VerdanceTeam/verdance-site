@@ -16,8 +16,8 @@
                         Want to help create it?
                     </p>
                     {% if jobs.length %} {% for job in jobs %} {% include "job",
-                    title: job.Title, type: job.Type, location: job.Location %}
-                    {% endfor %} {% endif %}
+                    title: job.title, type: job.employmentType, location:
+                    job.location %} {% endfor %} {% endif %}
                 </div>
             </div>
         </div>
