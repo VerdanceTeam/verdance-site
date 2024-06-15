@@ -9,11 +9,10 @@
     <body class="page">
         <header class="navbar">
             <div class="container">
-                <div
-                    id="slogan-strip"
-                    class="col-12 dash-border dash-border--left-right"
-                >
-                    <div class="slogan-strip dash-border dash-border--bottom">
+                <div class="col-12 dash-border dash-border--left-right">
+                    <div
+                        class="slogan-strip dash-border dash-border--bottom mobile-hide tablet-hide"
+                    >
                         <div class="col-3">
                             <div class="slogan-strip__icon">
                                 {% svgIcon "/img/icons/leaf.svg" %}
@@ -41,8 +40,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 navbar__content mobile-hide">
-                    <div class="navbar__left display-flex mobile-hide">
+                <div class="col-12 navbar__content mobile-hide tablet-hide">
+                    <div class="navbar__left display-flex">
                         <a href="/careers/">Careers</a>
                         <a href="/about/">About Us</a>
                         <a class="tablet-hide" href="/our-work/">Our Work</a>
@@ -55,7 +54,7 @@
                         <a href="mailto:hello@verdance.co">Contact Us</a>
                     </div>
                 </div>
-                <div class="col-12 navbar__content desktop-hide tablet-hide">
+                <div class="col-12 navbar__content desktop-hide">
                     <div class="col-12 content--center">
                         <a href="/careers/">Careers</a>
                         <a href="/about/">About Us</a>
