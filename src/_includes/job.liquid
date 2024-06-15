@@ -30,7 +30,8 @@
             <p class="mobile-hide">{{ location }}</p>
             <div class="hr mobile-hide"></div>
             <div class="job--cta">
-                {% include "button", text: "apply", style: "chartreuse" %}
+                {% include "button", text: "apply", style: "chartreuse", href:
+                jobUrl, newTab: true %}
             </div>
         </div>
     </div>

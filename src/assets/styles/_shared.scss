@@ -85,6 +85,8 @@
   line-height: 18px;
   padding: 16px;
   text-transform: uppercase;
+  height: fit-content;
+  width: fit-content;
 
   &--chartreuse {
     background-color: $chartreuse;

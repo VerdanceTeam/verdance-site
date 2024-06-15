@@ -1,7 +1,22 @@
-<button
+<a
     class="button{% if style %} button--{{
         style
-    }}{% endif %} {% if additionalStyle %} {{ additionalStyle }}{% endif %}"
+    }}{% endif %} {% if additionalStyle %}{{ additionalStyle }}{% endif %}"
+    {%
+    if
+    href
+    %}href="{{ href }}"
+    {%
+    endif
+    %}
+    {%
+    if
+    newTab
+    %}target="_blank"
+    rel="noopener noreferrer"
+    {%
+    endif
+    %}
 >
     {{ text }}
-</button>
+</a>
