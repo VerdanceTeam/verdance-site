@@ -49,6 +49,13 @@ module.exports = function (eleventyConfig) {
         }
     });
 
+    eleventyConfig.addTransform('clean-urls', function (content, outputPath) {
+        if (outputPath && outputPath.endsWith('.html')) {
+            return content.replace(/\.html$/, '');
+        }
+        return content;
+    });
+
     return {
         markdownTemplateEngine: 'liquid',
         dir: {

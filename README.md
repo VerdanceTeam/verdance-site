@@ -131,11 +131,11 @@ All of our pages are stored in the `pages/` folder. There's a section at the top
 ---
 layout: layout.liquid
 title: Verdance Homepage
-permalink: /index.html
+permalink: /index/
 ---
 ```
 
-This front matter says that the page should be inserted into the `layout.liquid` template, with a page Title of "Verdance Homepage" and that the link URL should be `/index.html`. You can read more about 11ty's front matter [here](https://www.11ty.dev/docs/data-frontmatter/). 
+This front matter says that the page should be inserted into the `layout.liquid` template, with a page Title of "Verdance Homepage" and that the link URL should be `/index/`. You can read more about 11ty's front matter [here](https://www.11ty.dev/docs/data-frontmatter/). 
 
 Layouts in 11ty are larger page templates we are going to include over and over in our app. For the neat-term future, we'll most likely just have the one current one, `layout.liquid`. However, there is a `_includes` folder where we can have re-usable components. This helps contributors use pre-designed components so they don't have to re-invent the wheel every time they want to add in a CTA.
 
