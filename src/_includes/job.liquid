@@ -20,7 +20,11 @@
     </div>
     <div class="col-2 mobile-hide">
         <div class="dot-leader">
-            <p>{{ type }}</p>
+            <p>
+                {% if type == "FullTime" %} Full Time {% else %}
+                {{ type }}
+                {% endif %}
+            </p>
 
             <div class="hr"></div>
         </div>
