@@ -75,3 +75,27 @@
     }
   }
 }
+
+.about-page {
+  & .who-we-are {
+    &__icon {
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
+
+.careers-page {
+  & .who-we-are {
+    &__order {
+      align-self: flex-end;
+      color: inherit;
+      font-family: "PPNeueBitBold", "Tahoma", "san-serif";
+      font-size: 48px;
+      text-decoration: none;
+      text-transform: uppercase;
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
