@@ -2,7 +2,8 @@
   "scripts": {
     "prebuild": "rm -rf _site",
     "clearbuild": "rm -rf public/",
-    "build": "eleventy --serve"
+    "build": "eleventy",
+    "serve": "eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
