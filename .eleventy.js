@@ -49,6 +49,26 @@ module.exports = function (eleventyConfig) {
         }
     });
 
+    // Remove the .html extension from pages
+    eleventyConfig.addTransform('clean-urls', function (content, outputPath) {
+        if (outputPath && outputPath.endsWith('.html')) {
+            return content.replace(/\.html$/, '');
+        }
+        return content;
+    });
+
+    // Add a transform to remove HTML comments
+    eleventyConfig.addTransform(
+        'remove-comments',
+        function (content, outputPath) {
+            if (outputPath && outputPath.endsWith('.html')) {
+                // Remove HTML comments
+                return content.replace(/<!--[\s\S]*?-->/g, '');
+            }
+            return content;
+        }
+    );
+
     return {
         markdownTemplateEngine: 'liquid',
         dir: {

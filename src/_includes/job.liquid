@@ -1,11 +1,11 @@
 <div class="col-12 job">
     <div class="col-6 col-9-mobile">
         <div class="dot-leader job--title">
-            {% if title == "Project Manager" %}<img
+            {% if title contains "Manager" %}<img
                 src="/assets/img/icons/flower.svg"
-            />{% endif %} {% if title == "Product Designer" %}<img
+            />{% endif %} {% if title contains "Designer" %}<img
                 src="/assets/img/icons/sun-spot.svg"
-            />{% endif %} {% if title == "Software Engineer" %}<img
+            />{% endif %} {% if title contains "Engineer" %}<img
                 src="/assets/img/icons/brackets.svg"
             />{% endif %}
             <div class="large-text">{{ title }}</div>
@@ -20,7 +20,11 @@
     </div>
     <div class="col-2 mobile-hide">
         <div class="dot-leader">
-            <p>{{ type }}</p>
+            <p>
+                {% if type == "FullTime" %} Full-time {% else %}
+                {{ type }}
+                {% endif %}
+            </p>
 
             <div class="hr"></div>
         </div>
@@ -30,7 +34,8 @@
             <p class="mobile-hide">{{ location }}</p>
             <div class="hr mobile-hide"></div>
             <div class="job--cta">
-                {% include "button", text: "apply", style: "chartreuse" %}
+                {% include "button", text: "apply", style: "chartreuse", href:
+                jobUrl, newTab: true %}
             </div>
         </div>
     </div>

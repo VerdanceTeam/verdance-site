@@ -4,16 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{{ page.title }}</title>
+        <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
         <link rel="stylesheet" href="/assets/base.css" />
     </head>
     <body class="page">
         <header class="navbar">
             <div class="container">
-                <div
-                    id="slogan-strip"
-                    class="col-12 dash-border dash-border--left-right"
-                >
-                    <div class="slogan-strip dash-border dash-border--bottom">
+                <div class="col-12 dash-border dash-border--left-right">
+                    <div
+                        class="slogan-strip dash-border dash-border--bottom mobile-hide tablet-hide"
+                    >
                         <div class="col-3">
                             <div class="slogan-strip__icon">
                                 {% svgIcon "/img/icons/leaf.svg" %}
@@ -41,28 +41,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 navbar__content mobile-hide">
-                    <div class="navbar__left display-flex mobile-hide">
-                        <a href="/careers.html">Careers</a>
-                        <a href="/about.html">About Us</a>
-                        <a class="tablet-hide" href="/our-work.html"
-                            >Our Work</a>
+                <div class="col-12 navbar__content mobile-hide tablet-hide">
+                    <div class="navbar__left display-flex">
+                        <a href="/careers/">Careers</a>
+                        <a href="/about/">About Us</a>
+                        <!-- <a class="tablet-hide" href="/our-work/">Our Work</a> -->
                     </div>
                     <div class="navbar__title content--center">
                         <a href="/">Verdance</a>
                     </div>
                     <div class="navbar__right content--right display-flex">
-                        <a class="desktop-hide" href="/our-work.html"
-                            >Our Work</a
-                        >
+                        <!-- <a class="desktop-hide" href="/our-work/">Our Work</a> -->
                         <a href="mailto:hello@verdance.co">Contact Us</a>
                     </div>
                 </div>
-                <div class="col-12 navbar__content desktop-hide tablet-hide">
+                <div class="col-12 navbar__content desktop-hide">
                     <div class="col-12 content--center">
-                        <a href="/careers.html">Careers</a>
-                        <a href="/about.html">About Us</a>
-                        <a href="/our-work.html">Our Work</a>
+                        <a href="/careers/">Careers</a>
+                        <a href="/about/">About Us</a>
+                        <!-- <a href="/our-work/">Our Work</a> -->
                         <a href="mailto:hello@verdance.co">Contact Us</a>
                     </div>
                     <div class="col-12 navbar__title content--center">
@@ -87,16 +84,18 @@
                                 >
                                     <img
                                         class="footer__logo"
-                                        src="assets/img/logos/Verdance-logo-linen.png"
+                                        src="/assets/img/logos/Verdance-logo-linen.png"
                                     />
                                     <div class="footer__links">
-                                        <a href="/careers.html">Careers</a>
-                                        <a href="/about.html">About Us</a>
-                                        <a href="/our-work.html">Our Work</a>
-                                        <a href="mailto:hello@verdance.co">Contact Us</a>
+                                        <a href="/careers/">Careers</a>
+                                        <a href="/about/">About Us</a>
+                                        <!-- <a href="/our-work/">Our Work</a> -->
+                                        <a href="mailto:hello@verdance.co"
+                                            >Contact Us</a
+                                        >
                                     </div>
                                     <div class="desktop-hide">
-                                        <h3>Join our Team!</h3>
+                                        <h3>Join our team!</h3>
                                         <p>
                                             We're building towards a future
                                             where government digital services
@@ -105,7 +104,8 @@
                                         </p>
                                         {% include "button", text: "see open
                                         roles", style: "chartreuse-text"
-                                        additionalStyle: "footer__cta" %}
+                                        additionalStyle: "footer__cta", href:
+                                        "/careers/" %}
                                     </div>
                                 </div>
                                 <div
@@ -120,7 +120,7 @@
                                             class="footer__message tablet-hide mobile-hide"
                                         >
                                             <div class="col-8">
-                                                <h3>Join our Team!</h3>
+                                                <h3>Join our team!</h3>
                                                 <p>
                                                     We're building towards a
                                                     future where government
@@ -131,8 +131,8 @@
                                                 {% include "button", text: "see
                                                 open roles", style:
                                                 "chartreuse-text"
-                                                additionalStyle: "footer__cta"
-                                                %}
+                                                additionalStyle: "footer__cta",
+                                                href: "/careers/" %}
                                             </div>
                                             <div class="col-1"></div>
                                             <div class="col-3">
@@ -191,7 +191,8 @@
 
                             <div class="col-6 content--right">
                                 <p class="footer__slogan">
-                                    Verdance builds resilient, respectful, adaptable government digital services.
+                                    Verdance builds resilient, respectful,
+                                    adaptable government digital services.
                                 </p>
                             </div>
                         </div>
@@ -199,5 +200,16 @@
                 </div>
             </section>
         </footer>
+        <script>
+            const asciiArt = `
+__     __           _                      
+\\ \\   / /__ _ __ __| | __ _ _ __   ___ ___ 
+ \\ \\ / / _ \\ '__/ _\` |/ _\` | '_ \\ / __/ _ \\
+  \\ V /  __/ | | (_| | (_| | | | | (_|  __/
+   \\_/ \\___|_|  \\__,_|\\__,_|_| |_|\\___\\___|
+`;
+
+            console.log(asciiArt);
+        </script>
     </body>
 </html>
