@@ -136,6 +136,18 @@ $mobile-margin: 16px;
   &--left-top-bottom { @include set-border('left', 'top', 'bottom'); }
   &--right-top-bottom { @include set-border('right', 'top', 'bottom'); }
   &--all { @include set-border('left', 'right', 'top', 'bottom'); }
+
+  &--hide-tablet {
+    @include tablet-media-query {
+      background-size: 0%;
+    }
+  }
+
+  &--hide-mobile {
+    @include mobile-media-query {
+      background-size: 0%;
+    }
+  }
 }
 
 @for $i from 1 through 12 {

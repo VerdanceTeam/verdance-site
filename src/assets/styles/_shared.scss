@@ -187,35 +187,6 @@ img {
   max-width: 100%;
 }
 
-.illo-temp {
-  display: flex;
-  background-color: $chartreuse;
-  border: 1px dotted hotpink;
-
-  p {
-    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-    font-size: 14px;
-    text-transform: uppercase;
-    color: hotpink;
-    align-self: center;
-    margin: 0 auto;
-  }
-  &--midsize {
-    aspect-ratio: 30/17;
-    margin-top: 24px;
-  }
-
-  &--spot {
-    height: 64px;
-    width: 64px;
-    margin-bottom: 16px;
-
-    p{
-      width: 30px;
-    }
-  }
-}
-
 p {
   font-size: 1.16em;
   line-height: 1.4em;
@@ -428,7 +399,7 @@ h3 {
   }
 
   .section--spacing {
-    padding: 60px 0;
+    padding: 36px 0;
   }
 
   h1 {
