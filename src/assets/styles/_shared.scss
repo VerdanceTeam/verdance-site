@@ -171,7 +171,11 @@
   }
 
   &--wrapper {
-    padding: 0 16px;
+    @include desktop-media-query {
+      padding: 0 16px;
+    }
+
+    padding: 0 8px;
   }
 
   &--center {

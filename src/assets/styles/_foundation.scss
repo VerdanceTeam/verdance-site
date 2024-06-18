@@ -17,6 +17,12 @@ $desktop-margin: 48px;
 $tablet-margin: 24px;
 $mobile-margin: 16px;
 
+@mixin desktop-media-query {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
 @mixin tablet-media-query {
   @media (max-width: $tablet) and (min-width: $mobile) {
     @content;
