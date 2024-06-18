@@ -45,6 +45,7 @@
     padding: 48px 48px 0 48px;
 
     @include tablet-media-query {
+      grid-template-columns: repeat(12, 1fr);
       max-width: 769px;
       padding: 0 24px;
     }
@@ -62,7 +63,7 @@
       align-items: flex-end;
 
       @include tablet-media-query {
-        height: 200px;
+        height: 150px;
       }
 
       @include mobile-media-query {
