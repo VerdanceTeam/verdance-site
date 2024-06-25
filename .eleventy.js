@@ -69,6 +69,29 @@ module.exports = function (eleventyConfig) {
         }
     );
 
+    eleventyConfig.addLiquidTag('navbarLink', function (liquidEngine) {
+        return {
+            parse: function (tagToken, remainingTokens) {
+                // there's a better way to do this that's not in 11ty yet
+                // https://github.com/11ty/eleventy/issues/2679
+                let args = tagToken.args.split(' ');
+                args = Object.fromEntries(args.map(arg => arg.split('=')));
+                this.hrefLink = args.link;
+                this.navbarLinkName = args.navbarLinkName;
+            },
+            render: async function (scope, hash) {
+                const context = scope.environments;
+                const pageUrl = context.page.url;
+                let href = await liquidEngine.evalValue(this.hrefLink, scope);
+                href += href.endsWith('/') ? '' : '/';
+                const name = await liquidEngine.evalValue(this.navbarLinkName, scope);
+                const activeLinkClass = pageUrl === href ? ' class="active"' : '';
+
+                return `<a ${activeLinkClass} href="${href}">${name}</a>`;
+            },
+        }
+    });
+
     return {
         markdownTemplateEngine: 'liquid',
         dir: {
