@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
             parse: function (tagToken, remainingTokens) {
                 // there's a better way to do this that's not in 11ty yet
                 // https://github.com/11ty/eleventy/issues/2679
-                let args = tagToken.args.split(' ');
+                let args = tagToken.args.split(',');
                 args = Object.fromEntries(args.map(arg => arg.split('=')));
                 this.hrefLink = args.link;
                 this.navbarLinkName = args.navbarLinkName;
