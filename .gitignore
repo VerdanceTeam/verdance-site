@@ -10,3 +10,6 @@ public
 # explicitly include individual files that begin with a .
 !.*/*
 !.*/**
+
+# ignore .prettierrc file
+.prettierrc

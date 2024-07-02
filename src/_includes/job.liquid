@@ -1,37 +1,40 @@
 <div class="col-12 job">
-    <div class="col-6 col-9-tablet col-8-mobile">
-        <div class="dot-leader job--title">
-            {% if title contains "Manager" %}<img
-                src="/assets/img/icons/flower.svg"
-            />{% endif %} {% if title contains "Designer" %}<img
-                src="/assets/img/icons/sun-spot.svg"
-            />{% endif %} {% if title contains "Engineer" %}<img
-                src="/assets/img/icons/brackets.svg"
-            />{% endif %}
-            <div class="large-text">{{ title }}</div>
+  <div class="col-6 col-9-tablet col-8-mobile">
+    <div class="dot-leader job--title">
+      {% if title contains 'Manager' %}
+        {% svgIcon "/img/icons/flower.svg" %}
+      {% endif %}
+      {% if title contains 'Designer' %}
+        {% svgIcon "/img/icons/sun-spot.svg" %}
+      {% endif %}
+      {% if title contains 'Engineer' %}
+        {% svgIcon "/img/icons/brackets.svg" %}
+      {% endif %}
+      <div class="large-text">{{ title }}</div>
 
-            <div class="hr"></div>
-        </div>
+      <div class="hr"></div>
     </div>
-    <div class="col-2 tablet-hide mobile-hide">
-        <div class="dot-leader">
-            <p>
-                {% if type == "FullTime" %} Full-time {% else %}
-                {{ type }}
-                {% endif %}
-            </p>
+  </div>
+  <div class="col-2 tablet-hide mobile-hide">
+    <div class="dot-leader">
+      <p>
+        {% if type == 'FullTime' %}
+          Full-time
+        {% else %}
+          {{ type }}
+        {% endif %}
+      </p>
 
-            <div class="hr"></div>
-        </div>
+      <div class="hr"></div>
     </div>
-    <div class="col-4 col-3-tablet col-4-mobile">
-        <div class="dot-leader">
-            <p class="tablet-hide mobile-hide">{{ location }}</p>
-            <div class="hr tablet-hide mobile-hide"></div>
-            <div class="job--cta">
-                {% include "button", text: "apply", style: "chartreuse", href:
-                jobUrl, newTab: true %}
-            </div>
-        </div>
+  </div>
+  <div class="col-4 col-3-tablet col-4-mobile">
+    <div class="dot-leader">
+      <p class="tablet-hide mobile-hide">{{ location }}</p>
+      <div class="hr tablet-hide mobile-hide"></div>
+      <div class="job--cta">
+        {% include 'button', text: 'apply', style: 'chartreuse', href: jobUrl, newTab: true %}
+      </div>
     </div>
+  </div>
 </div>

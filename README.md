@@ -168,3 +168,35 @@ This is where styles that should be shared across components should live, like b
 This is where page-specific CSS should live, styles that DO NOT get shared across pages.
 
 We generally follow the [BEM methodology](https://css-tricks.com/bem-101/) when writing styles, so please adhere to that.
+
+## Code Formatting
+
+### Prettier Configuration
+
+We use Prettier for code formatting to maintain consistency across the project. We have removed `@shopify/prettier-plugin-liquid` from the project's dependencies, you can still use it by configuring your local environment.
+
+1. **Install Prettier**:
+
+   If you don't already have Prettier installed globally, you can install it with:
+
+   ```sh
+   npm install -g prettier
+   ```
+
+2. **Create a `.prettierrc` file** in the project root with the following configuration:
+
+   ```json
+   {
+     "plugins": ["@shopify/prettier-plugin-liquid"]
+   }
+   ```
+
+3. **Note for macOS Silicon Users**:
+
+   The `@shopify/prettier-plugin-liquid` plugin is deprecated but still functional. If you are using a silicon Mac, you will need to install the `sharp` package to use this plugin. Install `sharp` with:
+
+   ```sh
+   npm install sharp
+   ```
+
+This configuration ensures that you can use the deprecated `@shopify/prettier-plugin-liquid` plugin while maintaining code formatting standards across the project.
