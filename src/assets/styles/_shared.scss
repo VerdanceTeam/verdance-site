@@ -112,20 +112,20 @@
   align-items: end;
 
   &--title {
-    img {
+    svg {
       height: 24px;
       width: 24px;
       padding-right: 12px;
       align-self: center;
     }
-  }
 
-  p {
-    line-height: 1em;
-  }
+    p {
+      line-height: 1em;
+    }
 
-  &--cta {
-    margin-left: 8px;
+    &--cta {
+      margin-left: 8px;
+    }
   }
 }
 
