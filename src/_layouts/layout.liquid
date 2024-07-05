@@ -43,8 +43,8 @@
                 </div>
                 <div class="col-12 navbar__content mobile-hide tablet-hide">
                     <div class="navbar__left display-flex">
-                        <a href="/careers/">Careers</a>
-                        <a href="/about/">About Us</a>
+                        <a {% if page.url == "/careers/" %}class="active"{% endif %}  href="/careers/">Careers</a>
+                        <a {% if page.url == "/about/" %}class="active"{% endif %}  href="/about/">About Us</a>
                         <!-- <a class="tablet-hide" href="/our-work/">Our Work</a> -->
                     </div>
                     <div class="navbar__title content--center">
@@ -57,8 +57,8 @@
                 </div>
                 <div class="col-12 navbar__content desktop-hide">
                     <div class="col-12 content--center">
-                        <a href="/careers/">Careers</a>
-                        <a href="/about/">About us</a>
+                        <a {% if page.url == "/careers" %}class="active"{% endif %}  href="/careers/">Careers</a>
+                        <a {% if page.url == "/about/" %}class="active"{% endif %}  href="/about/">About Us</a>
                         <!-- <a href="/our-work/">Our work</a> -->
                         <a href="mailto:hello@verdance.co">Contact us</a>
                     </div>
