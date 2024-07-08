@@ -446,16 +446,15 @@ h3 {
 }
 
 .main-logo {
-  background-image: url('/assets/img/logos/Verdance-logo-linen-black.png');
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
   &:hover {
+    span {
+      visibility: hidden;
+    }
+
+    background-image: url('/assets/img/logos/Verdance-logo-hero-pixel - black.svg');
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     cursor: pointer;
-    // background-color: skyblue;
-    // color: transparent; 
-    // text-shadow: 0 0 3px rgba(0,0,0,0.5); 
-    background-image: url('/assets/img/logos/Verdance-logo-pixelated-black.png');
   }
 }
