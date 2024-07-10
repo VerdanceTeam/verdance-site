@@ -5,14 +5,17 @@
 .section {
   &--bg-linen {
     background-color: $linen;
+    color: $black;
   }
 
   &--bg-dark-linen {
     background-color: $dark-linen;
+    color: $black;
   }
 
   &--bg-chartreuse {
     background-color: $chartreuse;
+    color: $black;
   }
 
   &--bg-black {
@@ -262,7 +265,7 @@ h3 {
 
   a {
     align-self: flex-end;
-    color: inherit;
+    color: $black;
     font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
     font-size: 18px;
     text-decoration: none;
@@ -302,6 +305,7 @@ h3 {
 
 .slogan-strip {
   @include grid-layout;
+  color: $black;
   margin: 0 14px;
   
   &__left {
