@@ -55,7 +55,7 @@
                     </div>
                     <div class="navbar__right content--right display-flex">
                         <!-- <a class="desktop-hide" href="/our-work/">Our Work</a> -->
-                        <a href="mailto:hello@verdance.co">Contact Us</a>
+                        <a href="#contact">Contact Us</a>
                     </div>
                 </div>
                 <div class="col-12 navbar__content desktop-hide">
@@ -63,7 +63,7 @@
                         <a {% if page.url == "/careers" %}class="active"{% endif %}  href="/careers/">Careers</a>
                         <a {% if page.url == "/about/" %}class="active"{% endif %}  href="/about/">About Us</a>
                         <!-- <a href="/our-work/">Our work</a> -->
-                        <a href="mailto:hello@verdance.co">Contact us</a>
+                        <a href="#contact">Contact us</a>
                     </div>
                     <div class="col-12 navbar__logo content--center">
                       <div class="navbar__logo content--center">
@@ -88,7 +88,7 @@
                         <div class="content--wrapper">
                             <div class="section--content-block">
                                 <div
-                                    class="col-6 col-9-tablet col-9-mobile site-map dash-border dash-border--right dash-border--hide-mobile"
+                                    class="col-2 col-9-tablet col-9-mobile site-map dash-border dash-border--right dash-border--hide-mobile"
                                 >
                                     <img
                                         class="footer__logo"
@@ -98,8 +98,7 @@
                                         <a href="/careers/">Careers</a>
                                         <a href="/about/">About Us</a>
                                         <!-- <a href="/our-work/">Our Work</a> -->
-                                        <a href="mailto:hello@verdance.co"
-                                            >Contact Us</a
+                                        <a id="contact" href="mailto:hello@verdance.co">Contact Us</a
                                         >
                                     </div>
                                     <div class="desktop-hide">
@@ -117,7 +116,22 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="col-6 col-3-tablet col-3-mobile display-flex--tablet display-flex--mobile flex-end--tablet flex-end--mobile"
+                                    class="col-5 dash-border dash-border--right col-3-mobile tablet-hide mobile-hide"
+                                >
+                                    <div class="content--wrapper">
+                                        <form action="/submit-contact-message" method="POST">
+                                          <input type="text" name="first_name" placeholder="First name">
+                                          <input type="text" name="last_name" placeholder="Last name">
+                                          <input type="email" name="email" placeholder="Email">
+                                          <input type="tel" name="phone" placeholder="Phone">
+                                          <input type="text" name="message" placeholder="Message">
+                                          <textarea name="message" placeholder="Message"></textarea>
+                                          <button type="submit">Send</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-5 col-3-tablet col-3-mobile display-flex--tablet display-flex--mobile flex-end--tablet flex-end--mobile"
                                 >
                                     <img
                                         class="footer__logomark desktop-hide"
