@@ -119,15 +119,7 @@
                                     class="col-5 dash-border dash-border--right col-3-mobile tablet-hide mobile-hide"
                                 >
                                     <div class="content--wrapper">
-                                        <form action="/submit-contact-message" method="POST">
-                                          <input type="text" name="first_name" placeholder="First name">
-                                          <input type="text" name="last_name" placeholder="Last name">
-                                          <input type="email" name="email" placeholder="Email">
-                                          <input type="tel" name="phone" placeholder="Phone">
-                                          <input type="text" name="message" placeholder="Message">
-                                          <textarea name="message" placeholder="Message"></textarea>
-                                          <button type="submit">Send</button>
-                                        </form>
+                                        {% include "contact" %}
                                     </div>
                                 </div>
                                 <div
