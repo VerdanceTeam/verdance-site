@@ -290,15 +290,34 @@ h3 {
     }
   }
 
-  &__title {
+  &__logo {
     padding-top: 24px;
+    position: relative;
     grid-column: col-start 5/ span 4;
+    width: 150px;
 
-    a {
-      font-family: 'UntitledSerif', 'Times New Roman', serif;
-      text-transform: none;
-      font-size: 36px;
-      letter-spacing: -2px;
+    img {
+      transition: opacity 0.15s ease;
+    }
+
+    &--standard {
+      opacity: 1;
+    }
+
+    &--pixelate {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+    }
+
+    &:hover {
+      .navbar__logo--standard {
+        opacity: 0;
+      }
+  
+      .navbar__logo--pixelate {
+        opacity: 1;
+      }
     }
   }
 }
