@@ -25,7 +25,7 @@ npm install
 Once all your dependencies are installed, you just have to run the 11ty app as follows:
 
 ```bash
-npm run build
+npm run serve
 ```
 
 This command does "hot reloading" and takes everything in the `/src` folder and builds a "production" instance and serves it up from the `/public` folder. 
