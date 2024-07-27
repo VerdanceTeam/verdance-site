@@ -1,10 +1,16 @@
 {% comment %} <form action="/submit-contact-message" method="POST"> {% endcomment %}
-<form action="" method="POST">
+<form>
   <input type="text" name="first_name" placeholder="First name">
   <input type="text" name="last_name" placeholder="Last name">
-  <input type="email" name="email" placeholder="Email">
+  <input id="contact_email" type="email" name="email" placeholder="Email">
   <input type="tel" name="phone" placeholder="Phone">
   <input type="text" name="message" placeholder="Message">
-  <textarea name="message" placeholder="Message"></textarea>
-  <button type="submit" onclick="alert('submit the message or something')">Send</button>
+  <textarea id="contact_message" name="message" placeholder="Message"></textarea>
+  {% comment %} <button type="submit" onclick="submit_contact_form()">Send</button> {% endcomment %}
+  {% comment %} <button onclick="submit_contact_form()">Send</button> {% endcomment %}
+  {% comment %} <button onclick="contact()">Send</button> {% endcomment %}
+  {% comment %} <button onclick="submit_contact_form()">Send</button> {% endcomment %}
+  <button onclick="contact()">Send</button>
 </form>
+{% comment %} <script src="assets/js/postmark-index.js"></script>
+<script src="/assets/js/contact.js"></script> {% endcomment %}

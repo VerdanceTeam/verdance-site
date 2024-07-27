@@ -10,5 +10,8 @@
     "@11ty/eleventy-fetch": "^4.0.1",
     "@11ty/eleventy-img": "^4.0.2",
     "sass": "^1.72.0"
+  },
+  "dependencies": {
+    "postmark": "^4.0.4"
   }
 }
