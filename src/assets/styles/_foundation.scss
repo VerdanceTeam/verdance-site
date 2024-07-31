@@ -72,6 +72,7 @@ $mobile-margin: 16px;
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'PPNeueBit';
   src:  url('/assets/fonts/PPNeueBit-Regular.woff2') format('woff2');
 }
