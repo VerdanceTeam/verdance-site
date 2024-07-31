@@ -82,6 +82,12 @@ $mobile-margin: 16px;
   src:  url('/assets/fonts/PPNeueBit-Bold.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'some_other';
+  src:  url('/assets/fonts/some_other.woff2') format('woff2');
+}
+
+
 // Layout
 .page {
   font-family: 'UntitledSerif', 'Times New Roman', serif;
