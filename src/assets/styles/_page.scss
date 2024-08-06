@@ -32,8 +32,8 @@
 
   & .who-we-are {
     &__icon {
-      height: 48px;
-      width: 48px;
+      height: 64px;
+      width: 64px;
     }
   }
 
@@ -80,14 +80,18 @@
 .about-page {
   & .who-we-are {
     &__icon {
-      height: 48px;
-      width: 48px;
+      height: 64px;
+      width: 64px;
     }
   }
 }
 
 .careers-page {
   & .who-we-are {
+    &__icon {
+      height: 64px;
+      width: 64px;
+    }
     &__order {
       align-self: flex-end;
       color: inherit;
