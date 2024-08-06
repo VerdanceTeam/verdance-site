@@ -1,45 +1,41 @@
-<section class="roles section--spacing section--bg-linen">
-  <div class="container">
-    <div class="col-12 dash-border dash-border--left-right">
-      <div class="content--wrapper">
-        <p class="section--subtitle">
-          <span
-            class="
-              {% unless jobs.length != 0 %}
-                strikethrough
-              {% endunless %}
-            "
-            >open</span
-          >
-          roles
-        </p>
-        <div class="section--intro">
-          <h1 class="col-5 col-6-tablet col-12-mobile">We value autonomy, trust, and flexibility.</h1>
-          <div class="col-1 tablet-hide mobile-hide"></div>
-          <p class="col-6 col-12-mobile content--wrapper">
-            Working in civic tech can be challenging and rewarding. It's not easy helping government improve the way it
-            delivers technology - but a future where digital services are provided smoothly is possible. Want to help
-            create it?
-          </p>
-          {% if jobs.length != 0 %}
-            {% for job in jobs %}
-              {% include 'job',
-                title: job.title,
-                type: job.employmentType,
-                location: job.location,
-                jobUrl: job.jobUrl
-              %}
-            {% endfor %}
-          {% else %}
-            <div class="col-12 job">
-              <p class="col-12 large-text">
-                We don't have any open roles right now, but check back soon.
-                <span class="job--title vertical-align-sub">{% svgIcon "/img/icons/leaf.svg" %}</span>
-              </p>
+<section id="roles" class="roles section--spacing section--bg-linen">
+    <div class="container">
+        <div class="col-12 dash-border dash-border--left-right">
+            <div class="content--wrapper">
+                <p class="section--subtitle">
+                    <span
+                        class="{% unless jobs.length != 0 %} strikethrough {% endunless %}"
+                        >open</span
+                    >
+                    roles
+                </p>
+                <div class="section--intro">
+                    <h1 class="col-5 col-6-tablet col-12-mobile">
+                        We value autonomy, trust, and flexibility.
+                    </h1>
+                    <div class="col-1 tablet-hide mobile-hide"></div>
+                    <p class="col-6 col-12-mobile content--wrapper">
+                        Working in civic tech can be challenging and rewarding.
+                        It's not easy helping government improve the way it
+                        delivers technology - but a future where digital
+                        services are provided smoothly is possible. Want to help
+                        create it?
+                    </p>
+                    {% if jobs.length != 0 %} {% for job in jobs %} {% include
+                    'job', title: job.title, type: job.employmentType, location:
+                    job.location, jobUrl: job.jobUrl %} {% endfor %} {% else %}
+                    <div class="col-12 job">
+                        <p class="col-12 large-text">
+                            We don't have any open roles right now, but check
+                            back soon.
+                            <span class="job--title vertical-align-sub"
+                                >{% svgIcon "/img/icons/leaf.svg" %}</span
+                            >
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-          {% endif %}
         </div>
-      </div>
     </div>
-  </div>
 </section>
