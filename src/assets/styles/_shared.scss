@@ -337,7 +337,7 @@ h3 {
 
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
     padding: 4px 0;
     grid-column: col-start 4/ span 6;
@@ -390,16 +390,16 @@ h3 {
 
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-    font-size: 14px;
+    font-size: 20px;
     padding: 4px 0;
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
+    height: 14px;
+    width: 14px;
     display: inline-block;
     color: $black;
-    margin: 0 5px;
+    margin: 9px 9px;
 
     &--linen {
       color: $linen;
@@ -416,6 +416,10 @@ h3 {
       text-decoration: none;
       margin-bottom: 16px;
     }
+  }
+
+  .icon-wrapper {
+    margin: 0 8px;
   }
 }
 
