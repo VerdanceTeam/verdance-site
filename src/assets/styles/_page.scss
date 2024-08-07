@@ -28,12 +28,36 @@
       flex-direction: column;
       justify-content: end;
     }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+
+      & .experience__cta {
+        order: 2;
+      }
+      & .experience__text {
+        order: 3;
+      }
+      & .experience__illustration {
+        order: 1;
+        margin: 24px 0;
+      }
+    }
   }
 
   & .who-we-are {
     &__icon {
       height: 64px;
       width: 64px;
+
+      @include tablet-media-query {
+        margin-top: 24px;
+      }
+  
+      @include mobile-media-query {
+        margin-top: 24px;
+      }
     }
   }
 
@@ -42,18 +66,18 @@
     grid-template-columns: repeat(5, 1fr);
     max-width: 1440px;
     margin: 0 auto;
-    padding: 48px 48px 0 48px;
+    margin: 48px 48px 0 48px;
 
     @include tablet-media-query {
       grid-template-columns: repeat(12, 1fr);
       max-width: 769px;
-      padding: 0 24px;
+      margin: 0 24px;
     }
 
     @include mobile-media-query {
       grid-template-columns: repeat(12, 1fr);
       max-width: 376px;
-      padding: 0 16px;
+      margin: 0 16px;
     }
 
     &__item {
@@ -64,10 +88,43 @@
 
       @include tablet-media-query {
         height: 150px;
+
+        &:nth-child(1) {
+          padding-top: 16px;
+        }
+        &:nth-child(2) {
+          margin-top: 16px;
+        }
+        &:nth-child(3) {
+          padding-top: 16px;
+        }
+        &:nth-child(4) {
+          padding-top: 16px;
+        }
+        &:nth-child(5) {
+          margin-top: 16px;
+        }
       }
 
       @include mobile-media-query {
         height: 100px;
+        padding-top: 16px;
+
+        &:nth-child(1) {
+          padding-top: 16px;
+        }
+        &:nth-child(2) {
+          margin-top: 16px;
+        }
+        &:nth-child(3) {
+          padding-top: 16px;
+        }
+        &:nth-child(4) {
+          padding-top: 16px;
+        }
+        &:nth-child(5) {
+          margin-top: 16px;
+        }
       }
 
       img {
@@ -101,6 +158,12 @@
       text-transform: uppercase;
       height: 48px;
       width: 48px;
+    }
+  }
+
+  & .hiring-step {
+    @include tablet-media-query {
+      margin-bottom: 24px;
     }
   }
 }
