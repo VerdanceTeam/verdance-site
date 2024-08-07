@@ -77,7 +77,7 @@ $mobile-margin: 16px;
 }
 
 @font-face {
-  font-family: 'PPNeueBitBold';
+  font-family: 'PPNeueBit-Bold';
   src:  url('/assets/fonts/PPNeueBit-Bold.woff2') format('woff2');
 }
 
@@ -246,7 +246,6 @@ $mobile-margin: 16px;
 
 .strikethrough {
   position: relative;
-  display: inline-block;
 }
 
 .strikethrough::after {

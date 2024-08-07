@@ -35,7 +35,7 @@
 
   &--subtitle {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 32px;
     text-transform: uppercase;
   }
@@ -81,7 +81,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+  font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
   font-size: 18px;
   height: 40px;
   justify-content: center;
@@ -229,7 +229,7 @@ h3 {
 
 .subtitle {
   font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-  font-size: 14px;
+  font-size: 24px;
   margin-bottom: 12px;
   text-transform: uppercase;
 }
@@ -266,7 +266,7 @@ h3 {
   a {
     align-self: flex-end;
     color: $black;
-    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
     font-size: 18px;
     text-decoration: none;
     text-transform: uppercase;
@@ -336,16 +336,17 @@ h3 {
   }
 
   &__slogan {
-    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
-    font-size: 12px;
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 20px;
     text-transform: uppercase;
     padding: 4px 0;
     grid-column: col-start 4/ span 6;
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
+    height: 14px;
+    width: 14px;
+    margin: 9px 8px;
     display: inline-block;
     color: $black;
 
@@ -389,17 +390,17 @@ h3 {
   }
 
   &__slogan {
-    font-family: 'PPNeueBitBold', 'Tahoma', 'san-serif';
-    font-size: 12px;
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 20px;
     padding: 4px 0;
   }
 
   &__icon {
-    height: 8px;
-    width: 8px;
+    height: 14px;
+    width: 14px;
     display: inline-block;
     color: $black;
-    margin: 0 5px;
+    margin: 9px 9px;
 
     &--linen {
       color: $linen;
@@ -416,6 +417,10 @@ h3 {
       text-decoration: none;
       margin-bottom: 16px;
     }
+  }
+
+  .icon-wrapper {
+    margin: 0 8px;
   }
 }
 
