@@ -121,6 +121,10 @@ There are a few things to note here:
 
 You can read more about the 11ty config file in their documentation [here](https://www.11ty.dev/docs/config/).
 
+### CI
+
+Percy
+
 ### HTML
 
 We use a very simple templating language for our HTML files called Liquid. You can read more about on their official documentioned [here](https://shopify.github.io/liquid/basics/introduction/).
