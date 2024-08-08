@@ -123,7 +123,7 @@ You can read more about the 11ty config file in their documentation [here](https
 
 ### CI
 
-Percy
+Within `.github/workflows/` you can see our various Github CI config files. As of now, on every PR we'll be creating a static build of our site and use [Percy](https://percy.io/) for graphical diffing. On merge to `main` the snapshots we diff against in Percy will be updated.
 
 ### HTML
 

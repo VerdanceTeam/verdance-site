@@ -1,0 +1,35 @@
+name: Percy Visual Tests on PR
+
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+
+jobs:
+    visual-tests:
+        runs-on: ubuntu-latest
+        environment: ci # Specify the environment here
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '20'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build the static site
+              run: npm run build
+
+            - name: Install Percy CLI
+              run: npm install --save-dev @percy/cli
+
+            - name: Run Percy snapshots
+              env:
+                  PERCY_TOKEN: ${{ vars.PERCY_TOKEN }}
+              run: npx percy snapshot ./public
