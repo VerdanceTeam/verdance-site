@@ -1,0 +1,37 @@
+<section class="hero section--spacing section--bg-linen">
+    <div class="container">
+        <div class="col-12">
+            <div class="content--wrapper">
+                <div class="section--intro">
+                    <h1 class="col-6 col-12-tablet col-12-mobile">
+                        Organization name {{ organization_name }}
+                    </h1>
+                    <div class="col-6 col-12-tablet col-12-mobile content--right display-flex">
+                        {% comment %} probz put another wrapper div here {% endcomment %}
+                        <img class="org-logo" src="https://i.pinimg.com/originals/a2/5c/19/a25c198273a072fc9a608ee01a3bff80.png"/>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="section--intro">
+                    <div class="col-6 col-12-tablet col-12-mobile">
+                        <p class="section--subtitle">type of work e.g. api work Name {{ organization_type_of_work }}</p>
+                        <div class="content--wrapper">
+                            <h2>
+                                {{ organization_subheading }}
+                                Some caption like: In 2023, health care data still isn’t where it needs to be to be most useful.
+                            </h2>
+                            <p>
+                                {{ organization_description }}
+                                Description text like: The Data at the Point of Care API, currently in pilot mode, lets Medicare beneficiaries ensure their providers have access to their medical information from different doctors, so their medical team can deliver a higher standard of care. We’re helping make the changes to roll out this API to far larger groups, ensuring it’s secure, resilient, and accurate. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-12-tablet col-12-mobile dash-border dash-border--left">
+                        <img class="org-screenshot" src="https://image.similarpng.com/very-thumbnail/2020/07/Frowning-Face-emoji-on-transparent-PNG.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
