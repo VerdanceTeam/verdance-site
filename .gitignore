@@ -4,12 +4,15 @@ node_modules
 # build artefacts
 public
 
-# ignore all hidden directories
-.*/
+# ignore all hidden files and directories
+.*
 
-# explicitly include individual files that begin with a .
-!.*/*
-!.*/**
+# but include specific hidden files and directories
+!.eleventy.js
+!.github
+!.github/*
+!.nvmrc
+!.percy.js
 
 # ignore .prettierrc file
 .prettierrc
