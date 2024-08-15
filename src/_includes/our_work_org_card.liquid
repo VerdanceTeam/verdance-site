@@ -16,7 +16,7 @@
                 <div class="section--intro">
                     <div class="col-6 col-12-tablet col-12-mobile">
                         <p class="section--subtitle">{{ organization.type_of_work }}</p>
-                        <div class="content--wrapper">
+                        <div class="pad-right">
                             <h2>
                                 {{ organization.subheading }}
                             </h2>
@@ -27,6 +27,9 @@
                     </div>
                     <div class="col-6 col-12-tablet col-12-mobile dash-border dash-border--left">
                         <img class="org-screenshot" src="{{ organization.screenshot }}" />
+                        <p class="org-caption">
+                            {{ organization.caption }}
+                        </p>
                     </div>
                 </div>
             </div>

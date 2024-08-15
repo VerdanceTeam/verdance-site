@@ -179,6 +179,10 @@
 }
 
 .our-work-page {
+  .pad-right {
+    padding-right: 16px;
+  }
+
   .org-logo {
     max-width: 100px;
   }
@@ -186,5 +190,8 @@
   .org-screenshot {
     padding: 16px;
     width: 90%;
+  }
+  .org-caption {
+    padding: 0 16px;
   }
 }
