@@ -36,6 +36,6 @@ permalink: /our-work/
     </section>
 
     {% for organization in our_work_organizations %}
-        {% include 'our_work_org_card', organization_name: organization.name %}
+        {% include 'our_work_org_card', organization: organization %}
     {% endfor %}
 </div>
