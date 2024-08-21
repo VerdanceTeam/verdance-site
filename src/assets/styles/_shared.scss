@@ -389,6 +389,11 @@ h3 {
     padding-top: 4px;
   }
 
+  &__logomark {
+    padding-bottom: 28px;
+    padding-right: 24px;
+  }
+
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
     font-size: 20px;
@@ -421,6 +426,21 @@ h3 {
 
   .icon-wrapper {
     margin: 0 8px;
+  }
+
+  .cage-code-section {
+    font-family: "UntitledSerif", "Times New Roman", serif;
+    margin-top: 84px;
+
+    .section-name {
+      font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .section-value {
+      margin-bottom: 16px;
+    }
   }
 }
 
