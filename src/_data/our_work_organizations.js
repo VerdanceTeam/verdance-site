@@ -1,6 +1,5 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
-// This just sample data to mimic an API response until we add in our Lever jobs
 module.exports = async function () {
   let ourWorkOrganizations = [];
   ourWorkOrganizations.push({
