@@ -191,6 +191,14 @@
   .org-screenshot {
     padding-left: 16px;
     width: 100%;
+
+    @include tablet-media-query {
+      padding-left: 0;
+    }
+
+    @include mobile-media-query {
+      padding-left: 0;
+    }
   }
   .org-caption {
     padding: 0 16px;
