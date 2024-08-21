@@ -3,9 +3,9 @@
         <div class="col-12">
             <div class="content--wrapper">
                 <div class="section--intro">
-                    <h1 class="col-6 col-12-tablet col-12-mobile">
-                        Organization name {{ organization.name }}
-                    </h1>
+                    <div class="col-6 col-12-tablet col-12-mobile">
+                        <h1>{{ organization.name }}</h1>
+                    </div>
                     <div class="col-6 col-12-tablet col-12-mobile content--right display-flex">
                         {% comment %} probz put another wrapper div here {% endcomment %}
                         <img class="org-logo" src="{{ organization.logo }}" />

@@ -6,16 +6,16 @@ module.exports = async function () {
   ourWorkOrganizations.push({
     "caption": "This caption describes the image above",
     "description": "It’s complex to both apply for these benefits and for VA to make accurate eligibility decisions. The PACT Act was a historic expansion of these benefits, and required VA to make sweeping changes to handle the increased volume and new requirements. We’ve been engaged in several efforts to improve Veterans’ benefits technology, including redesigning the disability benefits application form and using data science models to help VA process claims more efficiently.",
-    "logo": "https://image.similarpng.com/very-thumbnail/2020/07/Frowning-Face-emoji-on-transparent-PNG.png",
+    "logo": "/assets/img/partners/VA-seal.png",
     "name": "Veterans Affairs",
-    "screenshot": "https://image.similarpng.com/very-thumbnail/2020/07/Frowning-Face-emoji-on-transparent-PNG.png",
+    "screenshot": "/assets/img/screenshots/va-gov-screenshot.png",
     "subheading": "More than 5 million Veterans receive disability benefits from VA for conditions connected to their service.",
     "type_of_work": "API work - data migration",
   });
   ourWorkOrganizations.push({
     "caption": "This caption describes the image above",
     "description": "The Data at the Point of Care API, currently in pilot mode, lets Medicare beneficiaries ensure their providers have access to their medical information from different doctors, so their medical team can deliver a higher standard of care. We’re helping make the changes to roll out this API to far larger groups, ensuring it’s secure, resilient, and accurate.",
-    "logo": "https://image.similarpng.com/very-thumbnail/2020/07/Frowning-Face-emoji-on-transparent-PNG.png",
+    "logo": "/assets/img/partners/CMS-logo.png",
     "name": "Centers for Medicare & Medicaid Services",
     "screenshot": "https://image.similarpng.com/very-thumbnail/2020/07/Frowning-Face-emoji-on-transparent-PNG.png",
     "subheading": "In 2023, health care data still isn’t where it needs to be to be most useful.",
