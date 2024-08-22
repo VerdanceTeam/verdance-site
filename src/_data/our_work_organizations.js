@@ -20,7 +20,7 @@ module.exports = async function () {
   });
   ourWorkOrganizations.push({
     "description": "We’re helping CDC build a platform called ReportStream to ensure we have better quality disease data when we need it, to support any condition that becomes necessary. The platform is rolled out in 35+ states and counting.",
-    "logo": "/assets/img/partners/CDC-logo.png",
+    "logo": "/assets/img/partners/CDC-logo-transparent.png",
     "name": "Centers for Disease Control",
     "screenshot": "/assets/img/screenshots/Report Stream.png",
     "subheading": "The COVID years exposed a lack of national technology infrastructure to seamlessly and accurately report disease information.",
