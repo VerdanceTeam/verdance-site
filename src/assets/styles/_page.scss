@@ -179,10 +179,6 @@
 }
 
 .our-work-page {
-  .pad-right {
-    padding-right: 16px;
-  }
-
   .org-card {
     @include tablet-media-query {
       padding-bottom: 56px;
@@ -208,6 +204,10 @@
       @include mobile-media-query {
         padding-left: 0;
       }
+    }
+
+    &__content {
+      padding-right: 16px;
     }
   }
 }
