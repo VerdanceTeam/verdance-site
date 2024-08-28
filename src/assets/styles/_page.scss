@@ -191,6 +191,10 @@
     .org-logo {
       width: auto;
       max-height: 84px;
+
+      &__mobile {
+        margin-top: 120px;
+      }
     }
   
     .org-screenshot {
