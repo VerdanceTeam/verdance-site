@@ -386,11 +386,19 @@ h3 {
 
   &__legal-section {
     @include grid-layout;
+    font-family: "PPNeueBit-Bold", "Tahoma", "san-serif";
     padding-top: 4px;
+    text-transform: uppercase;
 
     .footer-content-1 {
       justify-self: center;
 
+      @include mobile-media-query {
+        order: 1;
+      }
+      @include tablet-media-query {
+        order: 1;
+      }
       @include desktop-media-query {
         justify-self: start;
       }
@@ -401,6 +409,13 @@ h3 {
       @include desktop-media-query {
         justify-self: end;
       }
+    }
+
+    @include mobile-media-query {
+      padding-bottom: 84px;
+    }
+    @include tablet-media-query {
+      padding-bottom: 84px;
     }
   }
 
