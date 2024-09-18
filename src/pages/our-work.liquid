@@ -3,3 +3,63 @@ layout: layout.liquid
 title: Verdance Our Work
 permalink: /our-work/
 ---
+
+<div class="our-work-page">
+    <section class="hero section--spacing section--bg-linen">
+        <div class="container">
+            <div class="col-12">
+                <div class="content--wrapper">
+                    <p class="section--subtitle">Our work</p>
+                    <div class="section--intro">
+                        <h1 class="col-5 col-12-tablet col-12-mobile">
+                            We take on impactful, challenging projects.
+                        </h1>
+                        <div class="col-1 tablet-hide mobile-hide"></div>
+                        <p
+                            class="col-6 tablet-hide mobile-hide content--wrapper"
+                        >
+                            Verdance tackles technology challenges that move the 
+                            needle on making public services more effective. Check 
+                            out some examples of projects we've worked on over the 
+                            past few years.
+                        </p>
+                        <p class="desktop-hide col-12-tablet col-12-mobile">
+                            Verdance tackles technology challenges that move the 
+                            needle on making public services more effective. Check 
+                            out some examples of projects we've worked on over the 
+                            past few years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'our_work_org_card', 
+        description: "VA offers a wide variety of benefits to Veterans, but determining a Veteran's eligibility can be tricky and time-consuming. The PACT Act, passed in 2022, was a historic expansion of VA benefits, and required sweeping changes to handle new requirements and an increased volume of applications. We’ve worked on several efforts to improve the digital services that support Veterans, including redesigning benefits applications and creating new tools for VA employees to process claims more efficiently and accurately.",
+        logo: "/assets/img/partners/VA-seal.png",
+        name: "Department of Veterans Affairs",
+        screenshot: "/assets/img/screenshots/VA.png",
+        screenshot_css: "va-screenshot"
+        subheading: "Getting well-earned benefits into the hands of Veterans",
+        type_of_work: "Fullstack Development & Data Science",
+    %}
+    {% include 'our_work_org_card', 
+        description: "CMS offers a variety of APIs to ensure Medicare providers can access the health data they need to give the most informed care possible to patients. We've helped build out health data APIs and the systems that support them, while ensuring that critical CMS systems are secure, scalable, and adaptable.",
+        logo: "/assets/img/partners/CMS-logo.png",
+        name: "Centers for Medicare & Medicaid Services",
+        screenshot: "/assets/img/screenshots/DPC.png",
+        screenshot_css: "cms-screenshot"
+        subheading: "Removing blockers and creating new pathways for health data to be accessible and useful",
+        type_of_work: "API DESIGN & DEVELOPMENT",
+    %}
+    {% include 'our_work_org_card', 
+        description: "The challenges of the early COVID years demonstrated a strong need for improved national technology infrastructure so healthcare jurisdictions can seamlessly and accurately report disease information. We've helped build a front door used by 35+ states to report disease data to help government shore up its capacity to respond to public health events.",
+        logo: "/assets/img/partners/CDC-logo-transparent-bg.png",
+        name: "Centers for Disease Control and Prevention",
+        screenshot: "/assets/img/screenshots/Report Stream.png",
+        screenshot_css: "cdc-screenshot"
+        subheading: "Developing systems for pandemic readiness",
+        type_of_work: "FRONTEND DEVELOPMENT",
+    %}
+</div>

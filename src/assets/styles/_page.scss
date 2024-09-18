@@ -210,3 +210,62 @@
     text-underline-offset: 4px;
   }
 }
+
+.our-work-page {
+  .org-card {
+    @include tablet-media-query {
+      padding-bottom: 56px;
+    }
+    @include mobile-media-query {
+      padding-bottom: 28px;
+    }
+    padding-bottom: 98px;
+
+    .org-logo {
+      width: auto;
+      max-height: 84px;
+
+      &__mobile {
+        margin-top: 120px;
+      }
+    }
+  
+
+    .our-work-screenshot-wrapper {
+      align-items: center;
+      justify-content: center;
+
+      .org-screenshot {
+        height: auto;
+        padding: 16px;
+        width: 90%;
+        max-width: 548px;
+  
+        @include tablet-media-query {
+          padding-left: 0;
+        }
+  
+        @include mobile-media-query {
+          padding-left: 0;
+        }
+      }
+
+      &.cdc-screenshot {
+        background-color: #549371;
+      }
+
+      &.cms-screenshot {
+        background-color: #BFD4BF;
+      }
+
+      &.va-screenshot {
+        background-color: $dark-linen;
+      }
+    }
+
+    &__content {
+      padding-right: 80px;
+    }
+
+  }
+}
