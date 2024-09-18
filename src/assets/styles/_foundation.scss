@@ -25,7 +25,7 @@ $mobile-margin: 16px;
 }
 
 @mixin tablet-media-query {
-  @media (max-width: $tablet) and (min-width: $mobile) {
+  @media (max-width: ($tablet - 1px)) and (min-width: ($mobile + 1px)) {
     @content;
   }
 }
