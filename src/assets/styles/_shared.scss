@@ -387,6 +387,21 @@ h3 {
   &__legal-section {
     @include grid-layout;
     padding-top: 4px;
+
+    .footer-content-1 {
+      justify-self: center;
+
+      @include desktop-media-query {
+        justify-self: start;
+      }
+    }
+    .footer-content-2 {
+      justify-self: center;
+
+      @include desktop-media-query {
+        justify-self: end;
+      }
+    }
   }
 
   &__logomark {
