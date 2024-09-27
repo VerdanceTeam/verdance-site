@@ -518,6 +518,14 @@ h3 {
       }
     }
   }
+
+  .footer-desktop-logo-wrapper {
+    align-items: flex-end;
+    flex-direction: row-reverse;
+  }
+  .footer-mobile-logo-wrapper {
+    text-align: center;
+  }
 }
 
 @include tablet-media-query {
