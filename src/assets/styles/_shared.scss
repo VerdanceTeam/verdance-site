@@ -401,12 +401,68 @@ h3 {
 
   &__legal-section {
     @include grid-layout;
+    font-family: "PPNeueBit-Bold", "Tahoma", "san-serif";
     padding-top: 4px;
+    text-transform: uppercase;
+
+    .footer-content-1 {
+      justify-self: center;
+
+      @include mobile-media-query {
+        order: 1;
+      }
+      @include tablet-media-query {
+        order: 1;
+      }
+      @include desktop-media-query {
+        justify-self: start;
+      }
+    }
+    .footer-content-2 {
+      justify-self: center;
+
+      @include desktop-media-query {
+        justify-self: end;
+      }
+      @include mobile-media-query {
+        padding-bottom: 16px;
+        padding-top: 28px;
+        text-align: center;
+      }
+      @include tablet-media-query {
+        padding-bottom: 16px;
+        padding-top: 28px;
+        text-align: center;
+      }
+
+      .footer__slogan {
+        @include mobile-media-query {
+          max-width: 90%;
+        }
+        @include tablet-media-query {
+          max-width: 90%;
+        }
+      }
+    }
+
+    @include mobile-media-query {
+      padding-bottom: 72px;
+    }
+    @include tablet-media-query {
+      padding-bottom: 72px;
+    }
+  }
+
+  &__logomark {
+    padding-bottom: 28px;
+    padding-right: 24px;
   }
 
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
     font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 1.1em;
     padding: 4px 0;
   }
 
@@ -425,7 +481,7 @@ h3 {
   &__links {
     display: flex;
     flex-direction: column;
-    padding-top: 122px;
+    padding-top: 48px;
 
     a {
       color: $linen;
@@ -436,6 +492,31 @@ h3 {
 
   .icon-wrapper {
     margin: 0 8px;
+  }
+
+  .cage-code-section-wrapper {
+    @include desktop-media-query {
+      padding: 0 8px;
+    }
+
+    .cage-code-section {
+      font-family: "UntitledSerif", "Times New Roman", serif;
+
+      .section-name {
+        font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .section-value {
+        margin-bottom: 16px;
+      }
+
+      @include desktop-media-query {
+        margin-top: 84px;
+      }
+    }
   }
 }
 
