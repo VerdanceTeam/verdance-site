@@ -409,13 +409,32 @@ h3 {
       @include desktop-media-query {
         justify-self: end;
       }
+      @include mobile-media-query {
+        padding-bottom: 16px;
+        padding-top: 28px;
+        text-align: center;
+      }
+      @include tablet-media-query {
+        padding-bottom: 16px;
+        padding-top: 28px;
+        text-align: center;
+      }
+
+      .footer__slogan {
+        @include mobile-media-query {
+          max-width: 90%;
+        }
+        @include tablet-media-query {
+          max-width: 90%;
+        }
+      }
     }
 
     @include mobile-media-query {
-      padding-bottom: 84px;
+      padding-bottom: 72px;
     }
     @include tablet-media-query {
-      padding-bottom: 84px;
+      padding-bottom: 72px;
     }
   }
 
@@ -427,6 +446,7 @@ h3 {
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
     font-size: 20px;
+    line-height: 1.1em;
     padding: 4px 0;
   }
 
@@ -458,21 +478,27 @@ h3 {
     margin: 0 8px;
   }
 
-  .cage-code-section {
-    font-family: "UntitledSerif", "Times New Roman", serif;
-
-    .section-name {
-      font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-      font-size: 20px;
-      text-transform: uppercase;
-    }
-
-    .section-value {
-      margin-bottom: 16px;
-    }
-
+  .cage-code-section-wrapper {
     @include desktop-media-query {
-      margin-top: 84px;
+      padding: 0 8px;
+    }
+
+    .cage-code-section {
+      font-family: "UntitledSerif", "Times New Roman", serif;
+
+      .section-name {
+        font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+
+      .section-value {
+        margin-bottom: 16px;
+      }
+
+      @include desktop-media-query {
+        margin-top: 84px;
+      }
     }
   }
 }
