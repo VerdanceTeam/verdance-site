@@ -21,8 +21,8 @@ permalink: /
                 <p class="hero__subhero desktop-hide">
                   Verdance is a consultancy using design and technology to help government agencies transform customer experiences, enhance data quality and availability, and make efficient, accurate decisions.
                 </p>
-                <video autoplay loop muted playsinline preload="auto">
-                  <source src="/assets/img/Monuments.mp4" type="video/mp4">
+                <video autoplay loop muted playsinline preload="auto" id="hero-video">
+                  <source src="/assets/img/Monuments.webm" type="video/webm" id="hero-source">
                   <img src="/assets/img/Monuments.webp" alt="Verdance Hero Image">
                 </video>
                 <div class="hero__cta">
@@ -215,3 +215,23 @@ permalink: /
     </section>
 -->
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Check if the browser is Safari
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+      // Get the video and source elements
+      const videoElement = document.getElementById('hero-video');
+      const sourceElement = document.getElementById('hero-source');
+
+      // Update the source for Safari only
+      sourceElement.src = "/assets/img/Monuments.mp4";
+      sourceElement.type = "video/mp4";
+
+      // Reload the video to apply the new source
+      videoElement.load();
+    }
+  });
+</script>
