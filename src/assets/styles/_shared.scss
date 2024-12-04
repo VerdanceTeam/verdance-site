@@ -389,9 +389,6 @@ h3 {
     margin-bottom: 24px;
   }
 
-  &__message {
-  }
-
   &__cta {
     margin-top: 48px;
   }
@@ -401,39 +398,6 @@ h3 {
     font-family: "PPNeueBit-Bold", "Tahoma", "san-serif";
     padding-top: 4px;
     text-transform: uppercase;
-
-    // TODO: rename -1 and -2
-    // this is to swap the order they are displayed mobile vs desktop
-    .footer-content-1 {
-      justify-self: center;
-
-      @include mobile-media-query {
-        order: 1;
-      }
-      @include tablet-media-query {
-        order: 1;
-      }
-      @include desktop-media-query {
-        justify-self: start;
-      }
-    }
-    .footer-content-2 {
-      justify-self: center;
-
-      @include desktop-media-query {
-        justify-self: end;
-      }
-      @include mobile-media-query {
-        padding-bottom: 16px;
-        padding-top: 28px;
-        text-align: center;
-      }
-      @include tablet-media-query {
-        padding-bottom: 16px;
-        padding-top: 28px;
-        text-align: center;
-      }
-    }
 
     &__slogan {
       @include mobile-media-query {
@@ -449,6 +413,38 @@ h3 {
     }
     @include tablet-media-query {
       padding-bottom: 72px;
+    }
+  }
+
+  &__copyright {
+    justify-self: center;
+
+    @include mobile-media-query {
+      order: 1;
+    }
+    @include tablet-media-query {
+      order: 1;
+    }
+    @include desktop-media-query {
+      justify-self: start;
+    }
+  }
+
+  &__description {
+    justify-self: center;
+
+    @include desktop-media-query {
+      justify-self: end;
+    }
+    @include mobile-media-query {
+      padding-bottom: 16px;
+      padding-top: 28px;
+      text-align: center;
+    }
+    @include tablet-media-query {
+      padding-bottom: 16px;
+      padding-top: 28px;
+      text-align: center;
     }
   }
 
@@ -516,11 +512,11 @@ h3 {
     }
   }
 
-  .footer-desktop-logo-wrapper {
+  &__desktop-logo {
     align-items: flex-end;
     flex-direction: row-reverse;
   }
-  .footer-mobile-logo-wrapper {
+  &__mobile-logo {
     text-align: center;
   }
 }
