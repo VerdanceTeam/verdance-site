@@ -390,9 +390,6 @@ h3 {
   }
 
   &__message {
-    @include grid-layout;
-    margin-top: 48px;
-    margin-bottom: 24px;
   }
 
   &__cta {
@@ -405,6 +402,8 @@ h3 {
     padding-top: 4px;
     text-transform: uppercase;
 
+    // TODO: rename -1 and -2
+    // this is to swap the order they are displayed mobile vs desktop
     .footer-content-1 {
       justify-self: center;
 
@@ -434,14 +433,14 @@ h3 {
         padding-top: 28px;
         text-align: center;
       }
+    }
 
-      .footer__slogan {
-        @include mobile-media-query {
-          max-width: 90%;
-        }
-        @include tablet-media-query {
-          max-width: 90%;
-        }
+    &__slogan {
+      @include mobile-media-query {
+        max-width: 90%;
+      }
+      @include tablet-media-query {
+        max-width: 90%;
       }
     }
 
@@ -490,32 +489,30 @@ h3 {
     }
   }
 
-  .icon-wrapper {
+  &__icon-set {
     margin: 0 8px;
   }
 
-  .cage-code-section-wrapper {
-    @include desktop-media-query {
-      padding: 0 8px;
+  &__cage-code-section {
+    @include grid-layout;
+    font-family: "UntitledSerif", "Times New Roman", serif;
+    margin-top: 48px;
+    margin-bottom: 24px;
+
+    &__name {
+      font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    .cage-code-section {
-      font-family: "UntitledSerif", "Times New Roman", serif;
+    &__value {
+      margin-bottom: 16px;
+    }
 
-      .section-name {
-        font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
-        font-size: 20px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-
-      .section-value {
-        margin-bottom: 16px;
-      }
-
-      @include desktop-media-query {
-        margin-top: 84px;
-      }
+    @include desktop-media-query {
+      margin-top: 84px;
+      padding: 0 8px;
     }
   }
 
