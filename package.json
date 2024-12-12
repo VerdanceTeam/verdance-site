@@ -9,6 +9,7 @@
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-fetch": "^4.0.1",
     "@11ty/eleventy-img": "^4.0.2",
+    "@percy/cli": "^1.29.1",
     "sass": "^1.72.0"
   }
 }
