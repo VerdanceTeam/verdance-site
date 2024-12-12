@@ -389,24 +389,75 @@ h3 {
     margin-bottom: 24px;
   }
 
-  &__message {
-    @include grid-layout;
-    margin-top: 48px;
-    margin-bottom: 24px;
-  }
-
   &__cta {
     margin-top: 48px;
   }
 
   &__legal-section {
     @include grid-layout;
+    font-family: "PPNeueBit-Bold", "Tahoma", "san-serif";
     padding-top: 4px;
+    text-transform: uppercase;
+
+    &__slogan {
+      @include mobile-media-query {
+        max-width: 90%;
+      }
+      @include tablet-media-query {
+        max-width: 90%;
+      }
+    }
+
+    @include mobile-media-query {
+      padding-bottom: 72px;
+    }
+    @include tablet-media-query {
+      padding-bottom: 72px;
+    }
+  }
+
+  &__copyright {
+    justify-self: center;
+
+    @include mobile-media-query {
+      order: 1;
+    }
+    @include tablet-media-query {
+      order: 1;
+    }
+    @include desktop-media-query {
+      justify-self: start;
+    }
+  }
+
+  &__description {
+    justify-self: center;
+
+    @include desktop-media-query {
+      justify-self: end;
+    }
+    @include mobile-media-query {
+      padding-bottom: 16px;
+      padding-top: 28px;
+      text-align: center;
+    }
+    @include tablet-media-query {
+      padding-bottom: 16px;
+      padding-top: 28px;
+      text-align: center;
+    }
+  }
+
+  &__logomark {
+    padding-bottom: 28px;
+    padding-right: 24px;
   }
 
   &__slogan {
     font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
     font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 1.1em;
     padding: 4px 0;
   }
 
@@ -425,7 +476,7 @@ h3 {
   &__links {
     display: flex;
     flex-direction: column;
-    padding-top: 122px;
+    padding-top: 48px;
 
     a {
       color: $linen;
@@ -434,8 +485,40 @@ h3 {
     }
   }
 
-  .icon-wrapper {
+  &__icon-set {
     margin: 0 8px;
+  }
+
+  &__cage-code-section {
+    @include grid-layout;
+    font-family: "UntitledSerif", "Times New Roman", serif;
+    margin-top: 48px;
+    margin-bottom: 24px;
+
+    &__name {
+      font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &__value {
+      margin-bottom: 16px;
+    }
+
+    @include desktop-media-query {
+      margin-top: 84px;
+      padding: 0 8px;
+    }
+  }
+
+  &__desktop-logo {
+    align-items: flex-end;
+    flex-direction: row-reverse;
+  }
+
+  &__mobile-logo {
+    text-align: center;
   }
 }
 
