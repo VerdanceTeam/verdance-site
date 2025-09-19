@@ -17,3 +17,6 @@ public
 # ignore .DS_STORE files created by Finder
 .DS_Store
 **/.DS_Store
+
+# ignore local envars
+.env.local
