@@ -28,6 +28,18 @@ permalink: /blog/
     <section id="roles" class="roles section--spacing section--bg-linen">
         <div class="container">
             <p class="section--subtitle col-12">BLOGPOSTS</p>
+            {% if posts.length %} {% for post in posts %}
+            <article class="post-card">
+                <h2>
+                    <a href="/blog/{{ post.slug }}/">{{ post.title }}</a>
+                </h2>
+                {% if post.pullquote %}
+                <p class="pullquote">“{{ post.pullquote }}”</p>
+                {% endif %}
+            </article>
+            {% endfor %} {% else %}
+            <p>No posts yet.</p>
+            {% endif %}
         </div>
     </section>
 </div>

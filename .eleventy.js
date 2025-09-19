@@ -1,3 +1,11 @@
+// .eleventy.js
+// 1) Load env vars early. Prefer .env.local (gitignored) for local dev;
+//    fall back to .env if present; in CI use provider-set env vars.
+try {
+    require('dotenv').config({ path: '.env.local' });
+} catch {}
+require('dotenv').config();
+
 const sass = require('sass');
 const path = require('node:path');
 const Image = require('@11ty/eleventy-img');
@@ -6,21 +14,23 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets/');
     eleventyConfig.addTemplateFormats('scss');
 
+    // Optional: sanity check (won't fail build—just warns)
+    if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_CDA_TOKEN) {
+        console.warn(
+            '[11ty] Contentful env vars missing; _data/posts.js may return [].'
+        );
+    }
+
     // Creates the extension for use
     eleventyConfig.addExtension('scss', {
         outputFileExtension: 'css', // optional, default: "html"
-
         // `compile` is called once per .scss file in the input directory
         compile: function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
-
             let result = sass.compileString(inputContent, {
                 loadPaths: [parsed.dir || '.', this.config.dir.includes],
             });
-
-            return (data) => {
-                return result.css;
-            };
+            return () => result.css;
         },
     });
 
@@ -31,13 +41,7 @@ module.exports = function (eleventyConfig) {
                 formats: ['svg'],
                 dryRun: true,
             });
-
-            if (
-                metadata &&
-                metadata.svg &&
-                metadata.svg[0] &&
-                metadata.svg[0].buffer
-            ) {
+            if (metadata?.svg?.[0]?.buffer) {
                 return metadata.svg[0].buffer.toString();
             } else {
                 console.error(`Invalid SVG metadata for ${src}`);
@@ -57,12 +61,11 @@ module.exports = function (eleventyConfig) {
         return content;
     });
 
-    // Add a transform to remove HTML comments
+    // Remove HTML comments
     eleventyConfig.addTransform(
         'remove-comments',
         function (content, outputPath) {
             if (outputPath && outputPath.endsWith('.html')) {
-                // Remove HTML comments
                 return content.replace(/<!--[\s\S]*?-->/g, '');
             }
             return content;
