@@ -29,14 +29,36 @@ permalink: /blog/
         <div class="container">
             <p class="section--subtitle col-12">BLOGPOSTS</p>
             {% if posts.length %} {% for post in posts %}
-            <article class="post-card">
-                <h2>
-                    <a href="/blog/{{ post.slug }}/">{{ post.title }}</a>
-                </h2>
-                {% if post.pullquote %}
-                <p class="pullquote">“{{ post.pullquote }}”</p>
+            <article class="post-card col-4">
+                {% if post.pullquoteImage %}
+                <img
+                    src="/assets/img/spots/{{
+                        post.pullquoteImage | downcase
+                    }}.webp"
+                    alt=""
+                    class="post-card__icon"
+                    loading="lazy"
+                    decoding="async"
+                />
                 {% endif %}
+
+                <h2 class="post-card__title">
+                    <a href="/blog/{{ post.slug | default : post.id }}/">{{
+                        post.title
+                    }}</a>
+                </h2>
+
+                <p class="post-card__excerpt line-clamp-3">
+                    {{ post.firstParagraph }}
+                </p>
+
+                <p class="post-card__readmore">
+                    <a href="/blog/{{ post.slug | default : post.id }}/"
+                        >Read more.</a
+                    >
+                </p>
             </article>
+
             {% endfor %} {% else %}
             <p>No posts yet.</p>
             {% endif %}
