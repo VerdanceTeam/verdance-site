@@ -29,7 +29,7 @@ permalink: /blog/
         <div class="container">
             <p class="section--subtitle col-12">BLOGPOSTS</p>
             {% if posts.length %} {% for post in posts %}
-            <article class="post-card col-4">
+            <article class="blog-post-card dash-border dash-border--left col-4">
                 {% if post.pullquoteImage %}
                 <img
                     src="/assets/img/spots/{{
@@ -43,12 +43,10 @@ permalink: /blog/
                 {% endif %}
 
                 <h2 class="post-card__title">
-                    <a href="/blog/{{ post.slug | default : post.id }}/">{{
-                        post.title
-                    }}</a>
+                    {{ post.title }}
                 </h2>
 
-                <p class="post-card__excerpt line-clamp-3">
+                <p class="blog-post-card__intro-text">
                     {{ post.firstParagraph }}
                 </p>
 

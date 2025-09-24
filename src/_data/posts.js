@@ -36,8 +36,35 @@ module.exports = async function () {
             },
         });
 
-        // return just the posts array (like jobs.js does with response.jobs)
-        return response.data.blogPostCollection.items;
+        const items = response?.data?.blogPostCollection?.items || [];
+
+        // grab the first non-empty paragraph from Contentful Rich Text
+        function firstParagraphFromRichText(rt) {
+            const blocks = rt?.json?.content || [];
+            for (const node of blocks) {
+                if (
+                    node.nodeType === 'paragraph' &&
+                    Array.isArray(node.content)
+                ) {
+                    const text = node.content
+                        .filter(
+                            (c) =>
+                                c.nodeType === 'text' &&
+                                typeof c.value === 'string'
+                        )
+                        .map((c) => c.value)
+                        .join('')
+                        .trim();
+                    if (text) return text;
+                }
+            }
+            return '';
+        }
+
+        return items.map((p) => ({
+            ...p, // keep existing fields (title, pullquote, content, etc.)
+            firstParagraph: firstParagraphFromRichText(p.content),
+        }));
     } catch (e) {
         console.error('[Contentful] fetch failed', e);
         return [];
