@@ -51,7 +51,7 @@ permalink: /blog/
                 </p>
 
                 <p class="post-card__readmore">
-                    <a href="/blog/{{ post.slug | default : post.id }}/"
+                    <a href="/blog/{{ post.slug | default : post.sys.id }}/"
                         >Read more.</a
                     >
                 </p>

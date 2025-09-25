@@ -62,7 +62,7 @@ module.exports = async function () {
         }
 
         return items.map((p) => ({
-            ...p, // keep existing fields (title, pullquote, content, etc.)
+            ...p,
             firstParagraph: firstParagraphFromRichText(p.content),
         }));
     } catch (e) {
