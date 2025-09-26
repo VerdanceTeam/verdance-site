@@ -9,6 +9,8 @@ require('dotenv').config();
 const sass = require('sass');
 const path = require('node:path');
 const Image = require('@11ty/eleventy-img');
+// ✨ Add Contentful rich text renderer
+const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('src/assets/');
@@ -21,10 +23,9 @@ module.exports = function (eleventyConfig) {
         );
     }
 
-    // Creates the extension for use
+    // SCSS -> CSS
     eleventyConfig.addExtension('scss', {
-        outputFileExtension: 'css', // optional, default: "html"
-        // `compile` is called once per .scss file in the input directory
+        outputFileExtension: 'css',
         compile: function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
             let result = sass.compileString(inputContent, {
@@ -34,6 +35,7 @@ module.exports = function (eleventyConfig) {
         },
     });
 
+    // SVG inline shortcode (kept as-is)
     eleventyConfig.addLiquidShortcode('svgIcon', async (src) => {
         const fullPath = path.join(__dirname, 'src/assets/', src);
         try {
@@ -50,6 +52,17 @@ module.exports = function (eleventyConfig) {
         } catch (err) {
             console.error(`Error reading SVG file: ${fullPath}`, err);
             return `<svg><!-- Error reading SVG file --></svg>`;
+        }
+    });
+
+    // ✨ Contentful Rich Text -> HTML shortcode
+    eleventyConfig.addLiquidShortcode('renderRichText', (rt) => {
+        if (!rt || !rt.json) return '';
+        try {
+            return documentToHtmlString(rt.json);
+        } catch (e) {
+            console.error('[RichText] render error', e);
+            return '';
         }
     });
 

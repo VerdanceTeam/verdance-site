@@ -28,6 +28,7 @@ module.exports = async function () {
                   content { json }
                   pullquote
                   pullquoteImage
+                  blogAuthor
                 }
               }
             }

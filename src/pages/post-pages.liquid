@@ -3,46 +3,81 @@ pagination:
     data: posts
     size: 1
     alias: post
-permalink: 'blog/{{ post.sys.id }}/index.html'
+permalink: /blog/{{ post.sys.id }}/index.html
+layout: layout.liquid
+eleventyComputed:
+    title: '{{ post.title }}'
+    date: '{{ post.sys.publishedAt }}'
 ---
 
-<article class="post">
-    <header class="post__header">
-        <h1 class="post__title">{{ post.title }}</h1>
-
-        {%- if post.author or post.sys.publishedAt -%}
-        <p class="post__meta">
-            {%- if post.sys.publishedAt -%} Written on
-            {{ post.sys.publishedAt | date : '%B %-d, %Y' }} {%- endif -%} {%-
-            if post.author -%} by {{ post.author }}
-            {%- endif -%}
-        </p>
-        {%- endif -%}
+<article class="page section--spacing section--bg-linen blog-post-page">
+    <!-- Title + byline -->
+    <header class="section section--spacing">
+        <div class="container section--intro dash-border dash-border--left">
+            <div class="col-12">
+                <h1>{{ post.title }}</h1>
+                {% if post.sys.publishedAt %}
+                <p class="small-text">
+                    Written on
+                    {{ post.sys.publishedAt | date : '%B %-d, %Y' }} by
+                    {{ post.blogAuthor }}
+                </p>
+                {% endif %}
+            </div>
+        </div>
     </header>
 
-    <div class="post__grid">
-        <div class="post__body">
-            {{ post.content }}
-        </div>
-        {%- if post.pullquoteImage -%}
-        <aside class="post__aside">
-            <div class="post__aside-card">
-                <img
-                    class="post__aside-spot"
-                    src="/assets/img/spots/{{
-                        post.pullquoteImage | downcase
-                    }}.webp"
-                    alt=""
-                    width="96"
-                    height="96"
-                    loading="lazy"
-                    decoding="async"
-                />
-                {%- if post.pullquote -%}
-                <p class="post__aside-quote">{{ post.pullquote }}</p>
-                {%- endif -%}
+    <!-- Body & optional pullquote rail -->
+    <section class="section section--spacing">
+        <div class="container section--content-block">
+            <!-- Main rich text -->
+            <div class="content--wrapper col-8 col-12-tablet col-12-mobile">
+                {% renderRichText post.content %}
             </div>
-        </aside>
-        {%- endif -%}
-    </div>
+
+            <!-- Right-rail pullquote -->
+            {% if post.pullquoteImage and post.pullquote %}
+            <aside class="col-4 col-12-tablet col-12-mobile">
+                <div
+                    class="dash-border dash-border--all section--bg-linen content--wrapper"
+                    style="padding: 16px"
+                >
+                    <figure style="margin: 0 0 12px 0">
+                        <img
+                            src="/assets/img/spots/{{
+                                post.pullquoteImage | downcase
+                            }}.webp"
+                            alt=""
+                            class="blog-post-card__img"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </figure>
+
+                    <blockquote class="large-text" style="margin: 0 0 12px 0">
+                        {{ post.pullquote }}
+                    </blockquote>
+
+                    {% if site and site.url %} {% assign shareUrl = site.url |
+                    append: page.url %}
+                    <p class="small-text" style="margin-top: 8px">
+                        <a
+                            class="button button--chartreuse-text"
+                            href="https://www.linkedin.com/sharing/share-offsite/?url={{
+                                shareUrl | url_encode
+                            }}&summary={{
+                                post.pullquote | strip | url_encode
+                            }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Share quote on LinkedIn
+                        </a>
+                    </p>
+                    {% endif %}
+                </div>
+            </aside>
+            {% endif %}
+        </div>
+    </section>
 </article>
