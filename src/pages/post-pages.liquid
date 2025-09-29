@@ -27,56 +27,57 @@ eleventyComputed:
         </div>
     </header>
 
-    <!-- Body & optional pullquote rail -->
     <section class="section section--spacing">
         <div class="container section--content-block">
-            <!-- Main rich text -->
-            <div class="content--wrapper col-8 col-12-tablet col-12-mobile">
-                {% renderRichText post.content %}
+            {% if post.pullquote and post.pullquoteImage %}
+            <!-- Pullquote mode: break into 1st para, then 2nd para + pullquote, then rest -->
+
+            <!-- First paragraph -->
+            <div class="content--wrapper col-12">
+                {% renderFirstNParagraphs post.content 1 %}
             </div>
 
-            <!-- Right-rail pullquote -->
-            {% if post.pullquoteImage and post.pullquote %}
-            <aside class="col-4 col-12-tablet col-12-mobile">
-                <div
-                    class="dash-border dash-border--all section--bg-linen content--wrapper"
-                    style="padding: 16px"
-                >
-                    <figure style="margin: 0 0 12px 0">
-                        <img
-                            src="/assets/img/spots/{{
-                                post.pullquoteImage | downcase
-                            }}.webp"
-                            alt=""
-                            class="blog-post-card__img"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                    </figure>
-
-                    <blockquote class="large-text" style="margin: 0 0 12px 0">
-                        {{ post.pullquote }}
-                    </blockquote>
-
-                    {% if site and site.url %} {% assign shareUrl = site.url |
-                    append: page.url %}
-                    <p class="small-text" style="margin-top: 8px">
-                        <a
-                            class="button button--chartreuse-text"
-                            href="https://www.linkedin.com/sharing/share-offsite/?url={{
-                                shareUrl | url_encode
-                            }}&summary={{
-                                post.pullquote | strip | url_encode
-                            }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Share quote on LinkedIn
-                        </a>
-                    </p>
-                    {% endif %}
+            <!-- Two-column: pullquote + second paragraph -->
+            <div class="col-12 display-flex">
+                <div class="content--wrapper col-8 col-12-tablet col-12-mobile">
+                    {% renderParagraph post.content 1 %}
                 </div>
-            </aside>
+                <aside class="col-4 col-12-tablet col-12-mobile">
+                    <div
+                        class="dash-border dash-border--all section--bg-linen content--wrapper"
+                        style="padding: 16px"
+                    >
+                        <figure style="margin: 0 0 12px 0">
+                            <img
+                                src="/assets/img/spots/{{
+                                    post.pullquoteImage | downcase
+                                }}.webp"
+                                alt=""
+                                class="blog-post-card__img"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
+                        <blockquote
+                            class="large-text"
+                            style="margin: 0 0 12px 0"
+                        >
+                            {{ post.pullquote }}
+                        </blockquote>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Everything after the second paragraph -->
+            <div class="content--wrapper col-12">
+                {% renderAfterNParagraphs post.content 2 %}
+            </div>
+
+            {% else %}
+            <!-- Simple mode: just render the whole content -->
+            <div class="content--wrapper col-12">
+                {% renderRichText post.content %}
+            </div>
             {% endif %}
         </div>
     </section>
