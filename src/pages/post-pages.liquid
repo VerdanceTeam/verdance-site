@@ -12,12 +12,14 @@ eleventyComputed:
 
 <article class="page section--spacing section--bg-linen blog-post-page">
     <!-- Title + byline -->
-    <header class="section section--spacing">
-        <div class="container section--intro dash-border dash-border--left">
-            <div class="col-12">
+    <header class="section">
+        <div class="container section--intro">
+            <div
+                class="col-12 padding-left-12 padding-bottom-68 dash-border dash-border--left"
+            >
                 <h1>{{ post.title }}</h1>
                 {% if post.sys.publishedAt %}
-                <p class="small-text">
+                <p class="small-text italics">
                     Written on
                     {{ post.sys.publishedAt | date : '%B %-d, %Y' }} by
                     {{ post.blogAuthor }}
@@ -27,54 +29,44 @@ eleventyComputed:
         </div>
     </header>
 
-    <section class="section section--spacing">
+    <section class="section">
         <div class="container section--content-block">
             {% if post.pullquote and post.pullquoteImage %}
-            <!-- Pullquote mode: break into 1st para, then 2nd para + pullquote, then rest -->
-
-            <!-- First paragraph -->
             <div class="content--wrapper col-12">
                 {% renderFirstNParagraphs post.content 1 %}
-            </div>
-
-            <!-- Two-column: pullquote + second paragraph -->
-            <div class="col-12 display-flex">
-                <div class="content--wrapper col-8 col-12-tablet col-12-mobile">
-                    {% renderParagraph post.content 1 %}
-                </div>
-                <aside class="col-4 col-12-tablet col-12-mobile">
-                    <div
-                        class="dash-border dash-border--all section--bg-linen content--wrapper"
-                        style="padding: 16px"
+                <aside
+                    class="pullquote dash-border dash-border--left section--bg-linen"
+                >
+                    <figure class="pullquote__figure">
+                        <img
+                            src="/assets/img/spots/{{
+                                post.pullquoteImage | downcase
+                            }}.webp"
+                            class="blog-post-card__img"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </figure>
+                    <blockquote class="pullquote__text large-text">
+                        {{ post.pullquote }}
+                    </blockquote>
+                    <a
+                        href="https://www.linkedin.com/sharing/share-offsite/?url={{
+                            'https://verdance.co' | append : page.url
+                        }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        <figure style="margin: 0 0 12px 0">
-                            <img
-                                src="/assets/img/spots/{{
-                                    post.pullquoteImage | downcase
-                                }}.webp"
-                                alt=""
-                                class="blog-post-card__img"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                        </figure>
-                        <blockquote
-                            class="large-text"
-                            style="margin: 0 0 12px 0"
-                        >
-                            {{ post.pullquote }}
-                        </blockquote>
-                    </div>
+                        Share post on LinkedIn
+                    </a>
                 </aside>
-            </div>
 
-            <!-- Everything after the second paragraph -->
-            <div class="content--wrapper col-12">
-                {% renderAfterNParagraphs post.content 2 %}
+                {% renderAfterNParagraphs post.content 1 %} {%
+                renderAfterNParagraphs post.content 1 %} {%
+                renderAfterNParagraphs post.content 1 %}
             </div>
-
             {% else %}
-            <!-- Simple mode: just render the whole content -->
             <div class="content--wrapper col-12">
                 {% renderRichText post.content %}
             </div>

@@ -259,3 +259,38 @@ $mobile-margin: 16px;
   transform: translateY(-50%);
   pointer-events: none;
 }
+
+.italics {
+  font-style: italic;
+}
+
+.large-text {
+  font-size: 1.4em;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+@mixin generate-spacing-classes($prop, $sides, $prefix) {
+  @each $side, $suffix in $sides {
+    @for $i from 0 through 96 {
+      .#{$prefix}-#{$suffix}-#{$i} {
+        #{$prop}-#{$side}: #{$i}px;
+      }
+    }
+  }
+}
+
+$spacing-sides: (
+  left: "left",
+  top: "top",
+  right: "right",
+  bottom: "bottom"
+);
+
+// Generate margin classes
+@include generate-spacing-classes(margin, $spacing-sides, "margin");
+
+// Generate padding classes
+@include generate-spacing-classes(padding, $spacing-sides, "padding");
