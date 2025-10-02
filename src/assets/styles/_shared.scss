@@ -592,4 +592,10 @@ h3 {
     height: 30px;
     width: 30px;
   }
+
+  &__cta {
+    margin-top: 24px;
+    display: flex;
+    justify-content: end;
+  }
 }
