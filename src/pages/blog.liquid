@@ -28,36 +28,8 @@ permalink: /blog/
     <section id="roles" class="roles section--spacing section--bg-linen">
         <div class="container">
             <p class="section--subtitle col-12">BLOGPOSTS</p>
-            {% if posts.length %} {% for post in posts %}
-            <article class="blog-post-card dash-border dash-border--left col-4">
-                {% if post.pullquoteImage %}
-                <img
-                    src="/assets/img/spots/{{
-                        post.pullquoteImage | downcase
-                    }}.webp"
-                    alt=""
-                    class="blog-post-card__img"
-                    loading="lazy"
-                    decoding="async"
-                />
-                {% endif %}
-
-                <h2 class="post-card__title">
-                    {{ post.title }}
-                </h2>
-
-                <p class="blog-post-card__intro-text">
-                    {{ post.firstParagraph }}
-                </p>
-
-                <p class="post-card__readmore">
-                    <a href="/blog/{{ post.slug | default : post.sys.id }}/"
-                        >Read more.</a
-                    >
-                </p>
-            </article>
-
-            {% endfor %} {% else %}
+            {% if posts.length %} {% for post in posts %} {% include
+            "blog_post_card", post: post %} {% endfor %} {% else %}
             <p>No posts yet.</p>
             {% endif %}
         </div>

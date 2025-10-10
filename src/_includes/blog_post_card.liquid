@@ -1,0 +1,28 @@
+<article class="blog-post-card dash-border dash-border--left col-4">
+    {% if post.pullquoteImage %}
+    <img
+        src="/assets/img/spots/{{ latest.pullquoteImage | downcase }}.webp"
+        alt=""
+        class="blog-post-card__img"
+        loading="lazy"
+        decoding="async"
+    />
+    {% endif %}
+
+    <h2 class="blog-post-card__title">
+        <a href="/blog/{{ post.slug | default : post.sys.id }}/">{{
+            post.title
+        }}</a>
+    </h2>
+
+    <p class="blog-post-card__intro-text">
+        {{ post.firstParagraph }}
+    </p>
+
+    <p class="blog-post-card__readmore">
+        <a href="/blog/{{ post.slug | default : post.sys.id }}/">Read more.</a>
+    </p>
+    <div class="blog-post-card__cta">
+        {% include "button", text: "more blog posts ", href: "/blog" %}
+    </div>
+</article>

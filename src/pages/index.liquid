@@ -263,47 +263,7 @@ permalink: /
             <div
                 class="col-6 col-12-tablet col-12-mobile dash-border dash-border--left"
             >
-                <article
-                    class="blog-post-card blog-post-card--homepage dash-border dash-border--left col-4"
-                >
-                    {% if latest.pullquoteImage %}
-                    <img
-                        src="/assets/img/spots/{{
-                            latest.pullquoteImage | downcase
-                        }}.webp"
-                        alt=""
-                        class="blog-post-card__img"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                    {% endif %}
-
-                    <h2 class="blog-post-card__title">
-                        <a
-                            href="/blog/{{
-                                latest.slug | default : latest.sys.id
-                            }}/"
-                            >{{ latest.title }}</a
-                        >
-                    </h2>
-
-                    <p class="blog-post-card__intro-text">
-                        {{ latest.firstParagraph }}
-                    </p>
-
-                    <p class="blog-post-card__readmore">
-                        <a
-                            href="/blog/{{
-                                latest.slug | default : latest.sys.id
-                            }}/"
-                            >Read more.</a
-                        >
-                    </p>
-                    <div class="blog-post-card__cta">
-                        {% include "button", text: "more blog posts ", href:
-                        "/blog" %}
-                    </div>
-                </article>
+                {% include "blog_post_card", post: latest %}
             </div>
         </div>
     </section>
