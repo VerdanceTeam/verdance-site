@@ -57,7 +57,8 @@
                         </a>
                     </div>
                     <div class="navbar__right content--right display-flex">
-                        <a {% if page.url contains "our-work" %}class="active"{% endif %} href="/our-work/">Our Work</a>
+                      <a {% if page.url contains "blog" %}class="active"{% endif %} href="/blog/">Blog</a>
+                      <a {% if page.url contains "our-work" %}class="active"{% endif %} href="/our-work/">Our Work</a>
                         <a href="mailto:hello@verdance.co">Contact Us</a>
                     </div>
                 </div>
@@ -65,6 +66,7 @@
                     <div class="col-12 content--center">
                         <a {% if page.url contains "careers" %}class="active"{% endif %} href="/careers/">Careers</a>
                         <a {% if page.url contains "about" %}class="active"{% endif %} href="/about/">About Us</a>
+                        <a {% if page.url contains "blog" %}class="active"{% endif %} href="/blog/">Blog</a>
                         <a {% if page.url contains "our-work" %}class="active"{% endif %} href="/our-work/">Our Work</a>
                         <a href="mailto:hello@verdance.co">Contact us</a>
                     </div>
