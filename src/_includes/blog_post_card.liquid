@@ -1,4 +1,6 @@
-<article class="blog-post-card dash-border dash-border--left col-4">
+<article
+    class="blog-post-card dash-border dash-border--left col-4 col-12-tablet col-12-mobile"
+>
     {% if post.pullquoteImage %}
     <img
         src="/assets/img/spots/{{ post.pullquoteImage | downcase }}.webp"
@@ -22,7 +24,9 @@
     <p class="blog-post-card__readmore">
         <a href="/blog/{{ post.slug | default : post.sys.id }}/">Read more.</a>
     </p>
+    {% if cta %}
     <div class="blog-post-card__cta">
         {% include "button", text: "more blog posts ", href: "/blog" %}
     </div>
+    {% endif %}
 </article>

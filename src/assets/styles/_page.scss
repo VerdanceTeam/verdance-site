@@ -274,6 +274,28 @@
   }
 }
 
+.blog-page {
+  &__header {
+    padding: 32px 0;
+
+    .section--intro {
+      align-items: center;
+    }
+  }
+
+  @include tablet-media-query {
+    .hero {
+      padding-top: 32px;
+    }
+  }
+
+  @include mobile-media-query {
+    .hero {
+      padding-top: 32px;
+    }
+  }
+}
+
 .blog-post-page {
   .content--wrapper {
     padding: 0 32px;
