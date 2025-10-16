@@ -11,7 +11,6 @@ eleventyComputed:
 ---
 
 <article class="section--spacing section--bg-linen blog-post-page">
-    <!-- Title + byline -->
     <header class="section">
         <div class="container section--intro">
             <div
@@ -48,15 +47,16 @@ eleventyComputed:
                             decoding="async"
                         />
                     </figure>
-                    <blockquote class="pullquote__text large-text">
+                    <p class="pullquote__text">
                         {{ post.pullquote }}
-                    </blockquote>
+                    </p>
                     <a
                         href="https://www.linkedin.com/sharing/share-offsite/?url={{
                             'https://verdance.co' | append : page.url
                         }}"
                         target="_blank"
                         rel="noopener noreferrer"
+                        class="pullquote__cta"
                     >
                         Share post on LinkedIn
                     </a>
@@ -69,6 +69,9 @@ eleventyComputed:
                 {% renderRichText post.content %}
             </div>
             {% endif %}
+            <div class="content--wrapper col-12 blog-post-card__cta">
+                {% include "button", text: "more blog posts ", href: "/blog" %}
+            </div>
         </div>
     </section>
 </article>

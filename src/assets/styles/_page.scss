@@ -276,26 +276,23 @@
 
 .blog-post-page {
   .content--wrapper {
+    padding: 0 32px;
+
     p {
-      padding-bottom: 16px;
+      padding-bottom: 20px;
     }
   }
 
   .pullquote {
-    /* float makes text wrap around this box */
     float: right;
     width: min(420px, 40%);
-    margin: 0 0 16px 16px; /* space from surrounding text */
-    padding: 16px;
+    margin: 0 0 16px 16px;
+    padding: 36px 20px;
 
-    /* inherit your look */
     background-color: $linen;
     color: $black;
 
-    /* optional: subtle border already via dash-border classes */
     .pullquote__figure {
-      margin: 0 0 12px 0;
-
       img {
         display: block;
         max-width: 100%;
@@ -304,20 +301,29 @@
     }
 
     .pullquote__text {
-      margin: 0;
-      line-height: 1.3;
+      margin: 10px 0;
+      padding-bottom: 0;
+    }
+
+    .pullquote__cta {
+      color: inherit;
+      cursor: pointer;
     }
   }
 
-  /* Clear the float at the end of the article content if needed */
   .content--wrapper::after {
     content: "";
     display: table;
     clear: both;
   }
 
-  /* Stack on tablet/mobile (no wrap) */
   @include tablet-media-query {
+    .section--intro {
+      padding-top: 40px;
+    }
+    .content--wrapper {
+      padding: 0 16px;
+    }
     .pullquote {
       float: none;
       width: 100%;
@@ -325,6 +331,12 @@
     }
   }
   @include mobile-media-query {
+    .section--intro {
+      padding-top: 40px;
+    }
+    .content--wrapper {
+      padding: 0 16px;
+    }
     .pullquote {
       float: none;
       width: 100%;
