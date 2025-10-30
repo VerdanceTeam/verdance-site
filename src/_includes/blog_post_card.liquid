@@ -12,7 +12,7 @@
     {% endif %}
 
     <h2 class="blog-post-card__title">
-        <a href="/blog/{{ post.slug | default : post.sys.id }}/">{{
+        <a href="/ideas/{{ post.slug | default : post.sys.id }}/">{{
             post.title
         }}</a>
     </h2>
@@ -22,11 +22,11 @@
     </p>
 
     <p class="blog-post-card__readmore">
-        <a href="/blog/{{ post.slug | default : post.sys.id }}/">Read more.</a>
+        <a href="/ideas/{{ post.slug | default : post.sys.id }}/">Read more.</a>
     </p>
     {% if cta %}
     <div class="blog-post-card__cta">
-        {% include "button", text: "more blog posts ", href: "/blog" %}
+        {% include "button", text: "more posts ", href: "/ideas" %}
     </div>
     {% endif %}
 </article>

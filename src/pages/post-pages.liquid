@@ -3,7 +3,7 @@ pagination:
     data: posts
     size: 1
     alias: post
-permalink: /blog/{{ post.sys.id }}/index.html
+permalink: /ideas/{{ post.sys.id }}/index.html
 layout: layout.liquid
 eleventyComputed:
     title: '{{ post.title }}'
@@ -76,7 +76,7 @@ eleventyComputed:
             </div>
             {% endif %}
             <div class="content--wrapper col-12 blog-post-card__cta">
-                {% include "button", text: "more blog posts ", href: "/blog" %}
+                {% include "button", text: "more posts ", href: "/ideas" %}
             </div>
         </div>
     </section>
