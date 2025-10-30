@@ -10,7 +10,7 @@ module.exports = async function () {
         const url = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/${ENV}`;
 
         const response = await EleventyFetch(url, {
-            duration: '1d', // cache on disk for 1 day
+            duration: '0s', // cache on disk for 1 day
             type: 'json',
             fetchOptions: {
                 method: 'POST',
@@ -29,6 +29,7 @@ module.exports = async function () {
                   pullquote
                   pullquoteImage
                   blogAuthor
+                  blogAuthorLink
                 }
               }
             }

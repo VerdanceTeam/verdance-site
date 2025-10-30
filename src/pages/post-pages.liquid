@@ -20,8 +20,14 @@ eleventyComputed:
                 {% if post.sys.publishedAt %}
                 <p class="small-text italics">
                     Written on
-                    {{ post.sys.publishedAt | date : '%B %-d, %Y' }} by
-                    {{ post.blogAuthor }}
+                    {{ post.sys.publishedAt | date : '%B %-d, %Y' }} by {% if
+                    post.blogAuthorLink %}
+                    <a class="author-link" href="{{ post.blogAuthorLink }}">{{
+                        post.blogAuthor
+                    }}</a>
+                    {% else %}
+                    <span>{{ post.blogAuthor }}</span>
+                    {% endif %}
                 </p>
                 {% endif %}
             </div>

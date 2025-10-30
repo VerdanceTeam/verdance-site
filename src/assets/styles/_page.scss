@@ -275,11 +275,18 @@
 }
 
 .blog-page {
+  & .hero.section--spacing {
+    padding-bottom: 0;
+  }
   &__header {
     padding: 32px 0;
 
     .section--intro {
       align-items: center;
+
+      & h1 {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -305,12 +312,16 @@
     }
   }
 
+  .author-link,
+  .author-link:visited {
+    color: $black;
+  }
+
   .pullquote {
     float: right;
     width: min(420px, 40%);
     margin: 0 0 16px 16px;
     padding: 36px 20px;
-
     background-color: $linen;
     color: $black;
 
@@ -325,6 +336,8 @@
     .pullquote__text {
       margin: 10px 0;
       padding-bottom: 0;
+      font-weight: bold;
+      font-size: 20px;
     }
 
     .pullquote__cta {
