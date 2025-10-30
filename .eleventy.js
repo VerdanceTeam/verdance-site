@@ -2,43 +2,26 @@
 // -----------------------------------------------------------
 // Eleventy configuration file for Verdance site
 // -----------------------------------------------------------
-//
-// Responsibilities:
-// - Load environment variables (Contentful tokens, etc.)
-// - Add support for SCSS → CSS compilation
-// - Add shortcodes for inlining SVGs
-// - Add shortcodes/filters to render Contentful Rich Text JSON
-// - Add transforms to clean up HTML output (remove .html ext, strip comments)
-// - Define input/output/layout/data directories
-//
 
-// 1) Load env vars early. Prefer .env.local (gitignored) for local dev;
-//    fall back to .env if present; in CI use provider-set env vars.
 try {
     require('dotenv').config({ path: '.env.local' });
 } catch {}
 require('dotenv').config();
 
-// 2) Dependencies
 const sass = require('sass');
 const path = require('node:path');
 const Image = require('@11ty/eleventy-img');
 const { documentToHtmlString } = require('@contentful/rich-text-html-renderer');
+const { BLOCKS, INLINES } = require('@contentful/rich-text-types');
 
-// 3) Exported Eleventy config
 module.exports = function (eleventyConfig) {
-    // -----------------------------------------------------------
     // Copy static assets (images, fonts, etc.)
-    // -----------------------------------------------------------
     eleventyConfig.addPassthroughCopy('src/assets/');
 
-    // -----------------------------------------------------------
-    // Add SCSS as a recognized template format and compile to CSS
-    // -----------------------------------------------------------
+    // SCSS -> CSS
     eleventyConfig.addTemplateFormats('scss');
     eleventyConfig.addExtension('scss', {
         outputFileExtension: 'css',
-        // compile() runs once per .scss file
         compile: function (inputContent, inputPath) {
             let parsed = path.parse(inputPath);
             let result = sass.compileString(inputContent, {
@@ -48,17 +31,13 @@ module.exports = function (eleventyConfig) {
         },
     });
 
-    // Warn if Contentful env vars are missing
     if (!process.env.CONTENTFUL_SPACE_ID || !process.env.CONTENTFUL_CDA_TOKEN) {
         console.warn(
             '[11ty] Contentful env vars missing; _data/posts.js may return [].'
         );
     }
 
-    // -----------------------------------------------------------
-    // Shortcode: Inline an SVG from /src/assets
-    // Usage: {% svgIcon 'icons/thing.svg' %}
-    // -----------------------------------------------------------
+    // Inline SVG from /src/assets
     eleventyConfig.addLiquidShortcode('svgIcon', async (src) => {
         const fullPath = path.join(__dirname, 'src/assets/', src);
         try {
@@ -66,135 +45,166 @@ module.exports = function (eleventyConfig) {
                 formats: ['svg'],
                 dryRun: true,
             });
-            if (metadata?.svg?.[0]?.buffer) {
+            if (metadata?.svg?.[0]?.buffer)
                 return metadata.svg[0].buffer.toString();
-            } else {
-                console.error(`Invalid SVG metadata for ${src}`);
-                return `<svg><!-- SVG metadata not available --></svg>`;
-            }
+            console.error(`Invalid SVG metadata for ${src}`);
+            return `<svg><!-- SVG metadata not available --></svg>`;
         } catch (err) {
             console.error(`Error reading SVG file: ${fullPath}`, err);
             return `<svg><!-- Error reading SVG file --></svg>`;
         }
     });
 
-    // -----------------------------------------------------------
-    // Shortcode: Render full Contentful Rich Text JSON → HTML
+    // ---------------- Rich Text rendering helpers ----------------
+    const esc = (s = '') =>
+        String(s).replace(
+            /[&<>"']/g,
+            (c) =>
+                ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;',
+                }[c])
+        );
+
+    // Build a renderer that knows how to output assets using rt.links
+    function renderDocWithAssets(rt, doc) {
+        const blocks = rt?.links?.assets?.block || [];
+        const hyperlinks = rt?.links?.assets?.hyperlink || [];
+        const assetById = Object.fromEntries(
+            [...blocks, ...hyperlinks].map((a) => [a.sys.id, a])
+        );
+
+        const options = {
+            renderNode: {
+                [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                    const id = node?.data?.target?.sys?.id;
+                    const a = id && assetById[id];
+                    if (!a) return '';
+                    const alt = a.description || a.title || '';
+                    return `<figure class="rt-asset"><img src="${
+                        a.url
+                    }" alt="${esc(
+                        alt
+                    )}" loading="lazy" decoding="async"></figure>`;
+                },
+                [INLINES.ASSET_HYPERLINK]: (node, next) => {
+                    const id = node?.data?.target?.sys?.id;
+                    const a = id && assetById[id];
+                    const text = next(node.content);
+                    return a
+                        ? `<a href="${a.url}" target="_blank" rel="noopener noreferrer">${text}</a>`
+                        : `<span>${text}</span>`;
+                },
+            },
+        };
+
+        return documentToHtmlString(doc, options);
+    }
+
     // Usage: {% renderRichText post.content %}
-    // -----------------------------------------------------------
     eleventyConfig.addLiquidShortcode('renderRichText', (rt) => {
         if (!rt || !rt.json) return '';
-        try {
-            return documentToHtmlString(rt.json);
-        } catch (e) {
-            console.error('[RichText] render error', e);
-            return '';
-        }
+        return renderDocWithAssets(rt, rt.json);
     });
 
-    // -----------------------------------------------------------
-    // Helpers for slicing Contentful Rich Text into pieces
-    // Used to render specific paragraphs or split content
-    // -----------------------------------------------------------
+    // ---- Helpers to slice Rich Text by paragraphs (preserve non-paragraph nodes) ----
     function docWith(nodes) {
         return { nodeType: 'document', data: {}, content: nodes };
     }
 
+    /**
+     * Split by paragraph count while KEEPING non-paragraph nodes that occur
+     * in the selected region.
+     * - takeFirstN: include all nodes from the start up through the Nth paragraph.
+     * - dropFirstN: drop everything up to and including the Nth paragraph; include everything after.
+     */
     function splitRichTextByParagraphs(
         rt,
-        { takeFirstN = 0, takeOnlyIndex = null, dropFirstN = 0 } = {}
+        { takeFirstN = null, dropFirstN = null } = {}
     ) {
         const src = rt?.json?.content || [];
-        let paraSeen = 0;
         const out = [];
+        let paraSeen = 0;
 
-        for (const node of src) {
-            const isPara = node?.nodeType === 'paragraph';
-
-            if (takeOnlyIndex !== null) {
-                if (isPara) {
-                    if (paraSeen === takeOnlyIndex) out.push(node);
-                    paraSeen++;
-                }
-                continue;
+        if (takeFirstN !== null) {
+            for (const node of src) {
+                const isPara = node?.nodeType === 'paragraph';
+                if (paraSeen < takeFirstN) out.push(node); // include any node before Nth paragraph
+                if (isPara) paraSeen++;
+                if (paraSeen >= takeFirstN) break; // stop after capturing through Nth paragraph
             }
-
-            if (takeFirstN > 0) {
-                if (isPara) {
-                    if (paraSeen < takeFirstN) out.push(node);
-                    paraSeen++;
-                }
-                continue;
-            }
-
-            if (dropFirstN > 0) {
-                if (isPara) {
-                    if (paraSeen >= dropFirstN) out.push(node);
-                    paraSeen++;
-                } else {
-                    if (paraSeen >= dropFirstN) out.push(node);
-                }
-                continue;
-            }
+            return docWith(out);
         }
-        return docWith(out);
+
+        if (dropFirstN !== null) {
+            for (const node of src) {
+                const isPara = node?.nodeType === 'paragraph';
+                if (isPara) {
+                    paraSeen++; // count the paragraph first
+                    if (paraSeen > dropFirstN) out.push(node);
+                } else {
+                    if (paraSeen >= dropFirstN) out.push(node); // include non-paras only after cutoff
+                }
+            }
+            return docWith(out);
+        }
+
+        return docWith(src);
     }
 
-    // -----------------------------------------------------------
-    // Shortcode: Render a single paragraph (by index, 0-based)
-    // Usage: {% renderParagraph post.content 1 %}
-    // -----------------------------------------------------------
+    // Render a single paragraph (paragraph-only), keeps previous behavior.
     eleventyConfig.addLiquidShortcode('renderParagraph', (rt, indexStr) => {
         const index = parseInt(indexStr, 10);
         if (!rt || Number.isNaN(index)) return '';
         try {
-            return documentToHtmlString(
-                splitRichTextByParagraphs(rt, { takeOnlyIndex: index })
-            );
+            const blocks = rt?.json?.content || [];
+            let paraSeen = 0;
+            const pick = [];
+            for (const node of blocks) {
+                const isPara = node?.nodeType === 'paragraph';
+                if (isPara && paraSeen === index) {
+                    pick.push(node);
+                    break;
+                }
+                if (isPara) paraSeen++;
+            }
+            return renderDocWithAssets(rt, docWith(pick));
         } catch (e) {
             console.error('[RichText renderParagraph] error', e);
             return '';
         }
     });
 
-    // -----------------------------------------------------------
-    // Shortcode: Render the first N paragraphs
-    // Usage: {% renderFirstNParagraphs post.content 2 %}
-    // -----------------------------------------------------------
+    // Render the first N paragraphs (preserves non-paragraph nodes before Nth)
     eleventyConfig.addLiquidShortcode('renderFirstNParagraphs', (rt, nStr) => {
         const n = parseInt(nStr, 10);
         if (!rt || Number.isNaN(n) || n <= 0) return '';
         try {
-            return documentToHtmlString(
-                splitRichTextByParagraphs(rt, { takeFirstN: n })
-            );
+            const sliced = splitRichTextByParagraphs(rt, { takeFirstN: n });
+            return renderDocWithAssets(rt, sliced);
         } catch (e) {
             console.error('[RichText renderFirstNParagraphs] error', e);
             return '';
         }
     });
 
-    // -----------------------------------------------------------
-    // Shortcode: Render everything after the first N paragraphs
-    // Usage: {% renderAfterNParagraphs post.content 2 %}
-    // -----------------------------------------------------------
+    // Render everything after the first N paragraphs (preserves non-paragraph nodes after Nth)
     eleventyConfig.addLiquidShortcode('renderAfterNParagraphs', (rt, nStr) => {
         const n = parseInt(nStr, 10);
         if (!rt || Number.isNaN(n) || n < 0) return '';
         try {
-            return documentToHtmlString(
-                splitRichTextByParagraphs(rt, { dropFirstN: n })
-            );
+            const sliced = splitRichTextByParagraphs(rt, { dropFirstN: n });
+            return renderDocWithAssets(rt, sliced);
         } catch (e) {
             console.error('[RichText renderAfterNParagraphs] error', e);
             return '';
         }
     });
 
-    // -----------------------------------------------------------
-    // Shortcode: Check if Nth paragraph exists (returns 'true'/'')
-    // Usage: {% if hasParagraph post.content 1 %}...{% endif %}
-    // -----------------------------------------------------------
+    // Check if Nth paragraph exists (returns 'true' or '')
     eleventyConfig.addLiquidShortcode('hasParagraph', (rt, indexStr) => {
         const index = parseInt(indexStr, 10);
         const blocks = rt?.json?.content || [];
@@ -208,32 +218,23 @@ module.exports = function (eleventyConfig) {
         return '';
     });
 
-    // -----------------------------------------------------------
-    // Transform: Remove trailing ".html" from URLs
-    // -----------------------------------------------------------
+    // Transforms
     eleventyConfig.addTransform('clean-urls', function (content, outputPath) {
-        if (outputPath && outputPath.endsWith('.html')) {
+        if (outputPath && outputPath.endsWith('.html'))
             return content.replace(/\.html$/, '');
-        }
         return content;
     });
 
-    // -----------------------------------------------------------
-    // Transform: Strip HTML comments from output
-    // -----------------------------------------------------------
     eleventyConfig.addTransform(
         'remove-comments',
         function (content, outputPath) {
-            if (outputPath && outputPath.endsWith('.html')) {
+            if (outputPath && outputPath.endsWith('.html'))
                 return content.replace(/<!--[\s\S]*?-->/g, '');
-            }
             return content;
         }
     );
 
-    // -----------------------------------------------------------
-    // Directory structure & engines
-    // -----------------------------------------------------------
+    // Directories & engines
     return {
         markdownTemplateEngine: 'liquid',
         dir: {

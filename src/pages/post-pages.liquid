@@ -57,7 +57,9 @@ eleventyComputed:
                     </p>
                     <a
                         href="https://www.linkedin.com/sharing/share-offsite/?url={{
-                            'https://verdance.co' | append : page.url
+                            'https://verdance.co'
+                                | append : page.url
+                                | url_encode
                         }}"
                         target="_blank"
                         rel="noopener noreferrer"
