@@ -12,9 +12,7 @@ eleventyComputed:
 <article class="section--spacing section--bg-linen blog-post-page">
     <header class="section">
         <div class="container section--intro">
-            <div
-                class="col-12 padding-left-12 padding-bottom-68 dash-border dash-border--left"
-            >
+            <div class="col-12 padding-left-12 padding-bottom-68">
                 <h1>{{ post.title }}</h1>
                 {% if post.sys.publishedAt %}
                 <p class="small-text italics">
@@ -35,7 +33,13 @@ eleventyComputed:
 
     <section class="section">
         <div class="container section--content-block">
-            {% if post.pullquote and post.pullquoteImage %}
+            {% if post.tldr %}
+            <div class="content--wrapper col-12">
+                <p class="tldr dash-border dash-border--bottom">
+                    TL;DR: {{ post.tldr }}
+                </p>
+            </div>
+            {% endif %} {% if post.pullquote and post.pullquoteImage %}
             <div class="content--wrapper col-12">
                 {% renderFirstNParagraphs post.content 1 %}
                 <aside

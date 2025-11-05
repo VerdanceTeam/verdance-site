@@ -13,6 +13,7 @@ const QUERY_WITH_ASSETS = `
         pullquoteImage
         blogAuthor
         blogAuthorLink
+        tldr
         content {
           json
           links {
