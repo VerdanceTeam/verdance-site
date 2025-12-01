@@ -326,6 +326,14 @@
     }
   }
 
+  ol, ul {
+    padding: 0 16px;
+  }
+
+  .rt-asset {
+    padding: 36px 0;
+  }
+
   .author-link,
   .author-link:visited {
     color: $black;
