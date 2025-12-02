@@ -167,6 +167,10 @@
       }
     }
   }
+
+  & .blog-post-card {
+    padding: 8px 8px 8px 32px;
+  }
 }
 
 .about-page {
@@ -267,5 +271,133 @@
       padding-right: 80px;
     }
 
+  }
+}
+
+.blog-page {
+  & .hero.section--spacing {
+    padding-bottom: 0;
+  }
+  &__header {
+    padding: 32px 0;
+
+    .section--intro {
+      align-items: center;
+
+      & h1 {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include tablet-media-query {
+    .hero {
+      padding-top: 32px;
+    }
+  }
+
+  @include mobile-media-query {
+    .hero {
+      padding-top: 32px;
+    }
+  }
+}
+
+.blog-post-page {
+  .content--wrapper {
+    padding: 0 32px;
+
+    & .rt-asset {
+      display: flex;
+      justify-content: center;
+
+      & img {
+        width: 50%;
+      }
+    }
+    
+    p {
+      padding-bottom: 20px;
+    }
+
+    .tldr {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+  }
+
+  ol, ul {
+    padding: 0 16px;
+  }
+
+  .rt-asset {
+    padding: 36px 0;
+  }
+
+  .author-link,
+  .author-link:visited {
+    color: $black;
+  }
+
+  .pullquote {
+    float: right;
+    width: min(420px, 40%);
+    margin: 0 0 16px 16px;
+    padding: 36px 20px;
+    background-color: $linen;
+    color: $black;
+
+    .pullquote__figure {
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .pullquote__text {
+      margin: 10px 0;
+      padding-bottom: 0;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .pullquote__cta {
+      color: inherit;
+      cursor: pointer;
+    }
+  }
+
+  .content--wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @include tablet-media-query {
+    .section--intro {
+      padding-top: 40px;
+    }
+    .content--wrapper {
+      padding: 0 16px;
+    }
+    .pullquote {
+      float: none;
+      width: 100%;
+      margin: 12px 0;
+    }
+  }
+  @include mobile-media-query {
+    .section--intro {
+      padding-top: 40px;
+    }
+    .content--wrapper {
+      padding: 0 16px;
+    }
+    .pullquote {
+      float: none;
+      width: 100%;
+      margin: 12px 0;
+    }
   }
 }

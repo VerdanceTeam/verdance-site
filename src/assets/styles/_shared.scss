@@ -249,14 +249,6 @@ h3 {
   text-transform: uppercase;
 }
 
-.large-text {
-  font-size: 1.4em;
-}
-
-.small-text {
-  font-size: 14px;
-}
-
 .navbar {
   background-color: $linen;
   padding-top: 8px;
@@ -576,5 +568,41 @@ h3 {
   h1 {
     font-size: 24px;
     margin: 20px 0;
+  }
+}
+
+.blog-post-card {
+  padding: 8px 8px 32px 8px;
+  margin-bottom: 32px;
+
+  &__title a {
+    all: inherit;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__intro-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;  
+    margin-bottom: 16px;
+  }
+
+  &__img {
+    height: 64px;
+    width: 64px;
+  }
+
+  &__cta {
+    margin-top: 24px;
+    display: flex;
+    justify-content: end;
+  }
+
+  &__readmore a {
+    color: $black;
   }
 }

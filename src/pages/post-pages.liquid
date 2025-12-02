@@ -1,0 +1,88 @@
+---
+pagination:
+    data: posts
+    size: 1
+    alias: post
+permalink: /ideas/{{ post.sys.id }}/index.html
+layout: layout.liquid
+eleventyComputed:
+    date: '{{ post.sys.publishedAt }}'
+---
+
+<article class="section--spacing section--bg-linen blog-post-page">
+    <header class="section">
+        <div class="container section--intro">
+            <div class="col-12 padding-left-12 padding-bottom-68">
+                <h1>{{ post.title }}</h1>
+                {% if post.sys.publishedAt %}
+                <p class="small-text italics">
+                    Written on
+                    {{ post.sys.publishedAt | date : '%B %-d, %Y' }} by {% if
+                    post.blogAuthorLink %}
+                    <a class="author-link" href="{{ post.blogAuthorLink }}">{{
+                        post.blogAuthor
+                    }}</a>
+                    {% else %}
+                    <span>{{ post.blogAuthor }}</span>
+                    {% endif %}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container section--content-block">
+            {% if post.tldr %}
+            <div class="content--wrapper col-12">
+                <p class="tldr dash-border dash-border--bottom">
+                    TL;DR: {{ post.tldr }}
+                </p>
+            </div>
+            {% endif %} {% if post.pullquote and post.pullquoteImage %}
+            <div class="content--wrapper col-12">
+                {% renderFirstNParagraphs post.content 1 %}
+                <aside
+                    class="pullquote dash-border dash-border--left section--bg-linen"
+                >
+                    <figure class="pullquote__figure">
+                        <img
+                            src="/assets/img/spots/{{
+                                post.pullquoteImage | downcase
+                            }}.webp"
+                            class="blog-post-card__img"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </figure>
+                    <p class="pullquote__text">
+                        {{ post.pullquote }}
+                    </p>
+                    <a
+                        href="https://www.linkedin.com/sharing/share-offsite/?url={{
+                            'https://verdance.co'
+                                | append : page.url
+                                | url_encode
+                        }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pullquote__cta"
+                    >
+                        Share post on LinkedIn
+                    </a>
+                </aside>
+
+                {% renderAfterNParagraphs post.content 1 %}
+            </div>
+            {% else %}
+            <div class="content--wrapper col-12">
+                {% renderRichText post.content %}
+            </div>
+            {% endif %}
+            <div class="content--wrapper col-12 blog-post-card__cta">
+                {% include "button", text: "more posts ", href: "/ideas" %}
+            </div>
+        </div>
+    </section>
+</article>
