@@ -9,7 +9,7 @@ permalink: /file-upload/index.html
     <div class="container">
       <div class="col-1"></div>
       <div class="hero__content col-10">
-        <h1>Upload Your Files</h1>
+        <h1>Upload your files</h1>
         <p class="hero__subhero">Securely upload files to Verdance. Maximum file size: 25 MB per file.</p>
       </div>
       <div class="col-1"></div>
@@ -25,13 +25,13 @@ permalink: /file-upload/index.html
             <input type="file" id="file-input" multiple hidden>
             <div class="drop-zone-content">
               <div class="dropzone-icon">📁</div>
-              <h3>Drop files here or click to upload</h3>
+              <h3>Drag and drop files here or click to choose from your filesystem</h3>
               <p>Maximum file size: 25 MB per file</p>
             </div>
           </div>
           <div id="file-list" class="file-list"></div>
           <div class="upload-actions">
-            <button type="button" id="upload-button" class="button" disabled>Upload Files</button>
+            <button type="button" id="upload-button" class="button" disabled>Upload selected files</button>
           </div>
           <div id="upload-status" role="status" aria-live="polite" class="upload-status"></div>
         </div>
@@ -184,13 +184,9 @@ permalink: /file-upload/index.html
               errorMessage = 'Invalid request. Please check your files and try again.';
               break;
             case 401:
-              errorMessage = 'Your access code is invalid or has expired. Please contact Verdance for a new upload link.';
-              break;
             case 403:
-              errorMessage = 'You do not have permission to upload to this location. Please contact Verdance.';
-              break;
             case 404:
-              errorMessage = 'Upload destination not found. Your access code may be invalid. Please contact Verdance.';
+              errorMessage = 'We could not complete your upload. Please contact the person who requested .';
               break;
             case 413:
               errorMessage = 'One or more files exceed the maximum size limit of 25 MB.';
