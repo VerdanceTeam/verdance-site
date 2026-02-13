@@ -1,4 +1,4 @@
-<section id="roles" class="roles section--spacing section--bg-linen">
+<section id="roles" class="roles section--spacing {% if style %} section--bg-{{style}} {% endif %}">
     <div class="container">
         <div class="col-12 dash-border dash-border--left-right">
             <div class="content--wrapper">
@@ -23,7 +23,7 @@
                     </p>
                     {% if jobs.length != 0 %} {% for job in jobs %} {% include
                     'job', title: job.title, type: job.employmentType, location:
-                    job.location, jobUrl: job.jobUrl %} {% endfor %} {% else %}
+                    job.location, jobUrl: job.jobUrl, style: buttonStyle  %} {% endfor %} {% else %}
                     <div class="col-12 job">
                         <p class="col-12 large-text">
                             We don't have any open roles right now, but check
