@@ -203,6 +203,12 @@
   &--right {
     justify-self: end;
   }
+
+  &--padding-bottom {
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    height: 100%;
+  }
 }
 
 img, video {
