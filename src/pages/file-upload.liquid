@@ -1,0 +1,388 @@
+---
+layout: layout.liquid
+title: Verdance | File Upload
+permalink: /file-upload/index.html
+---
+
+<div class="file-upload-page">
+  <section class="hero section--spacing section--bg-linen">
+    <div class="container">
+      <div class="col-1"></div>
+      <div class="hero__content col-10">
+        <h1>Upload your files</h1>
+        <p class="hero__subhero">Securely upload files to Verdance. Maximum file size: 25 MB per file.</p>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </section>
+
+  <section class="upload-section section--spacing section--bg-chartreuse">
+    <div class="container">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="upload-container">
+          <div class="file-drop-zone" id="drop-zone">
+            <input type="file" id="file-input" multiple hidden>
+            <div class="drop-zone-content">
+              <div class="dropzone-icon">📁</div>
+              <h3>Drag and drop files here or click to choose from your filesystem</h3>
+              <p>Maximum file size: 25 MB per file</p>
+            </div>
+          </div>
+          <div id="file-list" class="file-list"></div>
+          <div class="upload-actions">
+            <button type="button" id="upload-button" class="button" disabled>Upload selected files</button>
+          </div>
+          <div id="upload-status" role="status" aria-live="polite" class="upload-status"></div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Check for access code immediately
+  const urlParams = new URLSearchParams(window.location.search);
+  const accessCode = urlParams.get('code');
+
+  // Redirect to 404 if no access code - stop all execution
+  if (!accessCode || accessCode.trim() === '') {
+    window.location.replace('/404.html');
+    throw new Error('Redirecting'); // Stop script execution
+  }
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileList = document.getElementById('file-list');
+    const uploadButton = document.getElementById('upload-button');
+    const statusEl = document.getElementById('upload-status');
+    const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB
+    let selectedFiles = [];
+
+    // Click to browse files
+    dropZone.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    // Handle file selection via input
+    fileInput.addEventListener('change', (e) => {
+      handleFiles(e.target.files);
+    });
+
+    // Drag and drop handlers
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+
+    dropZone.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+      statusEl.innerHTML = '';
+      const filesArray = Array.from(files);
+
+      // Validate file sizes
+      const invalidFiles = filesArray.filter(file => file.size > MAX_FILE_SIZE);
+      if (invalidFiles.length > 0) {
+        const fileNames = invalidFiles.map(f => f.name).join(', ');
+        statusEl.innerHTML = `<p class="error-message">The following files exceed 25 MB: ${fileNames}</p>`;
+        return;
+      }
+
+      // Add to selected files
+      selectedFiles = [...selectedFiles, ...filesArray];
+      updateFileList();
+      uploadButton.disabled = false;
+    }
+
+    function updateFileList() {
+      if (selectedFiles.length === 0) {
+        fileList.innerHTML = '';
+        uploadButton.disabled = true;
+        return;
+      }
+
+      fileList.innerHTML = selectedFiles.map((file, index) => `
+        <div class="file-item">
+          <div class="file-info">
+            <span class="file-name">${escapeHtml(file.name)}</span>
+            <span class="file-size">${formatFileSize(file.size)}</span>
+          </div>
+          <button type="button" class="file-remove" data-index="${index}" aria-label="Remove ${escapeHtml(file.name)}">Remove</button>
+        </div>
+      `).join('');
+
+      // Add remove handlers
+      document.querySelectorAll('.file-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.index);
+          selectedFiles.splice(index, 1);
+          updateFileList();
+        });
+      });
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Handle upload
+    uploadButton.addEventListener('click', async () => {
+      if (selectedFiles.length === 0) {
+        statusEl.innerHTML = '<p class="error-message">Please select at least one file to upload.</p>';
+        return;
+      }
+
+      uploadButton.disabled = true;
+      uploadButton.textContent = 'Uploading...';
+      statusEl.innerHTML = '';
+
+      const formData = new FormData();
+      selectedFiles.forEach(file => {
+        formData.append('files', file);
+      });
+
+      try {
+        const response = await fetch('YOUR_GOOGLE_CLOUD_FUNCTION_URL_HERE', {
+          method: 'POST',
+          headers: {
+            'X-Access-Code': accessCode
+          },
+          body: formData
+        });
+
+        uploadButton.textContent = 'Upload Files';
+
+        if (!response.ok) {
+          // Handle HTTP errors
+          let errorMessage = 'An error occurred during upload.';
+
+          switch (response.status) {
+            case 400:
+              errorMessage = 'Invalid request. Please check your files and try again.';
+              break;
+            case 401:
+            case 403:
+            case 404:
+              errorMessage = 'We could not complete your upload. Please contact the person who requested .';
+              break;
+            case 413:
+              errorMessage = 'One or more files exceed the maximum size limit of 25 MB.';
+              break;
+            case 500:
+            case 502:
+            case 503:
+              errorMessage = 'Server error. Please try again in a few minutes.';
+              break;
+            default:
+              try {
+                const data = await response.json();
+                if (data.message) errorMessage = data.message;
+              } catch (e) {}
+          }
+
+          statusEl.innerHTML = `<p class="error-message">${errorMessage}</p>`;
+          uploadButton.disabled = false;
+          return;
+        }
+
+        // Success
+        statusEl.innerHTML = '<p class="success-message">All files uploaded successfully!</p>';
+        selectedFiles = [];
+        fileInput.value = '';
+
+        setTimeout(() => {
+          updateFileList();
+          statusEl.innerHTML = '';
+        }, 3000);
+
+      } catch (error) {
+        console.error('Upload error:', error);
+        uploadButton.textContent = 'Upload Files';
+        uploadButton.disabled = false;
+        statusEl.innerHTML = '<p class="error-message">Network error. Please check your connection and try again.</p>';
+      }
+    });
+  });
+</script>
+
+<style>
+  .file-upload-page .upload-container {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .file-upload-page .upload-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+
+  .file-upload-page .upload-status {
+    margin-top: 16px;
+    min-height: 24px;
+  }
+
+  .file-upload-page .error-message {
+    color: #D32F2F;
+    font-family: PPNeueBit, monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 12px 16px;
+    background: #FFEBEE;
+    border-radius: 4px;
+    border-left: 4px solid #D32F2F;
+  }
+
+  .file-upload-page .success-message {
+    color: #006C4D;
+    font-family: PPNeueBit, monospace;
+    font-size: 14px;
+    margin: 0;
+    padding: 12px 16px;
+    background: #E8F5E9;
+    border-radius: 4px;
+    border-left: 4px solid #006C4D;
+  }
+
+  .file-upload-page .file-drop-zone {
+    border: 2px dashed #01100B;
+    border-radius: 8px;
+    background: #F3F0EC;
+    padding: 40px;
+    min-height: 300px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .file-upload-page .file-drop-zone:hover {
+    background: #E6DED3;
+  }
+
+  .file-upload-page .file-drop-zone.drag-over {
+    border-color: #006C4D;
+    background: #E6DED3;
+  }
+
+  .file-upload-page .drop-zone-content {
+    text-align: center;
+  }
+
+  .file-upload-page .dropzone-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .file-upload-page .drop-zone-content h3 {
+    font-family: PPNeueBit-Bold, monospace;
+    color: #01100B;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .file-upload-page .drop-zone-content p {
+    font-family: UntitledSerif, serif;
+    color: #01100B;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .file-upload-page .file-list {
+    margin-top: 24px;
+  }
+
+  .file-upload-page .file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #F3F0EC;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .file-upload-page .file-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .file-upload-page .file-name {
+    font-family: PPNeueBit, monospace;
+    font-size: 14px;
+    color: #01100B;
+  }
+
+  .file-upload-page .file-size {
+    font-family: UntitledSerif, serif;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .file-upload-page .file-remove {
+    font-family: PPNeueBit, monospace;
+    font-size: 12px;
+    color: #D32F2F;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 4px 8px;
+  }
+
+  .file-upload-page .file-remove:hover {
+    color: #B71C1C;
+  }
+
+  @media (max-width: 767px) {
+    .file-upload-page .upload-container {
+      padding: 16px;
+    }
+
+    .file-upload-page .file-drop-zone {
+      padding: 20px;
+      min-height: 250px;
+    }
+
+    .file-upload-page .drop-zone-content h3 {
+      font-size: 18px;
+    }
+
+    .file-upload-page .drop-zone-content p {
+      font-size: 14px;
+    }
+
+    .file-upload-page .file-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+</style>
