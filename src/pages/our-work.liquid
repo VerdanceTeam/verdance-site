@@ -62,4 +62,97 @@ permalink: /our-work/
         subheading: "Developing systems for pandemic readiness",
         type_of_work: "FRONTEND DEVELOPMENT",
     %}
+
+    <div
+        id="our-work-name-modal"
+        class="our-work-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="our-work-name-modal-title"
+        aria-hidden="true"
+    >
+        <div class="our-work-modal__overlay" data-modal-cancel></div>
+        <div class="our-work-modal__panel section--bg-linen dash-border dash-border--left-right">
+            <button
+                type="button"
+                class="our-work-modal__close"
+                aria-label="Close modal"
+                data-modal-cancel
+            >
+                ×
+            </button>
+            <p class="section--subtitle">Before you continue</p>
+            <h2 id="our-work-name-modal-title">What should we call you?</h2>
+            <p class="our-work-modal__copy">
+                Enter your name to continue exploring our work.
+            </p>
+            <form id="our-work-name-form" class="our-work-modal__form">
+                <label class="subtitle" for="our-work-visitor-name">Name</label>
+                <input
+                    id="our-work-visitor-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                />
+                <div class="our-work-modal__actions">
+                    <button type="submit" class="button button--purple">
+                        Submit
+                    </button>
+                    <button type="button" class="button" data-modal-cancel>
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script>
+    (() => {
+        const modal = document.getElementById("our-work-name-modal");
+        const form = document.getElementById("our-work-name-form");
+        const input = document.getElementById("our-work-visitor-name");
+
+        if (!modal || !form || !input) return;
+
+        const openModal = () => {
+            modal.classList.add("is-visible");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+            input.focus();
+        };
+
+        const closeModal = () => {
+            modal.classList.remove("is-visible");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        };
+
+        if (document.readyState === "complete") {
+            openModal();
+        } else {
+            window.addEventListener("load", openModal, { once: true });
+        }
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const visitorName = input.value.trim();
+            if (!visitorName) return;
+            sessionStorage.setItem("ourWorkVisitorName", visitorName);
+            closeModal();
+        });
+
+        modal.addEventListener("click", (event) => {
+            if (event.target instanceof Element && event.target.closest("[data-modal-cancel]")) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("is-visible")) {
+                closeModal();
+            }
+        });
+    })();
+</script>

@@ -13,8 +13,8 @@
     color: $black;
   }
 
-  &--bg-chartreuse {
-    background-color: $chartreuse;
+  &--bg-purple {
+    background-color: $purple;
     color: $black;
   }
 
@@ -106,15 +106,15 @@
   height: fit-content;
   width: fit-content;
 
-  &--chartreuse {
-    background-color: $chartreuse;
+  &--purple {
+    background-color: $purple;
     color: $black;
     border: 1px dotted $black-transparent;
   }
 
-  &--chartreuse-text {
-    color: $chartreuse;
-    border: 1px dotted $chartreuse-transparent;
+  &--purple-text {
+    color: $purple;
+    border: 1px dotted $purple-transparent;
   }
 
   &--neon {
