@@ -296,6 +296,7 @@
 
 .blog-page {
   & .hero.section--spacing {
+    padding-top: 24px;
     padding-bottom: 0;
   }
   &__header {
@@ -312,13 +313,13 @@
 
   @include tablet-media-query {
     .hero {
-      padding-top: 32px;
+      padding-top: 8px;
     }
   }
 
   @include mobile-media-query {
     .hero {
-      padding-top: 32px;
+      padding-top: 8px;
     }
   }
 }
