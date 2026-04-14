@@ -305,7 +305,11 @@
 
 .blog-post-page {
   .container {
-    max-width: 800px;
+    max-width: $blog-post-max-width;
+  }
+
+  h1 {
+    font-size: 36px;
   }
 
   .content--wrapper {
