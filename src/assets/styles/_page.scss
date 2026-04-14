@@ -304,10 +304,11 @@
 }
 
 .blog-post-page {
-  .content--wrapper {
+  .container {
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+  }
+
+  .content--wrapper {
     padding: 0 32px;
 
     & .rt-asset {
