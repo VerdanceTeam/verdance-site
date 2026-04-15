@@ -1,7 +1,9 @@
 // src/_data/posts.js
 const EleventyFetch = require('@11ty/eleventy-fetch');
+const { LOCAL_DUMMY_POSTS } = require('./localDummyPosts');
 
 const LIMIT = 10; // keep total query cost < 11k
+const LOCALHOSTS = new Set(['localhost', '127.0.0.1', '::1']);
 
 const QUERY_WITH_ASSETS = `
   query ($limit: Int!) {
@@ -49,10 +51,43 @@ function firstParagraphFromRichText(rt) {
     return '';
 }
 
+function isLocalhostRuntime() {
+    console.log('checking if localhost runtime');;
+    const runMode = process.env.ELEVENTY_RUN_MODE;
+    if (runMode === 'serve') return true;
+
+    const args = process.argv || [];
+    if (args.includes('--serve')) return true;
+
+    const candidateUrls = [
+        process.env.URL,
+        process.env.SITE_URL,
+        process.env.ELEVENTY_SERVER_URL,
+    ].filter(Boolean);
+
+    for (const candidate of candidateUrls) {
+        try {
+            const host = new URL(candidate).hostname;
+            if (LOCALHOSTS.has(host)) return true;
+        } catch (error) {
+            // Ignore invalid URL values and continue checking.
+        }
+    }
+
+    return false;
+}
+
 module.exports = async function () {
     const SPACE = process.env.CONTENTFUL_SPACE_ID;
     const ENV = process.env.CONTENTFUL_ENVIRONMENT || 'master';
     const TOKEN = process.env.CONTENTFUL_CDA_TOKEN;
+
+    if (isLocalhostRuntime()) {
+        return LOCAL_DUMMY_POSTS.map((p) => ({
+            ...p,
+            firstParagraph: firstParagraphFromRichText(p.content),
+        }));
+    }
 
     if (!SPACE || !TOKEN) {
         console.error('[Contentful] Missing SPACE or TOKEN env vars.');
