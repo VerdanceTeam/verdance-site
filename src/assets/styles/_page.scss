@@ -321,7 +321,7 @@
       justify-content: center;
 
       & img {
-        width: 50%;
+        width: 75%;
       }
     }
     
@@ -350,7 +350,7 @@
 
   .pullquote {
     float: right;
-    width: min(420px, 40%);
+    width: min(300px, 50%);
     margin: 0 0 16px 16px;
     padding: 36px 20px;
     background-color: $linen;

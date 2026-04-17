@@ -23,7 +23,15 @@ function heading1Node(value) {
     };
 }
 
-function richTextContent(blocks) {
+function embeddedAssetNode(id) {
+    return {
+        nodeType: 'embedded-asset-block',
+        data: { target: { sys: { id } } },
+        content: [],
+    };
+}
+
+function richTextContent(blocks, assets = []) {
     return {
         json: {
             nodeType: 'document',
@@ -32,7 +40,7 @@ function richTextContent(blocks) {
         },
         links: {
             assets: {
-                block: [],
+                block: assets,
             },
         },
     };
@@ -62,6 +70,7 @@ const LOCAL_DUMMY_POSTS = [
             paragraphNode(
                 'Mauris faucibus, mi at blandit feugiat, tortor urna fringilla nisi, vitae tempor mauris libero eget mauris. Morbi ultrices malesuada justo, ac laoreet augue pretium vel.'
             ),
+            embeddedAssetNode('dummy-img-1'),
             heading1Node('What Better Delivery Looks Like'),
             paragraphNode(
                 'Phasellus at diam rutrum, sollicitudin arcu a, dignissim lorem. Integer id justo sit amet mauris elementum scelerisque quis non est. Sed semper justo vel elit feugiat, eget sagittis erat vulputate.'
@@ -69,6 +78,13 @@ const LOCAL_DUMMY_POSTS = [
             paragraphNode(
                 'Donec et justo eget elit cursus pretium. Aenean blandit lacinia nisl, nec commodo velit maximus in. Integer gravida dui non arcu feugiat, sed tincidunt augue volutpat.'
             ),
+        ], [
+            {
+                sys: { id: 'dummy-img-1' },
+                url: '/assets/img/Gears.webp',
+                title: 'Gears illustration',
+                description: 'An illustration of interlocking gears',
+            },
         ]),
     },
     {
@@ -94,6 +110,7 @@ const LOCAL_DUMMY_POSTS = [
             paragraphNode(
                 'Sed non orci est. Nam pretium, nulla ac facilisis posuere, diam mauris dapibus justo, at gravida leo odio a odio. Integer non ullamcorper velit.'
             ),
+            embeddedAssetNode('dummy-img-2'),
             heading1Node('Creating Measurable Outcomes'),
             paragraphNode(
                 'Ut sodales fermentum orci, sit amet volutpat tortor tincidunt quis. Maecenas in lacus dignissim, fringilla turpis sed, luctus justo. Duis at felis id ligula faucibus pretium vitae nec mi.'
@@ -101,6 +118,13 @@ const LOCAL_DUMMY_POSTS = [
             paragraphNode(
                 'Integer nec lacus eu velit aliquam malesuada. Morbi molestie eleifend justo, et consequat tellus placerat vel. Nunc et lacinia eros, in fermentum enim.'
             ),
+        ], [
+            {
+                sys: { id: 'dummy-img-2' },
+                url: '/assets/img/Iceberg.webp',
+                title: 'Iceberg illustration',
+                description: 'An illustration of an iceberg',
+            },
         ]),
     },
 ];
