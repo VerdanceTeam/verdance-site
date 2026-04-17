@@ -311,6 +311,10 @@
     }
   }
 
+  & .blog-post-card {
+    padding: 8px 32px 32px 48px;
+  }
+
   @include tablet-media-query {
     .hero {
       padding-top: 8px;

@@ -1,0 +1,18 @@
+---
+pagination:
+    data: posts
+    size: 1
+    alias: post
+permalink: "/ideas/{{ post.slug | default: post.sys.id }}/index.html"
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/insights/{{ post.slug | default: post.sys.id }}/" />
+    <link rel="canonical" href="/insights/{{ post.slug | default: post.sys.id }}/" />
+  </head>
+  <body>
+    <script>window.location.replace('/insights/{{ post.slug | default: post.sys.id }}/');</script>
+  </body>
+</html>
