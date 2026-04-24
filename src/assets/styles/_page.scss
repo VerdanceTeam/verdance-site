@@ -171,6 +171,18 @@
   & .blog-post-card {
     padding: 8px 8px 8px 32px;
   }
+
+  & .insights__heading {
+    padding-right: 24px;
+
+    @include tablet-media-query {
+      padding-right: 0;
+    }
+
+    @include mobile-media-query {
+      padding-right: 0;
+    }
+  }
 }
 
 .about-page {
@@ -309,6 +321,10 @@
         margin-bottom: 0;
       }
     }
+  }
+
+  & .blog-post-card {
+    padding: 8px 16px 32px 16px;
   }
 
   @include tablet-media-query {
