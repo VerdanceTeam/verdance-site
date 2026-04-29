@@ -1,0 +1,90 @@
+---
+layout: layout.liquid
+title: Verdance | Page Not Found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+
+<div class="error-page">
+  <section class="hero section--spacing section--bg-linen">
+    <div class="container">
+      <div class="col-1"></div>
+      <div class="hero__content col-10">
+        <div class="error-page__image">
+          <img src="/assets/img/Gears.webp" alt="Gears illustration" />
+        </div>
+        <h1>404</h1>
+        <p class="hero__subhero">Page not found</p>
+        <p class="error-page__description">The page you're looking for doesn't exist or has been moved.</p>
+        <div class="error-page__actions">
+          <a href="/" class="button">Return Home</a>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .error-page .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .error-page .hero__content {
+    text-align: center;
+  }
+
+  .error-page__image {
+    margin-bottom: 8px;
+  }
+
+  .error-page__image img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+  }
+
+  .error-page h1 {
+    font-size: 120px;
+    line-height: 1;
+    margin-bottom: 16px;
+    font-family: PPNeueBit-Bold, monospace;
+  }
+
+  .error-page .hero__subhero {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .error-page__description {
+    font-size: 18px;
+    margin-bottom: 32px;
+    font-family: UntitledSerif, serif;
+  }
+
+  .error-page__actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 767px) {
+    .error-page__image img {
+      max-width: 250px;
+    }
+
+    .error-page h1 {
+      font-size: 72px;
+    }
+
+    .error-page .hero__subhero {
+      font-size: 24px;
+    }
+
+    .error-page__description {
+      font-size: 16px;
+    }
+  }
+</style>
