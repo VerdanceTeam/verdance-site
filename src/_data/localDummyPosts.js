@@ -48,46 +48,6 @@ function richTextContent(blocks, assets = []) {
 
 const LOCAL_DUMMY_POSTS = [
     {
-        sys: { id: 'local-lorem-ipsum-1', publishedAt: '2026-04-01T12:00:00Z' },
-        title: 'Lorem Ipsum: Building Better Public Services',
-        pullquote:
-            'The best service design starts with listening closely to the people who depend on it every day.',
-        pullquoteImage: 'Sprout',
-        blogAuthor: 'Verdance Team',
-        blogAuthorLink: '',
-        tldr: 'A placeholder post for local development and layout testing.',
-        content: richTextContent([
-            heading1Node('Why Service Design Matters'),
-            paragraphNode(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non est nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
-            ),
-            paragraphNode(
-                'Suspendisse potenti. Praesent suscipit, nibh in aliquet fermentum, nibh ipsum pretium augue, vitae sodales purus lacus id lacus. Integer volutpat urna sed magna tincidunt, a pretium orci ullamcorper.'
-            ),
-            paragraphNode(
-                'Curabitur ultrices, lectus vel lacinia fermentum, arcu mauris tempor odio, non dignissim erat libero quis augue. Donec id risus eu odio posuere consectetur et a magna.'
-            ),
-            paragraphNode(
-                'Mauris faucibus, mi at blandit feugiat, tortor urna fringilla nisi, vitae tempor mauris libero eget mauris. Morbi ultrices malesuada justo, ac laoreet augue pretium vel.'
-            ),
-            embeddedAssetNode('dummy-img-1'),
-            heading1Node('What Better Delivery Looks Like'),
-            paragraphNode(
-                'Phasellus at diam rutrum, sollicitudin arcu a, dignissim lorem. Integer id justo sit amet mauris elementum scelerisque quis non est. Sed semper justo vel elit feugiat, eget sagittis erat vulputate.'
-            ),
-            paragraphNode(
-                'Donec et justo eget elit cursus pretium. Aenean blandit lacinia nisl, nec commodo velit maximus in. Integer gravida dui non arcu feugiat, sed tincidunt augue volutpat.'
-            ),
-        ], [
-            {
-                sys: { id: 'dummy-img-1' },
-                url: '/assets/img/Gears.webp',
-                title: 'Gears illustration',
-                description: 'An illustration of interlocking gears',
-            },
-        ]),
-    },
-    {
         sys: { id: 'local-lorem-ipsum-2', publishedAt: '2026-03-21T12:00:00Z' },
         title: 'Dolor Sit Amet: Local Preview Content',
         pullquote:
@@ -125,6 +85,82 @@ const LOCAL_DUMMY_POSTS = [
                 title: 'Iceberg illustration',
                 description: 'An illustration of an iceberg',
             },
+        ]),
+    },
+    {
+        sys: { id: 'local-lorem-ipsum-3', publishedAt: '2026-03-15T12:00:00Z' },
+        title: 'Quick Wins',
+        pullquote:
+            'Small, visible improvements build trust and create momentum for bigger delivery changes.',
+        pullquoteImage: 'Sprout',
+        blogAuthor: 'Verdance Team',
+        blogAuthorLink: '',
+        tldr: 'Short-title scenario for testing compact card headings.',
+        content: richTextContent([
+            heading1Node('Start With What Matters Most'),
+            paragraphNode(
+                'Teams can align quickly when they define a single user outcome and ship one measurable improvement around it.'
+            ),
+            paragraphNode(
+                'Short cycles make it easier to learn, adjust scope, and keep stakeholders connected to real progress.'
+            ),
+        ]),
+    },
+    {
+        sys: { id: 'local-lorem-ipsum-4', publishedAt: '2026-03-10T12:00:00Z' },
+        title: 'How Cross-Functional Teams Turn Insight Into Better Services',
+        pullquote:
+            'Progress accelerates when policy, delivery, and operations shape outcomes together from day one.',
+        pullquoteImage: 'Sprout',
+        blogAuthor: 'Local Dev Author',
+        blogAuthorLink: '',
+        tldr: 'Medium-title scenario to validate two-line heading wrapping.',
+        content: richTextContent([
+            heading1Node('Working Across Boundaries'),
+            paragraphNode(
+                'Cross-functional delivery reduces handoffs and helps teams validate assumptions earlier in the process.'
+            ),
+            paragraphNode(
+                'Shared ownership makes trade-offs explicit and improves the quality of decisions made under constraints.'
+            ),
+        ]),
+    },
+    {
+        sys: { id: 'local-lorem-ipsum-5', publishedAt: '2026-03-05T12:00:00Z' },
+        title: 'Designing Services Around Real User Moments',
+        pullquote:
+            'When teams map moments of friction, they can prioritize changes people actually notice.',
+        pullquoteImage: 'Sprout',
+        blogAuthor: 'Verdance Team',
+        blogAuthorLink: '',
+        tldr: 'Additional placeholder post to expand local feed testing scenarios.',
+        content: richTextContent([
+            heading1Node('Finding the Critical Journey'),
+            paragraphNode(
+                'Service design improves when teams focus on the specific moments where users hesitate, drop off, or ask for help.'
+            ),
+            paragraphNode(
+                'A narrow, evidence-based scope helps teams ship improvements quickly and measure whether the change reduced friction.'
+            ),
+        ]),
+    },
+    {
+        sys: { id: 'local-lorem-ipsum-6', publishedAt: '2026-02-28T12:00:00Z' },
+        title: 'Building Confidence Through Transparent Delivery',
+        pullquote:
+            'Clear progress signals make it easier for leaders and teams to support sustained change.',
+        pullquoteImage: 'Sprout',
+        blogAuthor: 'Local Dev Author',
+        blogAuthorLink: '',
+        tldr: 'Another dummy post for list length and card variance testing.',
+        content: richTextContent([
+            heading1Node('Show the Work Early'),
+            paragraphNode(
+                'Regular demos and simple outcome metrics help stakeholders understand what is changing and why it matters.'
+            ),
+            paragraphNode(
+                'Transparency reduces surprises, improves alignment, and creates space for earlier course corrections.'
+            ),
         ]),
     },
 ];
