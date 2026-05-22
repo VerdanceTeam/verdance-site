@@ -64,9 +64,31 @@ const LOCAL_DUMMY_POSTS = [
             paragraphNode(
                 'Suspendisse potenti. Praesent suscipit, nibh in aliquet fermentum, nibh ipsum pretium augue, vitae sodales purus lacus id lacus. Integer volutpat urna sed magna tincidunt, a pretium orci ullamcorper.'
             ),
-            paragraphNode(
-                'Curabitur ultrices, lectus vel lacinia fermentum, arcu mauris tempor odio, non dignissim erat libero quis augue. Donec id risus eu odio posuere consectetur et a magna.'
-            ),
+            {
+                nodeType: 'paragraph',
+                data: {},
+                content: [
+                    textNode(
+                        'Curabitur ultrices, lectus vel lacinia fermentum, arcu mauris tempor odio. Read more in '
+                    ),
+                    {
+                        nodeType: 'hyperlink',
+                        data: {
+                            uri: 'https://www.18f.gov/',
+                        },
+                        content: [textNode('18F')],
+                    },
+                    textNode(' and explore delivery resources at '),
+                    {
+                        nodeType: 'hyperlink',
+                        data: {
+                            uri: 'https://digital.gov/',
+                        },
+                        content: [textNode('Digital.gov')],
+                    },
+                    textNode('.'),
+                ],
+            },
             paragraphNode(
                 'Mauris faucibus, mi at blandit feugiat, tortor urna fringilla nisi, vitae tempor mauris libero eget mauris. Morbi ultrices malesuada justo, ac laoreet augue pretium vel.'
             ),
