@@ -6,11 +6,12 @@ pagination:
 permalink: /insights/{{ post.sys.id }}/index.html
 layout: layout.liquid
 eleventyComputed:
+    title: '{{ post.title }}'
     date: '{{ post.sys.publishedAt }}'
 ---
 
 <article class="section--spacing section--bg-linen blog-post-page">
-    <header class="section">
+    <header class="section blog-rich-text">
         <div class="container section--intro">
             <div class="col-12 padding-bottom-32">
                 <h1>{{ post.title }}</h1>
@@ -31,7 +32,7 @@ eleventyComputed:
         </div>
     </header>
 
-    <section class="section">
+    <section class="section blog-rich-text">
         <div class="container section--content-block">
             {% if post.tldr %}
             <div class="content--wrapper col-12">
@@ -80,6 +81,11 @@ eleventyComputed:
                 {% renderRichText post.content %}
             </div>
             {% endif %}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container section--content-block">
             <div class="content--wrapper col-12 blog-post-card__cta">
                 {% include "button", text: "more posts ", href: "/insights" %}
             </div>

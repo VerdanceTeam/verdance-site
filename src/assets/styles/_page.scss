@@ -341,6 +341,14 @@
 }
 
 .blog-post-page {
+  .blog-rich-text {
+    a,
+    a:visited {
+      color: $grey;
+      text-decoration: underline;
+    }
+  }
+
   .container {
     max-width: $blog-post-max-width;
   }
