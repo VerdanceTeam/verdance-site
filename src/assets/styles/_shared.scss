@@ -129,11 +129,13 @@
     height: 7px;
   }
 
-  &:hover::before {
+  &:hover::before,
+  &:focus-visible::before {
     animation: ai-fluent-sparkle 1.8s ease-in-out infinite;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &:focus-visible::after {
     animation: ai-fluent-sparkle 1.8s ease-in-out 0.12s infinite;
   }
 }
