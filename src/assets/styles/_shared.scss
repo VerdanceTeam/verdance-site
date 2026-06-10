@@ -130,23 +130,30 @@
   }
 
   &:hover::before {
-    animation: ai-fluent-sparkle 1.2s ease-in-out infinite;
+    animation: ai-fluent-sparkle 1.8s ease-in-out infinite;
   }
 
   &:hover::after {
-    animation: ai-fluent-sparkle 1.2s ease-in-out 0.4s infinite;
+    animation: ai-fluent-sparkle 1.8s ease-in-out 0.12s infinite;
   }
 }
 
 @keyframes ai-fluent-sparkle {
-  0%,
+  0% {
+    opacity: 1;
+    transform: scale(0.75) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1) rotate(150deg);
+  }
+  75% {
+    opacity: 0;
+    transform: scale(0.15) rotate(300deg);
+  }
   100% {
     opacity: 0;
-    transform: scale(0) rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1) rotate(180deg);
+    transform: scale(0) rotate(360deg);
   }
 }
 
