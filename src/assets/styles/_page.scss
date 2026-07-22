@@ -239,6 +239,154 @@
   }
 }
 
+.jv-page {
+  .container {
+    @include tablet-media-query {
+      padding: 0 $tablet-margin;
+    }
+
+    @include mobile-media-query {
+      padding: 0 $mobile-margin;
+    }
+  }
+
+  .section--spacing {
+    @include tablet-media-query {
+      padding: 64px 0;
+    }
+
+    @include mobile-media-query {
+      padding: 48px 0;
+    }
+  }
+
+  .hero.section--spacing {
+    padding-bottom: 25px;
+
+    @include tablet-media-query {
+      padding-bottom: 16px;
+    }
+
+    @include mobile-media-query {
+      padding-bottom: 12px;
+    }
+  }
+
+  .jv-intro.section--spacing {
+    padding-top: 49px;
+
+    @include tablet-media-query {
+      padding-top: 32px;
+    }
+
+    @include mobile-media-query {
+      padding-top: 24px;
+    }
+  }
+
+  .jv-logos {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .jv-logos__row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  .jv-logos__lockup {
+    height: 64px;
+    width: auto;
+  }
+
+  .jv-copy {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    p {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .dotted-link {
+    color: $black;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      color: $black;
+    }
+  }
+
+  .jv-capability-icon {
+    height: 26px;
+    width: 26px;
+    margin-bottom: 14px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .jv-capability-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      font-size: 16px;
+      line-height: 1.35em;
+      padding: 8px 0;
+      border-top: 1px dotted $forest-transparent;
+
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
+
+  .jv-vehicle-name {
+    font-size: 30px;
+    margin: 0 0 18px;
+    letter-spacing: -0.03em;
+  }
+
+  .jv-contract-number {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .jv-contract-label {
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 14px;
+  }
+
+  .jv-contract-value {
+    font-family: 'PPNeueBit-Bold', 'Tahoma', 'san-serif';
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .section--bg-dark-linen .section--content-block > .content--wrapper:first-child {
+    padding-left: 0;
+  }
+}
+
 .navbar {
   a.active {
     text-decoration: underline;
