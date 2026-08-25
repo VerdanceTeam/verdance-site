@@ -147,13 +147,13 @@ $mobile-margin: 16px;
 
   &--hide-tablet {
     @include tablet-media-query {
-      background-size: 0%;
+      background-image: none;
     }
   }
 
   &--hide-mobile {
     @include mobile-media-query {
-      background-size: 0%;
+      background-image: none;
     }
   }
 }
