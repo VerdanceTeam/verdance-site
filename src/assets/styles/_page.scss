@@ -228,7 +228,31 @@
 
   & .careers-intro {
     & .group-photo {
-      padding: 0 16px 16px 0;
+      margin: 0 16px 16px 0;
+
+      &--hover-swap {
+        position: relative;
+        display: block;
+
+        &:hover .group-photo__hover {
+          opacity: 1;
+        }
+      }
+
+      &__base,
+      &__hover {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      &__hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
     }
   }
 
