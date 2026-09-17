@@ -77,16 +77,21 @@ function isLocalhostRuntime() {
     return false;
 }
 
+function normalizePost(p) {
+    return {
+        ...p,
+        publishedAt: p.sys?.publishedAt,
+        firstParagraph: firstParagraphFromRichText(p.content),
+    };
+}
+
 module.exports = async function () {
     const SPACE = process.env.CONTENTFUL_SPACE_ID;
     const ENV = process.env.CONTENTFUL_ENVIRONMENT || 'master';
     const TOKEN = process.env.CONTENTFUL_CDA_TOKEN;
 
     if (isLocalhostRuntime()) {
-        return LOCAL_DUMMY_POSTS.map((p) => ({
-            ...p,
-            firstParagraph: firstParagraphFromRichText(p.content),
-        }));
+        return LOCAL_DUMMY_POSTS.map(normalizePost);
     }
 
     if (!SPACE || !TOKEN) {
@@ -122,8 +127,5 @@ module.exports = async function () {
     }
 
     const items = response?.data?.blogPostCollection?.items || [];
-    return items.map((p) => ({
-        ...p,
-        firstParagraph: firstParagraphFromRichText(p.content),
-    }));
+    return items.map(normalizePost);
 };
