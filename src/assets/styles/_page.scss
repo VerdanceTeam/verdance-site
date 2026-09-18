@@ -230,6 +230,10 @@
     & .group-photo {
       margin: 0 16px 16px 0;
 
+      img {
+        filter: contrast(1.12) saturate(1.06) brightness(0.97);
+      }
+
       &--hover-swap {
         position: relative;
         display: block;
