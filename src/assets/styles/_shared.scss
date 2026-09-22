@@ -658,6 +658,7 @@ h3 {
 }
 
 .blog-post-card {
+  position: relative;
   padding: 8px 8px 32px 8px;
   margin-bottom: 32px;
 
@@ -666,6 +667,15 @@ h3 {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+
+    // Stretch the title link over the whole card so the entire card is
+    // clickable, not just the title/"Read more" text.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
   }
 
   &__intro-text {
@@ -683,12 +693,16 @@ h3 {
   }
 
   &__cta {
+    position: relative;
+    z-index: 2;
     margin-top: 24px;
     display: flex;
     justify-content: end;
   }
 
   &__readmore a {
+    position: relative;
+    z-index: 2;
     color: $black;
   }
 }
