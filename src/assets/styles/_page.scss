@@ -205,6 +205,14 @@
         padding: 0 0 28px 0;
       }
     }
+
+    // The intro heading sits beside a bottom-aligned paragraph
+    // (.content--bottom). The heading's default margin-bottom throws
+    // off the grid row's stretch sizing, so the two text blocks don't
+    // land on the same baseline. Zeroing it out keeps them aligned.
+    & .section--intro h1 {
+      margin-bottom: 0;
+    }
   }
 }
 
