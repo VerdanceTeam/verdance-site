@@ -194,6 +194,12 @@
   }
 
   & .beliefs {
+    & .section--intro h1 {
+      @include desktop-media-query {
+        margin-bottom: 0;
+      }
+    }
+
     & .section--spacing {
       padding: 49px 0;
 
