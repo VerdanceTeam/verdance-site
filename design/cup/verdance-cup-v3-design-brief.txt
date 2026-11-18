@@ -1,0 +1,18 @@
+Verdance coffee cup illustration — refinement 3
+
+Created with built-in image generation. Official wordmark placed separately from its unchanged source SVG.
+Corrections: remove the brown central doorway block; align the outermost first-floor columns and openings with the rest of the row.
+The wordmark's eight original path shapes, original colors, proportions and layout placement are preserved.
+
+Image generation prompt
+Use case: precise-object-edit.
+Input image 1 is the current transparent pixel Capitol illustration and the edit target.
+Make ONLY these two small corrections to the LOWEST / FIRST-FLOOR COLONNADE:
+
+1. REMOVE THE BROWN CENTRAL DOOR BLOCK. The little brown rectangle inside the very middle opening of the Capitol is incorrect. Erase it completely. That central opening should be empty transparent negative space, the same as the neighboring openings. There must be NO BROWN anywhere in the Capitol building itself. Keep the brown TREE TRUNKS unchanged.
+
+2. MAKE THE FIRST FLOOR EVEN ACROSS ITS WHOLE WIDTH. The farthest-left and farthest-right column bays are currently short low side wings with little stubby openings. Raise these two outermost bays to match the taller central bays. All first-floor vertical columns must have the same height and similar widths, with their tops aligned on one horizontal line and their bottoms aligned on the existing foundation. Extend the first-floor top horizontal cornice/beam across the full row at the existing CENTRAL top height, eliminating the two lowered outer shoulder steps. Make the two outermost rectangular openings as tall as the other first-floor openings and approximately the same width. Retain the existing number and positions of the first-floor bays. The entire first-floor facade should read as one evenly proportioned classical colonnade across its width, rather than tall middle columns and two short side wings. Preserve the facade's overall width and preserve the foundation/three broad steps directly below it.
+
+Everything else must remain visually unchanged: the small spire, squared lantern, stepped pixel dome, upper windowed drum and its proportions, total building height, stepped foundation and ground strip, four trees and their positions, green canopies, sage square highlights, brown tree trunks, pixel yellow sun and its position, composition, palette, outer margins, pixel scale and character. Do not redesign or beautify the rest of the artwork. Do not add extra columns, other architectural elements, smooth external curves, textures, gradients, text, logos, labels, mockups or frames.
+
+Return the same single wide landscape illustration on a genuinely transparent background with transparent openings. The only visible differences should be removal of the brown door and two outermost first-floor bays raised to align evenly with the rest.

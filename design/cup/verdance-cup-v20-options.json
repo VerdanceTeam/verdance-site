@@ -1,0 +1,52 @@
+{
+  "sceneSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-capitol-scene-v20-staggered.svg",
+  "scenePng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-capitol-scene-v20-staggered.png",
+  "options": {
+    "a": {
+      "id": "a",
+      "font": "pixel",
+      "layout": "stacked",
+      "label": "A · PP NeueBit / centered",
+      "layoutSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-a-pixel-stacked.svg",
+      "layoutPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-a-pixel-stacked.png",
+      "mockupSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-a-pixel-stacked.svg",
+      "mockupPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-a-pixel-stacked.png"
+    },
+    "b": {
+      "id": "b",
+      "font": "sans",
+      "layout": "stacked",
+      "label": "B · Arial / centered",
+      "layoutSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-b-sans-stacked.svg",
+      "layoutPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-b-sans-stacked.png",
+      "mockupSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-b-sans-stacked.svg",
+      "mockupPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-b-sans-stacked.png"
+    },
+    "c": {
+      "id": "c",
+      "font": "pixel",
+      "layout": "stepped",
+      "label": "C · PP NeueBit / stepped",
+      "layoutSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-c-pixel-stepped.svg",
+      "layoutPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-c-pixel-stepped.png",
+      "mockupSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-c-pixel-stepped.svg",
+      "mockupPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-c-pixel-stepped.png"
+    },
+    "d": {
+      "id": "d",
+      "font": "sans",
+      "layout": "stepped",
+      "label": "D · Arial / stepped",
+      "layoutSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-d-sans-stepped.svg",
+      "layoutPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-layout-v20-d-sans-stepped.png",
+      "mockupSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-d-sans-stepped.svg",
+      "mockupPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-cup-mockup-v20-d-sans-stepped.png"
+    }
+  },
+  "typographyPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-typography-layout-options-v20.png",
+  "typographySvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-typography-layout-options-v20.svg",
+  "columnPng": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-column-offset-comparison-v20.png",
+  "columnSvg": "/Users/alexprokop/verdance/verdance-site/design/cup/verdance-column-offset-comparison-v20.svg",
+  "allVersionsUseExtendedGroundLine": true,
+  "upperGapsAlignWithLowerColumns": true
+}

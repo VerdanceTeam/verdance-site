@@ -1,0 +1,15 @@
+Verdance coffee cup — dark green wordmark and cup mockup
+
+Wordmark source: src/assets/img/logos/verdance-logo-standard.svg.
+Only the wordmark fill color changes, to #072d1a, sampled from the illustration's evergreen dome. Original lettering paths and proportions are preserved.
+Illustration source: design/cup/verdance-capitol-scene-v3.png, placed unchanged.
+Flat layout: design/cup/verdance-cup-layout-v4.svg and .png.
+Cup mockup: design/cup/verdance-cup-mockup-v4.svg and .png.
+The mockup uses a blank cup generated with the built-in image_gen tool, then the actual logo and illustration are placed as native SVG assets. No generated lettering is used. Placement is a visual approximation of the landscape one inch above the base, not a measured production template.
+
+Blank cup generation prompt
+Use case: product-mockup.
+Generate one clean photographic BLANK white takeaway paper coffee cup with a simple fitted white lid, viewed straight-on at eye level, no yaw or tilt, symmetrical centered front face. Gently tapered sides, realistic matte white paper. The cup body is about five inches tall; cup and lid together have a natural tall takeaway-cup proportion.
+This is a blank product canvas for later exact artwork placement. Absolutely NO text, logo, graphics, illustration, embossing, decoration, guides, or ruler markings anywhere on the cup. No accessories, hands, other cups, packaging or props.
+Portrait composition, about 4:5 aspect ratio. Entire cup including lid and bottom edge visible, centered, filling about 78 percent of the image height with comfortable margins above and below. The front paper surface must be wide, clear and evenly lit for applying the existing brand art.
+Warm pale neutral studio backdrop and matching tabletop, subtle natural contact shadow, restrained soft studio lighting, slight paper texture, realistic commercial product photograph. White lid, bright neutral white cup face without strong yellow cast. No dramatic lighting or busy reflections.

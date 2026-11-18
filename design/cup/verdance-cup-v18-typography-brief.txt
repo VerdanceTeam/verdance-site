@@ -1,0 +1,9 @@
+Verdance cup supporting-message typography, version 18
+
+Exact message: is proud to fuel the Great Digital Debate
+
+Pixel option: PPNeueBit-Bold from src/assets/fonts/PPNeueBit-Bold.woff2, the pixel font used on the website.
+Sans serif option: Arial Regular.
+The font glyphs are shaped and outlined from the actual local font files. The message is centered on one line below the unchanged official wordmark, with matching dark green #072d1a. Both options have the same visible letter height. The existing Capitol illustration, pixel grid and cup placement are preserved.
+
+This is native SVG typography work, with no new image generation. The blank cup photograph is reused from the previous mockup.

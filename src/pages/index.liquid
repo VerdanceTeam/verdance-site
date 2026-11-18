@@ -7,75 +7,100 @@ permalink: /
 <div class="homepage homepage--customer">
     <section class="hero section--bg-linen" aria-labelledby="home-heading">
         <div class="container">
-            <div class="hero__content col-12">
-                <p class="section--subtitle">Design. Technology. Public purpose.</p>
-                <h1 id="home-heading">Turn policy intentions into<br class="mobile-hide tablet-hide" /> services that work.</h1>
-                <p class="hero__subhero">Verdance is a technology consultancy using design and technology to build effective digital services for the public sector. We create intuitive customer experiences and modernize the workflows and systems behind them.</p>
-                <div class="home-actions">
-                    {% include "button", text: "let’s talk", href: "mailto:hello@verdance.co" %}
-                    <a class="home-text-link" href="#capabilities">Explore our capabilities <span aria-hidden="true">↓</span></a>
-                </div>
+            <div class="col-1"></div>
+            <div class="hero__content col-10">
+                <h1 id="home-heading">We build effective digital services<br class="mobile-hide tablet-hide" /> for the public sector.</h1>
+                <p class="hero__subhero">Verdance brings design and engineering expertise to complex public missions, modernizing critical systems and making services easier to use for the people who depend on them.</p>
                 <picture>
                     <source srcset="/assets/img/Monuments.png" media="(prefers-reduced-motion: reduce)" />
                     <source srcset="/assets/img/MonumentsAPNG.png" type="image/apng" />
-                    <img class="home-monuments" src="/assets/img/Monuments.png" alt="" />
+                    <img src="/assets/img/Monuments.png" alt="" />
                 </picture>
+                <div class="hero__cta">
+                    <div>
+                        {% include "button", text: "let’s talk", href: "mailto:hello@verdance.co" %}
+                    </div>
+                    <div class="hr" aria-hidden="true"></div>
+                    <div><img src="/assets/img/icons/arrow-down.svg" alt="" /></div>
+                </div>
             </div>
+            <div class="col-1"></div>
         </div>
     </section>
 
-    <section class="home-sectors section--bg-linen" aria-labelledby="sectors-heading">
+    <section id="public-missions" class="who-we-are section--spacing section--bg-linen" aria-labelledby="missions-heading">
         <div class="container">
-            <div class="col-12 home-section-heading">
-                <p class="section--subtitle">Areas of expertise</p>
-                <h2 id="sectors-heading">Complex missions. Human outcomes.</h2>
-                <p>We bring an understanding of policy, people, and technology to the places where public services matter most.</p>
-            </div>
-            <div class="col-12 home-sector-grid">
-                <article class="home-sector">
-                    <img src="/assets/img/spots/hands.webp" alt="" loading="lazy" />
-                    <h3>Health &amp; sciences</h3>
-                    <p>Make health information more useful and care easier to navigate. We connect data, improve customer experiences, and modernize the systems that support patients, providers, and researchers.</p>
-                </article>
-                <article class="home-sector">
-                    <img src="/assets/img/spots/window.webp" alt="" loading="lazy" />
-                    <h3>Legislative</h3>
-                    <p>Help institutions turn complex information into accessible public resources. We build tools and data workflows that support legislative work and a more transparent government.</p>
-                </article>
-                <article class="home-sector">
-                    <img src="/assets/img/spots/eagle.webp" alt="" loading="lazy" />
-                    <h3>Benefits</h3>
-                    <p>Help people access the benefits they’re entitled to. We translate policy into intuitive services and modernize the processes behind eligibility, applications, and delivery.</p>
-                </article>
-            </div>
+            <p id="missions-heading" class="col-12 section--subtitle">Public missions we support</p>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left">
+                <div class="content--wrapper">
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/hands.webp" alt="" loading="lazy" /></div>
+                    <h2>Healthcare &amp; sciences</h2>
+                    <p>We modernize federal healthcare systems to improve beneficiary experiences and internal efficiency. We help patients, providers, and researchers make better use of health and science data.</p>
+                </div>
+            </article>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left">
+                <div class="content--wrapper">
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/window.webp" alt="" loading="lazy" /></div>
+                    <h2>Legislative</h2>
+                    <p>We build data-centric tools that help legislative institutions make informed decisions and give constituents clearer access to government information. Our work makes complex information easier to find, understand, and use.</p>
+                </div>
+            </article>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left-right">
+                <div class="content--wrapper">
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/eagle.webp" alt="" loading="lazy" /></div>
+                    <h2>Public services &amp; operations</h2>
+                    <p>We understand policy nuances and carefully automate complex workflows. From Veterans’ benefits and education programs to human capital and internal operations, we help agencies reduce wait times and make informed decisions.</p>
+                </div>
+            </article>
         </div>
     </section>
 
     <section id="capabilities" class="home-capabilities section--bg-chartreuse" aria-labelledby="capabilities-heading">
         <div class="container">
-            <div class="col-12 home-capabilities-layout">
-                <div class="home-section-heading">
-                    <p class="section--subtitle">Our capabilities</p>
-                    <h2 id="capabilities-heading">The expertise to<br /> move your mission forward.</h2>
-                    <p>From the systems you depend on to the services you’re building next, we help close the gap between intention and implementation.</p>
-                    <a class="home-text-link" href="/our-work/">Explore our work <span aria-hidden="true">↗</span></a>
-                </div>
-                <div class="home-capability-list">
-                    <article class="home-capability">
-                        <span class="home-capability__number" aria-hidden="true">01</span>
-                        <div><h3>Mainframe &amp; legacy system modernization</h3><p>Understand what works, untangle what holds you back, and modernize critical systems and workflows while keeping essential services running.</p></div>
+            <div class="col-12 home-capabilities-frame">
+                <h2 id="capabilities-heading">Capabilities</h2>
+                <div class="home-capabilities-grid">
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/brackets.svg" alt="" loading="lazy" />
+                        <h3>Engineering</h3>
+                        <ul class="home-capability-list">
+                            <li>Software development</li>
+                            <li>DevSecOps &amp; cloud infrastructure</li>
+                            <li>Mainframe &amp; legacy modernization</li>
+                            <li>FHIR &amp; data engineering</li>
+                            <li>Effective &amp; responsible AI integration</li>
+                        </ul>
                     </article>
-                    <article class="home-capability">
-                        <span class="home-capability__number" aria-hidden="true">02</span>
-                        <div><h3>AI integration</h3><p>Turn AI possibilities into practical tools. We identify useful applications, integrate them into existing workflows, and evaluate their performance with people in the loop.</p></div>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/sun-spot.svg" alt="" loading="lazy" />
+                        <h3>Design</h3>
+                        <ul class="home-capability-list">
+                            <li>Human-centered design</li>
+                            <li>User research</li>
+                            <li>Content strategy</li>
+                            <li>Accessibility</li>
+                            <li>Service design</li>
+                        </ul>
                     </article>
-                    <article class="home-capability">
-                        <span class="home-capability__number" aria-hidden="true">03</span>
-                        <div><h3>Accessibility</h3><p>Build services more people can use. We bring accessibility into research, design, engineering, and testing to make complex interactions clearer and remove barriers.</p></div>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/flower.svg" alt="" loading="lazy" />
+                        <h3>Product management</h3>
+                        <ul class="home-capability-list">
+                            <li>Data-informed strategy</li>
+                            <li>Product roadmaps</li>
+                            <li>Agile delivery &amp; project management</li>
+                            <li>Outcome-focused delivery</li>
+                        </ul>
                     </article>
-                    <article class="home-capability">
-                        <span class="home-capability__number" aria-hidden="true">04</span>
-                        <div><h3>FHIR &amp; data engineering</h3><p>Make data easier to exchange, trust, and use. We build FHIR integrations and data pipelines that connect health information and support better decisions.</p></div>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/leaf.svg" alt="" loading="lazy" />
+                        <h3>Strategic consulting</h3>
+                        <ul class="home-capability-list">
+                            <li>Mission &amp; success planning</li>
+                            <li>Policy-to-implementation strategy</li>
+                            <li>Workflow &amp; systems modernization</li>
+                            <li>Staff training &amp; enablement</li>
+                        </ul>
                     </article>
                 </div>
             </div>
@@ -95,4 +120,26 @@ permalink: /
             </div>
         </div>
     </section>
+</div>
+
+<div class="homepage">
+    {% if posts and posts.size > 0 %} {% assign posts_sorted = posts | sort:
+    "publishedAt" | reverse %} {% assign latest = posts_sorted[0] %} {% if
+    latest %}
+    <section class="experience section--spacing section--bg-dark-linen">
+        <div class="container">
+            <p class="col-12 section--subtitle">insights</p>
+            <div class="col-6 col-12-tablet col-12-mobile insights__heading">
+                <h1 class="col-5 col-6-tablet col-12-mobile">
+                    Our work spans people, technology, process, and policy. Here's what we're seeing and learning.
+                </h1>
+            </div>
+            <div
+                class="col-6 col-12-tablet col-12-mobile dash-border dash-border--left"
+            >
+                {% include "blog_post_card", post: latest, cta: true %}
+            </div>
+        </div>
+    </section>
+    {% endif %} {% endif %}
 </div>
