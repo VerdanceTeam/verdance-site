@@ -679,10 +679,12 @@
   .who-we-are h2 { line-height: normal; margin: 24px 0; }
   .who-we-are p:not(.section--subtitle) { line-height: 1.4; }
   .home-capabilities { scroll-margin-top: 24px; }
-  .home-capabilities-frame { border-inline: 1px dotted $forest-transparent; padding: 0 16px; }
-  .home-capabilities-frame > h2 { margin-bottom: 48px; }
+  > .experience { padding-top: 160px; }
+  .home-capabilities-frame { padding: 0; }
+  .home-capabilities-frame > .section--subtitle { margin: 24px 0 32px; }
   .home-capabilities-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .home-capability-column { padding: 0 20px; }
+  .home-capability-column { border-left: 1px dotted $forest-transparent; padding: 0 20px; }
+  .home-capability-column:last-child { border-right: 1px dotted $forest-transparent; }
   .home-capability-column + .home-capability-column { border-left: 1px dotted $forest-transparent; }
   .home-capability-icon { display: block; width: 26px; height: 26px; margin-bottom: 24px; }
   .home-capability-column h3 { min-height: 58px; margin-bottom: 16px; }
@@ -696,17 +698,17 @@
   @media (max-width: 900px) {
     .home-contact-layout { gap: 40px; }
     .home-capabilities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
-    .home-capability-column:nth-child(3) { border-left: 0; }
   }
   @media (max-width: 767px) {
     .hero { padding: 36px 0; }
     .home-capabilities, .home-contact { padding: 48px 0; }
+    > .experience { padding-top: 96px; }
     .home-contact-layout { grid-template-columns: 1fr; gap: 32px; }
     .who-we-are .section--subtitle { margin: 32px 0; }
-    .home-capabilities-frame { padding: 0; border: 0; }
-    .home-capabilities-frame > h2 { margin-bottom: 32px; }
+    .home-capabilities-frame { padding: 0; }
+    .home-capabilities-frame > .section--subtitle { margin: 24px 0 32px; }
     .home-capabilities-grid { grid-template-columns: 1fr; gap: 32px; }
-    .home-capability-column { padding: 0; }
+    .home-capability-column { border-left: 0; border-right: 0; padding: 0; }
     .home-capability-column + .home-capability-column { border-left: 0; border-top: 1px dotted $forest-transparent; padding-top: 32px; }
     .home-capability-column h3 { min-height: 0; }
     .home-contact-layout > img { max-width: 160px; justify-self: start; }

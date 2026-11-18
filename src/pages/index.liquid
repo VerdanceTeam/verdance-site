@@ -55,10 +55,10 @@ permalink: /
         </div>
     </section>
 
-    <section id="capabilities" class="home-capabilities section--bg-chartreuse" aria-labelledby="capabilities-heading">
+    <section id="capabilities" class="home-capabilities section--bg-linen" aria-labelledby="capabilities-heading">
         <div class="container">
             <div class="col-12 home-capabilities-frame">
-                <h2 id="capabilities-heading">Capabilities</h2>
+                <p id="capabilities-heading" class="section--subtitle">Delivery capabilities we offer</p>
                 <div class="home-capabilities-grid">
                     <article class="home-capability-column">
                         <img class="home-capability-icon" src="/assets/img/icons/brackets.svg" alt="" loading="lazy" />
@@ -107,17 +107,50 @@ permalink: /
         </div>
     </section>
 
-    <section class="home-contact section--bg-linen" aria-labelledby="contact-heading">
+    <section class="experience section--spacing section--bg-chartreuse">
         <div class="container">
-            <div class="col-12 home-contact-layout">
-                <img src="/assets/img/spots/bridge.webp" alt="" loading="lazy" />
-                <div>
-                    <p class="section--subtitle">Let’s build what’s next</p>
-                    <h2 id="contact-heading">Your mission.<br /> Our next conversation.</h2>
-                    <p>Have a service to improve, a system to modernize, or a challenge to work through? We’d love to learn what you’re working on.</p>
-                    {% include "button", text: "get in touch", href: "mailto:hello@verdance.co" %}
+            <div class="col-12 dash-border dash-border--left-right">
+                <div class="content--wrapper">
+                    <div class="section--intro">
+                        <h1 class="col-5">We’re experienced in a variety of government environments.</h1>
+                        <div class="col-7"></div>
+                    </div>
+                    <div class="section--content-block">
+                        <div class="col-6 col-12-tablet col-12-mobile experience__delivery-list dash-border dash-border--right dash-border--hide-tablet dash-border--hide-mobile">
+                            <h2>We've delivered work for</h2>
+                            <div class="toc--item"><div class="dot-leader"><p>U.S. House of Representatives</p><div class="hr"></div><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Library of Congress</p><div class="hr"></div><img src="/assets/img/partners/LOC-logo.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Department of Veterans Affairs</p><div class="hr"></div><img src="/assets/img/partners/VA-seal.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Centers for Medicare &amp; Medicaid Services</p><div class="hr"></div><img src="/assets/img/partners/CMS-logo.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Office of Personnel Management</p><div class="hr"></div><img src="/assets/img/partners/OPM-seal.png" /></div></div>
+                        </div>
+                        <div class="col-6 col-12-tablet col-12-mobile">
+                            <div class="content--wrapper experience__content">
+                                <div class="experience__cta">
+                                    <h2>We’d love to talk</h2>
+                                    {% include "button", text: "give us a shout", href: "mailto:hello@verdance.co" %}
+                                </div>
+                                <p class="experience__text">Are you experiencing challenges designing, building, or scaling government digital services? We help our partners navigate complex challenges. We'd love to learn more about your needs.</p>
+                                <img class="experience__illustration" src="/assets/img/Iceberg.webp" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="experience-showcase mobile-hide tablet-hide">
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/LOC-logo.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/VA-seal.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left-right"><img src="/assets/img/partners/CMS-logo.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--right"><img src="/assets/img/partners/OPM-seal.png" /></div>
+        </div>
+        <div class="experience-showcase dash-border dash-border--left-right desktop-hide">
+            <div class="col-4 experience-showcase__item"><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div>
+            <div class="col-4 experience-showcase__item dash-border dash-border--left-right"><img src="/assets/img/partners/VA-seal.png" /></div>
+            <div class="col-4 experience-showcase__item"><img src="/assets/img/partners/OPM-seal.png" /></div>
+            <div class="col-6 experience-showcase__item"><img src="/assets/img/partners/LOC-logo.png" /></div>
+            <div class="col-6 experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/CMS-logo.png" /></div>
         </div>
     </section>
 </div>
