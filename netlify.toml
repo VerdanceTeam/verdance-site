@@ -1,0 +1,27 @@
+# Send the JV domain (navaverdancejv.com, a domain alias on this Netlify
+# project) to the joint venture page. force = true overrides Netlify's
+# default alias behavior, which redirects to the verdance.co home page.
+
+[[redirects]]
+  from = "http://navaverdancejv.com/*"
+  to = "https://verdance.co/joint-venture/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://navaverdancejv.com/*"
+  to = "https://verdance.co/joint-venture/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.navaverdancejv.com/*"
+  to = "https://verdance.co/joint-venture/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.navaverdancejv.com/*"
+  to = "https://verdance.co/joint-venture/"
+  status = 301
+  force = true
