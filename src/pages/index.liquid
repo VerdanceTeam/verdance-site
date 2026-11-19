@@ -1,200 +1,137 @@
 ---
 layout: layout.liquid
-title: Verdance | A Public Interest Tech Firm
+title: Verdance | Digital Services for the Public Sector
 permalink: /
 ---
 
-<div class="homepage">
-    <section class="hero section--spacing section--bg-linen">
+<div class="homepage homepage--customer">
+    <section class="hero section--bg-linen" aria-labelledby="home-heading">
         <div class="container">
             <div class="col-1"></div>
             <div class="hero__content col-10">
-                <h1>
-                    We partner with government to craft <br />
-                    the digital services of tomorrow.
-                </h1>
-                <p class="hero__subhero mobile-hide tablet-hide">
-                    Verdance is an <a class="ai-fluent-link" href="/careers/">AI-fluent</a>
-                    consultancy using design and technology to bridge the gap 
-                    between
-                    policy intentions and
-                    <br>
-                    implementation outcomes,
-                    enhance data quality and availability,
-                    and positively transform customer experiences.
-                </p>
-                <p class="hero__subhero desktop-hide">
-                    Verdance is an <a class="ai-fluent-link" href="/careers/">AI-fluent</a>
-                    consultancy using design and technology to help government
-                    agencies transform customer experiences, enhance data quality
-                    and availability, and make efficient, accurate decisions.
-                </p>
+                <h1 id="home-heading">We build effective digital services<br class="mobile-hide tablet-hide" /> for the public sector.</h1>
+                <p class="hero__subhero">Verdance brings design and engineering expertise to complex public missions, modernizing critical systems and making services easier to use for the people who depend on them.</p>
                 <picture>
-                    <source
-                        srcset="/assets/img/MonumentsAPNG.png"
-                        type="image/apng"
-                    />
-                    <img
-                        src="/assets/img/Monuments.png"
-                        alt="Verdance Hero Image"
-                    />
+                    <source srcset="/assets/img/Monuments.png" media="(prefers-reduced-motion: reduce)" />
+                    <source srcset="/assets/img/MonumentsAPNG.png" type="image/apng" />
+                    <img src="/assets/img/Monuments.png" alt="" />
                 </picture>
-
                 <div class="hero__cta">
                     <div>
-                        {% include "button", text: "see open roles", href:
-                        "/careers#roles" %}
+                        {% include "button", text: "let’s talk", href: "mailto:hello@verdance.co" %}
                     </div>
-                    <div class="hr"></div>
-                    <div><img src="/assets/img/icons/arrow-down.svg" /></div>
+                    <div class="hr" aria-hidden="true"></div>
+                    <div><img src="/assets/img/icons/arrow-down.svg" alt="" /></div>
                 </div>
             </div>
             <div class="col-1"></div>
         </div>
     </section>
-    <section class="who-we-are section--spacing section--bg-linen">
+
+    <section id="public-missions" class="who-we-are section--spacing section--bg-linen" aria-labelledby="missions-heading">
         <div class="container">
-            <p class="col-12 section--subtitle">who we help government serve</p>
-            <div
-                class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left"
-            >
+            <p id="missions-heading" class="col-12 section--subtitle">Public missions we support</p>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left">
                 <div class="content--wrapper">
-                    <div class="who-we-are__icon">
-                        <img src="/assets/img/spots/hands.webp" />
-                    </div>
-                    <h2>
-                        Patients and providers wanting up-to-date, quality care
-                    </h2>
-                    <p>
-                        160+ million Americans rely on government healthcare
-                        programs. We help improve and modernize federal
-                        healthcare systems to improve beneficiary experience and
-                        boost internal efficiency.
-                    </p>
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/hands.webp" alt="" loading="lazy" /></div>
+                    <h2>Healthcare &amp; sciences</h2>
+                    <p>We modernize federal healthcare systems to improve beneficiary experiences and internal efficiency. We help patients, providers, and researchers make better use of health and science data.</p>
                 </div>
-            </div>
-            <div
-                class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left"
-            >
+            </article>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left">
                 <div class="content--wrapper">
-                    <div class="who-we-are__icon">
-                        <img src="/assets/img/spots/eagle.webp" />
-                    </div>
-                    <h2>Veterans seeking the benefits they're entitled to</h2>
-                    <p>
-                        Veterans filing for benefits may have to navigate many
-                        subtleties and rules. We work to deeply understand
-                        policy nuances and carefully automate benefits
-                        processes, saving Veterans days and months of time
-                        waiting.
-                    </p>
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/window.webp" alt="" loading="lazy" /></div>
+                    <h2>Legislative</h2>
+                    <p>We build data-centric tools that help legislative institutions make informed decisions and give constituents clearer access to government information. Our work makes complex data easier to find, understand, and use.</p>
                 </div>
-            </div>
-            <div
-                class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left-right"
-            >
+            </article>
+            <article class="col-4 col-12-tablet col-12-mobile dash-border dash-border--left-right">
                 <div class="content--wrapper">
-                    <div class="who-we-are__icon">
-                        <img src="/assets/img/spots/window.webp" />
-                    </div>
-                    <h2>
-                        Constituents who deserve a transparent, thoughtful
-                        government
-                    </h2>
-                    <p>
-                        We work on data-centric projects - legislative,
-                        healthcare, human capital, and more- that let the
-                        government make better use of data to level up its
-                        capabilities and make informed, thoughtful decisions in
-                        critical areas.
-                    </p>
+                    <div class="who-we-are__icon"><img src="/assets/img/spots/eagle.webp" alt="" loading="lazy" /></div>
+                    <h2>Public services &amp; operations</h2>
+                    <p>We understand policy nuances and carefully automate complex workflows. From Veterans’ benefits and education programs to human capital and internal operations, we help agencies reduce wait times and make informed decisions.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="capabilities" class="home-capabilities section--bg-linen" aria-labelledby="capabilities-heading">
+        <div class="container">
+            <div class="col-12 home-capabilities-frame">
+                <p id="capabilities-heading" class="section--subtitle">Delivery capabilities we offer</p>
+                <div class="home-capabilities-grid">
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/brackets.svg" alt="" loading="lazy" />
+                        <h3>Engineering</h3>
+                        <ul class="home-capability-list">
+                            <li>Software development</li>
+                            <li>DevSecOps &amp; cloud infrastructure</li>
+                            <li>Mainframe &amp; legacy modernization</li>
+                            <li>FHIR &amp; data engineering</li>
+                            <li>Effective &amp; responsible AI integration</li>
+                        </ul>
+                    </article>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/sun-spot.svg" alt="" loading="lazy" />
+                        <h3>Design</h3>
+                        <ul class="home-capability-list">
+                            <li>Human-centered design</li>
+                            <li>User research</li>
+                            <li>Content strategy</li>
+                            <li>Accessibility</li>
+                            <li>Service design</li>
+                        </ul>
+                    </article>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/flower.svg" alt="" loading="lazy" />
+                        <h3>Product management</h3>
+                        <ul class="home-capability-list">
+                            <li>Data-informed strategy</li>
+                            <li>Product roadmaps</li>
+                            <li>Agile delivery &amp; project management</li>
+                            <li>Outcome-focused delivery</li>
+                        </ul>
+                    </article>
+                    <article class="home-capability-column">
+                        <img class="home-capability-icon" src="/assets/img/icons/leaf.svg" alt="" loading="lazy" />
+                        <h3>Strategic consulting</h3>
+                        <ul class="home-capability-list">
+                            <li>Mission &amp; success planning</li>
+                            <li>Policy-to-implementation strategy</li>
+                            <li>Workflow &amp; systems modernization</li>
+                            <li>Staff training &amp; enablement</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </div>
     </section>
-    {% include "section_roles" style: 'linen' buttonStyle: 'chartreuse' %}
+
     <section class="experience section--spacing section--bg-chartreuse">
         <div class="container">
             <div class="col-12 dash-border dash-border--left-right">
                 <div class="content--wrapper">
                     <div class="section--intro">
-                        <h1 class="col-5">
-                            We’re experienced in a variety of government
-                            environments.
-                        </h1>
+                        <h1 class="col-5">We’re experienced in a variety of government environments.</h1>
                         <div class="col-7"></div>
                     </div>
                     <div class="section--content-block">
-                        <div
-                            class="col-6 col-12-tablet col-12-mobile experience__delivery-list dash-border dash-border--right dash-border--hide-tablet dash-border--hide-mobile"
-                        >
+                        <div class="col-6 col-12-tablet col-12-mobile experience__delivery-list dash-border dash-border--right dash-border--hide-tablet dash-border--hide-mobile">
                             <h2>We've delivered work for</h2>
-                            <div class="toc--item">
-                                <div class="dot-leader">
-                                    <p>Department of Labor</p>
-                                    <div class="hr"></div>
-                                    <img
-                                        src="/assets/img/partners/DOL-seal.png"
-                                    />
-                                </div>
-                            </div>
-                            <div class="toc--item">
-                                <div class="dot-leader">
-                                    <p>Library of Congress</p>
-                                    <div class="hr"></div>
-                                    <img
-                                        src="/assets/img/partners/LOC-logo.png"
-                                    />
-                                </div>
-                            </div>
-                            <div class="toc--item">
-                                <div class="dot-leader">
-                                    <p>Department of Veterans Affairs</p>
-                                    <div class="hr"></div>
-                                    <img
-                                        src="/assets/img/partners/VA-seal.png"
-                                    />
-                                </div>
-                            </div>
-                            <div class="toc--item">
-                                <div class="dot-leader">
-                                    <p>
-                                        Centers for Medicare & Medicaid Services
-                                    </p>
-                                    <div class="hr"></div>
-                                    <img
-                                        src="/assets/img/partners/CMS-logo.png"
-                                    />
-                                </div>
-                            </div>
-                            <div class="toc--item">
-                                <div class="dot-leader">
-                                    <p>Office of Personnel Management</p>
-                                    <div class="hr"></div>
-                                    <img
-                                        src="/assets/img/partners/OPM-seal.png"
-                                    />
-                                </div>
-                            </div>
+                            <div class="toc--item"><div class="dot-leader"><p>U.S. House of Representatives</p><div class="hr"></div><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Library of Congress</p><div class="hr"></div><img src="/assets/img/partners/LOC-logo.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Department of Veterans Affairs</p><div class="hr"></div><img src="/assets/img/partners/VA-seal.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Centers for Medicare &amp; Medicaid Services</p><div class="hr"></div><img src="/assets/img/partners/CMS-logo.png" /></div></div>
+                            <div class="toc--item"><div class="dot-leader"><p>Office of Personnel Management</p><div class="hr"></div><img src="/assets/img/partners/OPM-seal.png" /></div></div>
                         </div>
                         <div class="col-6 col-12-tablet col-12-mobile">
                             <div class="content--wrapper experience__content">
                                 <div class="experience__cta">
                                     <h2>We’d love to talk</h2>
-                                    {% include "button", text: "give us a
-                                    shout", href: "mailto:hello@verdance.co" %}
+                                    {% include "button", text: "give us a shout", href: "mailto:hello@verdance.co" %}
                                 </div>
-                                <p class="experience__text">
-                                    Are you experiencing challenges designing,
-                                    building, or scaling government digital
-                                    services? We help our partners navigate
-                                    complex challenges. We'd love to learn more
-                                    about your needs.
-                                </p>
-                                <img
-                                    class="experience__illustration"
-                                    src="/assets/img/Iceberg.webp"
-                                />
+                                <p class="experience__text">Are you experiencing challenges designing, building, or scaling government digital services? We help our partners navigate complex challenges. We'd love to learn more about your needs.</p>
+                                <img class="experience__illustration" src="/assets/img/Iceberg.webp" />
                             </div>
                         </div>
                     </div>
@@ -202,56 +139,23 @@ permalink: /
             </div>
         </div>
         <div class="experience-showcase mobile-hide tablet-hide">
-            <div
-                class="experience-showcase__item dash-border dash-border--left"
-            >
-                <img src="/assets/img/partners/DOL-seal.png" />
-            </div>
-            <div
-                class="experience-showcase__item dash-border dash-border--left"
-            >
-                <img src="/assets/img/partners/LOC-logo.png" />
-            </div>
-            <div
-                class="experience-showcase__item dash-border dash-border--left"
-            >
-                <img src="/assets/img/partners/VA-seal.png" />
-            </div>
-            <div
-                class="experience-showcase__item dash-border dash-border--left-right"
-            >
-                <img src="/assets/img/partners/CMS-logo.png" />
-            </div>
-            <div
-                class="experience-showcase__item dash-border dash-border--right"
-            >
-                <img src="/assets/img/partners/OPM-seal.png" />
-            </div>
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/LOC-logo.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/VA-seal.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--left-right"><img src="/assets/img/partners/CMS-logo.png" /></div>
+            <div class="experience-showcase__item dash-border dash-border--right"><img src="/assets/img/partners/OPM-seal.png" /></div>
         </div>
-        <div
-            class="experience-showcase dash-border dash-border--left-right desktop-hide"
-        >
-            <div class="col-4 experience-showcase__item">
-                <img src="/assets/img/partners/DOL-seal.png" />
-            </div>
-            <div
-                class="col-4 experience-showcase__item dash-border dash-border--left-right"
-            >
-                <img src="/assets/img/partners/VA-seal.png" />
-            </div>
-            <div class="col-4 experience-showcase__item">
-                <img src="/assets/img/partners/OPM-seal.png" />
-            </div>
-            <div class="col-6 experience-showcase__item">
-                <img src="/assets/img/partners/LOC-logo.png" />
-            </div>
-            <div
-                class="col-6 experience-showcase__item dash-border dash-border--left"
-            >
-                <img src="/assets/img/partners/CMS-logo.png" />
-            </div>
+        <div class="experience-showcase dash-border dash-border--left-right desktop-hide">
+            <div class="col-4 experience-showcase__item"><img src="/assets/img/partners/House-of-Representatives-seal.png" alt="U.S. House of Representatives" /></div>
+            <div class="col-4 experience-showcase__item dash-border dash-border--left-right"><img src="/assets/img/partners/VA-seal.png" /></div>
+            <div class="col-4 experience-showcase__item"><img src="/assets/img/partners/OPM-seal.png" /></div>
+            <div class="col-6 experience-showcase__item"><img src="/assets/img/partners/LOC-logo.png" /></div>
+            <div class="col-6 experience-showcase__item dash-border dash-border--left"><img src="/assets/img/partners/CMS-logo.png" /></div>
         </div>
     </section>
+</div>
+
+<div class="homepage">
     {% if posts and posts.size > 0 %} {% assign posts_sorted = posts | sort:
     "publishedAt" | reverse %} {% assign latest = posts_sorted[0] %} {% if
     latest %}

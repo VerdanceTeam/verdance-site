@@ -595,6 +595,17 @@ h3 {
     flex-direction: row-reverse;
   }
 
+  &__metadata { min-width: 0; }
+
+  &__contract-link {
+    color: $linen;
+    display: inline-block;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+
+    &:focus-visible { outline: 2px solid $chartreuse; outline-offset: 4px; }
+  }
+
   &__mobile-logo {
     text-align: center;
   }
